@@ -1,0 +1,47 @@
+
+/* 
+    Created on : 31 ago 2019, 18:39:08
+    Author     : Eduardo Torrado
+*/
+
+.tituloForm{
+    font-weight: bolder;
+    text-align: center;
+    
+}
+.panelForm{
+    width: 30%;
+    margin: 0 auto;
+    
+}
+.divButtonReset{
+    text-align: right;
+    width: available;
+    
+}
+.buttonReset{
+    color: chocolate;    
+    align-content: center;
+}
+.gridForm{
+    text-align: center;
+    
+    margin: 0 auto;
+}
+.divButtonGuardar{
+    text-align: center;
+    width: 100%;
+}
+.buttonGuardar{
+    width: 10%;   
+}
+.columnCandidato{
+    text-align: center;
+}
+
+.nombreFinal{
+    font-size: 50px;
+}
+
+
+
