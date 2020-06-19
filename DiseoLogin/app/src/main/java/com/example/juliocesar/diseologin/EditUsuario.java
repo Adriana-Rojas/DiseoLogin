@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.juliocesar.diseologin.database.DataHelper;
 
 
-public class EditBlog extends AppCompatActivity {
+public class EditUsuario extends AppCompatActivity {
 
     DataHelper dataHelper;
     protected Cursor cursor;
@@ -24,7 +24,7 @@ public class EditBlog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_blog);
+        setContentView(R.layout.activity_edit_usuario);
 
         //detail data
         dataHelper = new DataHelper(this);

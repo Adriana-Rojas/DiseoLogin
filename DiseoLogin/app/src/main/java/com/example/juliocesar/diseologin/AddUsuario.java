@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.juliocesar.diseologin.database.DataHelper;
 
-public class AddBlog extends AppCompatActivity {
+public class AddUsuario extends AppCompatActivity {
 
 
     protected Cursor cursor;
@@ -23,7 +23,7 @@ public class AddBlog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_blog);
+        setContentView(R.layout.activity_add_usuario);
 
         dbHelper = new DataHelper(this);
         edt_nombre = (EditText) findViewById (R.id.edt_nombre);

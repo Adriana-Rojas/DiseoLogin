@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".EditBlog"
+            android:name=".EditUsuario"
             android:label="@string/title_activity_edit_blog"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".AddBlog"
+            android:name=".AddUsuario"
             android:label="@string/title_activity_add_blog"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Eficiencia" />

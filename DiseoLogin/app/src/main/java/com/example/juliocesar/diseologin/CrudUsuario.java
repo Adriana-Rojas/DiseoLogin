@@ -11,8 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.juliocesar.diseologin.adapter.BlogAdapter;
-import com.example.juliocesar.diseologin.adapter.BlogCustomAdapter;
+import com.example.juliocesar.diseologin.adapter.UsuarioAdapter;
+import com.example.juliocesar.diseologin.adapter.UsuarioCustomAdapter;
 import com.example.juliocesar.diseologin.database.DataHelper;
 
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class CrudUsuario  extends AppCompatActivity {
 
     private SQLiteDatabase getdata;
     protected Cursor cursor;
-    protected BlogCustomAdapter blogAdapter;
-    private List<BlogAdapter> blogList;
+    protected UsuarioCustomAdapter blogAdapter;
+    private List<UsuarioAdapter> blogList;
     DataHelper dataHelper;
     private RecyclerView recyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
@@ -45,7 +45,7 @@ public class CrudUsuario  extends AppCompatActivity {
         //
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         blogList = new ArrayList<>();
-        blogAdapter = new BlogCustomAdapter(blogList);
+        blogAdapter = new UsuarioCustomAdapter(blogList);
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -63,7 +63,7 @@ public class CrudUsuario  extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                startActivity(new Intent(CrudUsuario.this, AddBlog.class));
+                startActivity(new Intent(CrudUsuario.this, AddUsuario.class));
             }
         });
     }
@@ -81,7 +81,7 @@ public class CrudUsuario  extends AppCompatActivity {
 
         for (int i = 0; i < cursor.getCount(); i++) {
             cursor.moveToNext();
-            BlogAdapter blog = new BlogAdapter(
+            UsuarioAdapter blog = new UsuarioAdapter(
                     cursor.getString(0),
                     cursor.getString(1),
                     cursor.getString(2),
