@@ -2,10 +2,10 @@ package com.example.juliocesar.diseologin.adapter;
 
 
 
-public class BlogAdapter {
+public class UsuarioAdapter {
     private String id,nombre, telefono, correo, contraseña,tgl_post;
 
-    public BlogAdapter(String id, String nombre, String telefono, String correo, String contraseña) {
+    public UsuarioAdapter(String id, String nombre, String telefono, String correo, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;

@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.juliocesar.diseologin.EditBlog;
+import com.example.juliocesar.diseologin.EditUsuario;
 import com.example.juliocesar.diseologin.R;
 
 import java.util.List;
 
-public class BlogCustomAdapter extends RecyclerView.Adapter<BlogCustomAdapter.ViewHolder> {
+public class UsuarioCustomAdapter extends RecyclerView.Adapter<UsuarioCustomAdapter.ViewHolder> {
 
-    private List<BlogAdapter> blogList;
+    private List<UsuarioAdapter> blogList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -28,24 +28,24 @@ public class BlogCustomAdapter extends RecyclerView.Adapter<BlogCustomAdapter.Vi
             contraseña   = itemView.findViewById(R.id.contraseña);
         }
     }
-    public BlogCustomAdapter (List<BlogAdapter> listBlog){
+    public UsuarioCustomAdapter(List<UsuarioAdapter> listBlog){
         this.blogList = listBlog;
     }
 
     @Override
-    public BlogCustomAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public UsuarioCustomAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_blog, parent, false);
         return new ViewHolder(view);
     }
 
-    public void add(BlogAdapter blog){
+    public void add(UsuarioAdapter blog){
         blogList.add(blog);
         notifyDataSetChanged();
     }
 
     @Override
-    public void onBindViewHolder(BlogCustomAdapter.ViewHolder holder, int position) {
-        final BlogAdapter blog = blogList.get(position);
+    public void onBindViewHolder(UsuarioCustomAdapter.ViewHolder holder, int position) {
+        final UsuarioAdapter blog = blogList.get(position);
         holder.nombre.setText(blog.getNombre());
         holder.telefono.setText(blog.getTelefono());
         holder.correo.setText(blog.getCorreo());
@@ -54,7 +54,7 @@ public class BlogCustomAdapter extends RecyclerView.Adapter<BlogCustomAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(v.getContext(), EditBlog.class);
+                Intent mIntent = new Intent(v.getContext(), EditUsuario.class);
                 mIntent.putExtra("id",blog.getId());
                 v.getContext().startActivity(mIntent);
 
