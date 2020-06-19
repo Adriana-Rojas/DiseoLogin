@@ -30,16 +30,7 @@
             android:layout_height="0dp"
             />
 
-        <TextView
-            android:id="@+id/txt_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Nombre"
-            android:textSize="25dp" />
-
-        <EditText
+                <EditText
             android:id="@+id/edt_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +38,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/input"
+                    android:hint="Nombre"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -57,17 +49,7 @@
             android:layout_below="@+id/txt_nombre"
             />
 
-        <TextView
-            android:id="@+id/txt_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_nombre"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Telefono"
-            android:textSize="25dp" />
-
-        <EditText
+                <EditText
             android:id="@+id/edt_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,6 +57,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/input"
+                    android:hint="Telefono"
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
@@ -85,16 +68,7 @@
             android:layout_below="@+id/txt_telefono"
             />
 
-        <TextView
-            android:id="@+id/txt_correo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_telefono"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Correo"
-            android:textSize="25dp" />
-        <EditText
+                <EditText
             android:id="@+id/edt_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,22 +80,14 @@
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
+                    android:hint="Correo"
             android:paddingBottom="10dp"
             android:textColorHint="#7E7777"
             android:textColor="#000000"
             android:layout_below="@+id/txt_correo"
             />
 
-        <TextView
-            android:id="@+id/txt_contraseña"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_correo"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Contraseña"
-            android:textSize="25dp" />
-        <EditText
+                <EditText
             android:id="@+id/edt_contraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +100,7 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
+                    android:hint="Contraseña"
             android:textColorHint="#7E7777"
             android:textColor="#000000"
             android:layout_below="@+id/txt_contraseña"
