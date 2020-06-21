@@ -31,7 +31,6 @@ public class CrudUsuario  extends AppCompatActivity {
     private RecyclerView recyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
     public static CrudUsuario ma;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

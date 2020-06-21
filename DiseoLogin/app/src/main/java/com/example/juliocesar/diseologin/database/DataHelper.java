@@ -14,16 +14,20 @@ public class DataHelper extends SQLiteOpenHelper {
 
     public static final String db = "db_blog";
     public static final String tb_blog = "tb_blog";
+    public static final String tb_evaluador = "tb_evaluador";
 
     public static final List<String> create = new ArrayList<String>(){{
 
 
         add("create table " + tb_blog+
                 "(id INTEGER PRIMARY KEY,nombre text null, telefono text null, correo text null, contraseña text null)");
+        add("create table " + tb_evaluador+
+                "(id INTEGER PRIMARY KEY,nombre text null, telefono text null, correo text null, contraseña text null)");
     }};
 
     public static final List<String> table = new ArrayList<String>(){{
         add(tb_blog);
+        add(tb_evaluador);
     }};
 
     public DataHelper(Context context) {
