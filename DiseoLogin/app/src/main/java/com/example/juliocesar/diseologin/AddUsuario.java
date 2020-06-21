@@ -35,12 +35,28 @@ public class AddUsuario extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
-
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("insert into tb_blog(nombre,telefono,correo,contraseña) values('" + edt_nombre.getText().toString() + "','" + edt_telefono.getText().toString() + "','" + edt_correo.getText().toString() + "','" + edt_contraseña.getText().toString() + "')");
-                Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_LONG).show();
-                CrudUsuario.ma.getBlog();
-                finish();
+                //valiadciones
+                if(edt_nombre.length()== 0  ){
+                    edt_nombre.setError("Nombre es obligatorio");
+                    edt_nombre.requestFocus();
+                }if( edt_telefono.length()== 0 ){
+                    edt_telefono.setError("Telefono es obligatorio");
+                    edt_telefono.requestFocus();
+                } if(edt_correo.length()== 0  ){
+                    edt_correo.setError("Correo es obligatorio");
+                    edt_correo.requestFocus();
+                } if( edt_contraseña.length()== 0 ){
+                    edt_contraseña.setError("Contraseña es obligatorio");
+                    edt_contraseña.requestFocus();
+                }
+//todo correcto
+                else {
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    db.execSQL("insert into tb_blog(nombre,telefono,correo,contraseña) values('" + edt_nombre.getText().toString() + "','" + edt_telefono.getText().toString() + "','" + edt_correo.getText().toString() + "','" + edt_contraseña.getText().toString() + "')");
+                    Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_LONG).show();
+                    CrudUsuario.ma.getBlog();
+                    finish();
+                }
 
             }
         });
