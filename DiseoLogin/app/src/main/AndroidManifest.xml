@@ -36,7 +36,6 @@
         <activity android:name=".AddEvaluador"/>
         <activity android:name=".EditEvaluador"/>
         <activity android:name=".Login" />
-        <activity android:name=".SignUp" />
     </application>
 
 </manifest>
