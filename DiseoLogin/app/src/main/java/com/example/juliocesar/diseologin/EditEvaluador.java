@@ -27,7 +27,7 @@ public class EditEvaluador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_evaluador);
 
-        //detail data
+        //datos detallados
         dataHelper = new DataHelper(this);
         id_blog = (EditText) findViewById(R.id.id_blog);
         Intent mIntent = getIntent();
@@ -59,7 +59,7 @@ public class EditEvaluador extends AppCompatActivity {
         edt_contraseña = (EditText)findViewById(R.id.edt_contraseña);
         edt_contraseña.setText(cursor.getString(4).toString());
 
-        //update data
+        //actualizar datos
         dbHelper = new DataHelper(this);
         updateData = (Button) findViewById(R.id.updateData);
         updateData.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +96,7 @@ public class EditEvaluador extends AppCompatActivity {
             }
         });
 
-        //delete data
+        //Eliminar datos
         deleteData = (Button) findViewById(R.id.deleteData);
         deleteData.setOnClickListener(new View.OnClickListener() {
             @Override
