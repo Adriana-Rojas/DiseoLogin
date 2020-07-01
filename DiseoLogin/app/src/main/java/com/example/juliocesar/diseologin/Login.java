@@ -16,22 +16,23 @@ import com.example.juliocesar.diseologin.database.DataHelper;
 public class Login extends AppCompatActivity {
 
     Button btn_ir_crearCuenta,iniciar_sesion;
-     EditText correod,contraseñad;
-     String bdcorreo,bdcontraseña;
+    EditText et_correo,et_constraseña;
+    String bdcorreo,bdcontraseña,correooo,Constraseñaaa;
     DataHelper dataHelper;
     protected Cursor cursor;
-    DataHelper dbHelper;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        dataHelper = new DataHelper(this);
 
         btn_ir_crearCuenta=findViewById(R.id.btn_ir_crearCuenta);
         iniciar_sesion=(Button) findViewById(R.id.iniciar_sesion);
-        correod=(EditText) findViewById(R.id.et_correo);
-        contraseñad=(EditText) findViewById(R.id.et_contrasena);
+        et_correo=(EditText) findViewById(R.id.et_correo);
+        et_constraseña=(EditText) findViewById(R.id.et_contrasena);
+
         DataHelper admin = new DataHelper(this);
         final SQLiteDatabase BaseDeDatabase = admin.getWritableDatabase();
 
@@ -48,37 +49,39 @@ public class Login extends AppCompatActivity {
         iniciar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(et_correo.length()== 0  ){
+                    et_correo.setError("Correo es obligatorio");
+                    et_correo.requestFocus();
+                }if( et_constraseña.length()== 0 ){
+                    et_constraseña.setError("Contraseña es obligatorio");
+                    et_constraseña.requestFocus();
+                }else {
+                    correooo=et_correo.getText().toString();
+                    Constraseñaaa=et_constraseña.getText().toString();
 
+                    et_correo = (EditText) findViewById(R.id.et_correo);
+                    String name = et_correo.getText().toString();
 
+                    Intent mIntent = getIntent();
+                    et_correo.setText(mIntent.getStringExtra("correo"));
 
-
-                // if(!codigo.isEmpty()){
-                Cursor fila = BaseDeDatabase.rawQuery
-                        ("select * from tb_evaluador WHERE correo = correo", null);
-
-                if(fila.moveToFirst()){
-                    bdcorreo=(fila.getString(3));
-                    bdcontraseña=(fila.getString(4));
-                    // correod.setText(fila.getString(0));
-                    //contraseñad.setText(fila.getString(1));
-                    BaseDeDatabase.close();
-                } else {
-                 //   Toast.makeText(this,"No existe el artículo", Toast.LENGTH_SHORT).show();
-                    BaseDeDatabase.close();
+                    SQLiteDatabase db = dataHelper.getReadableDatabase();
+                    Bundle bundle = getIntent().getExtras();
+                    cursor = db.rawQuery("SELECT * FROM tb_evaluador WHERE correo = '"+name+"'", null);
+                    cursor.moveToFirst();
+                    if(cursor.moveToFirst()==true) {
+                        bdcorreo = (cursor.getString(3).toString());
+                        bdcontraseña = (cursor.getString(4).toString());
+                        if (correooo.equals(bdcorreo) && Constraseñaaa.equals(bdcontraseña)) {
+                            startActivity(new Intent(Login.this, MenuAdmin.class));
+                            finish();
+                        } else{
+                            Toast.makeText(Login.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        Toast.makeText(Login.this, "Correo no existe", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
-                if(correod.length()== 0 & contraseñad.length()== 0 ){
-                    Toast.makeText(Login.this, "no puede haber campos vacios", Toast.LENGTH_SHORT).show();
-                }
-                String correooo=correod.getText().toString();
-                String Constraseñaaa=contraseñad.getText().toString();
-               if(correooo.equals(bdcorreo) && Constraseñaaa.equals(bdcontraseña) ){
-                    startActivity(new Intent(Login.this,MenuAdmin.class));
-                    finish();
-               }
-                else {
-                   Toast.makeText(Login.this, "a", Toast.LENGTH_SHORT).show();
-               }
             }
         });
     }
