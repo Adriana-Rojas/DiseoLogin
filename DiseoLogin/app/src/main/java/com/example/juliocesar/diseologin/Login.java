@@ -58,28 +58,47 @@ public class Login extends AppCompatActivity {
                 }else {
                     correooo=et_correo.getText().toString();
                     Constraseñaaa=et_constraseña.getText().toString();
-
-                    et_correo = (EditText) findViewById(R.id.et_correo);
-                    String name = et_correo.getText().toString();
-
-                    Intent mIntent = getIntent();
-                    et_correo.setText(mIntent.getStringExtra("correo"));
-
-                    SQLiteDatabase db = dataHelper.getReadableDatabase();
-                    Bundle bundle = getIntent().getExtras();
-                    cursor = db.rawQuery("SELECT * FROM tb_evaluador WHERE correo = '"+name+"'", null);
-                    cursor.moveToFirst();
-                    if(cursor.moveToFirst()==true) {
-                        bdcorreo = (cursor.getString(3).toString());
-                        bdcontraseña = (cursor.getString(4).toString());
-                        if (correooo.equals(bdcorreo) && Constraseñaaa.equals(bdcontraseña)) {
-                            startActivity(new Intent(Login.this, MenuAdmin.class));
-                            finish();
-                        } else{
-                            Toast.makeText(Login.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
-                        }
+                    if (correooo.equals("admin") && Constraseñaaa.equals("admin")) {
+                        startActivity(new Intent(Login.this, MenuAdmin.class));
+                        finish();
                     }else {
-                        Toast.makeText(Login.this, "Correo no existe", Toast.LENGTH_SHORT).show();
+                        boolean bandera  =false;
+                        et_correo = (EditText) findViewById(R.id.et_correo);
+                        String name = et_correo.getText().toString();
+
+                        Intent mIntent = getIntent();
+                        et_correo.setText(mIntent.getStringExtra("correo"));
+
+                        SQLiteDatabase db = dataHelper.getReadableDatabase();
+                        Bundle bundle = getIntent().getExtras();
+                        cursor = db.rawQuery("SELECT * FROM tb_evaluador WHERE correo = '" + name + "'", null);
+                        cursor.moveToFirst();
+                        if (cursor.moveToFirst() == true) {
+                            bandera=true;
+                            bdcorreo = (cursor.getString(3).toString());
+                            bdcontraseña = (cursor.getString(4).toString());
+                            if (correooo.equals(bdcorreo) && Constraseñaaa.equals(bdcontraseña)) {
+                                startActivity(new Intent(Login.this, MenuEvaluador.class));
+                                finish();
+                            } else {
+                                Toast.makeText(Login.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if(bandera==false) {
+                            cursor = db.rawQuery("SELECT * FROM tb_blog WHERE correo = '" + name + "'", null);
+                            cursor.moveToFirst();
+                            if (cursor.moveToFirst() == true) {
+                                bdcorreo = (cursor.getString(3).toString());
+                                bdcontraseña = (cursor.getString(4).toString());
+                                if (correooo.equals(bdcorreo) && Constraseñaaa.equals(bdcontraseña)) {
+                                    startActivity(new Intent(Login.this, MenuUsuario.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(Login.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(Login.this, "Correo no existe", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
                 }
             }
