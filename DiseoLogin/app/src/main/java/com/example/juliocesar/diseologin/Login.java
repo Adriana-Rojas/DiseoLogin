@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -43,6 +44,10 @@ public class Login extends AppCompatActivity {
                 usuario=edtUsuario.getText().toString();
                 password=edtPassword.getText().toString();
                 if(!usuario.isEmpty()&&!password.isEmpty()){
+                    /*
+                    importante tiene que tener  el mismo wifiy ver en el cmd la direccion ipv4
+                    */
+
                     validarUsuario("http://192.168.1.101/developeru/validar_usuario.php");
                 }else{
                     Toast.makeText(Login.this,"no se permite",Toast.LENGTH_SHORT).show();
@@ -85,4 +90,5 @@ public class Login extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
 }
