@@ -1,68 +1,123 @@
 package com.example.juliocesar.diseologin;
 
-import android.app.Activity;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.juliocesar.diseologin.database.DataHelper;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class AddEvaluador extends Activity {
-/*
-    protected Cursor cursor;
-    DataHelper dbHelper;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class AddEvaluador extends AppCompatActivity {
+
     Button btnSave;
     EditText edt_nombre,edt_telefono,edt_correo,edt_contraseña;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_evaluador);
 
-        dbHelper = new DataHelper(this);
-        edt_nombre = (EditText) findViewById (R.id.edt_nombre);
-        edt_telefono = (EditText) findViewById(R.id.edt_telefono);
-        edt_correo = (EditText) findViewById(R.id.edt_correo);
-        edt_contraseña = (EditText) findViewById(R.id.edt_contraseña);
-        btnSave = (Button) findViewById(R.id.btnSave);
+        edt_nombre = (EditText)findViewById(R.id.edt_nombre);
+        edt_telefono = (EditText)findViewById(R.id.edt_telefono);
+        edt_correo = (EditText)findViewById(R.id.edt_correo);
+        edt_contraseña = (EditText)findViewById(R.id.edt_contraseña);
+        btnSave = (Button)findViewById(R.id.btnSave);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                //valiadciones
-                if(edt_nombre.length()== 0  ){
-                    edt_nombre.setError("Nombre es obligatorio");
-                    edt_nombre.requestFocus();
-                }if( edt_telefono.length()== 0 ){
-                    edt_telefono.setError("Telefono es obligatorio");
-                    edt_telefono.requestFocus();
-                } if(edt_correo.length()== 0  ){
-                    edt_correo.setError("Correo es obligatorio");
-                    edt_correo.requestFocus();
-                } if( edt_contraseña.length()== 0 ){
-                    edt_contraseña.setError("Contraseña es obligatorio");
-                    edt_contraseña.requestFocus();
-                }
-//todo correcto
-                else {
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
-                    db.execSQL("insert into tb_evaluador(nombre,telefono,correo,contraseña) values('" + edt_nombre.getText().toString() + "','" + edt_telefono.getText().toString() + "','" + edt_correo.getText().toString() + "','" + edt_contraseña.getText().toString() + "')");
-                    Toast.makeText(getApplicationContext(), "Insert Data", Toast.LENGTH_LONG).show();
-                    CrudEvaluador.ma.getBlog();
-                    finish();
-                }
+            public void onClick(View v) {
 
-
+                insertData();
             }
         });
+    }
 
+    private void insertData() {
 
+        final String nombre = edt_nombre.getText().toString().trim();
+        final String telefono = edt_telefono.getText().toString().trim();
+        final String correo = edt_correo.getText().toString().trim();
+        final String contraseña = edt_contraseña.getText().toString().trim();
 
-    }*/
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+
+        if(nombre.isEmpty()){
+            Toast.makeText(this, "Enter Nombre", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(telefono.isEmpty()){
+            Toast.makeText(this, "Enter Telefono", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(correo.isEmpty()){
+            Toast.makeText(this, "Enter Correo", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(contraseña.isEmpty()){
+            Toast.makeText(this, "Enter Contraseña", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else{
+            progressDialog.show();
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarevaluador.php",
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            if(response.equalsIgnoreCase("Data Inserted")){
+                                Toast.makeText(AddEvaluador.this, "Evaluador Guardado", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                                startActivity(new Intent(getApplicationContext(),CrudEvaluador.class));
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(AddEvaluador.this, response, Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(AddEvaluador.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+            }
+            ){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+
+                    Map<String,String> params = new HashMap<String,String>();
+
+                    params.put("nombre",nombre);
+                    params.put("telefono",telefono);
+                    params.put("correo",correo);
+                    params.put("contraseña",contraseña);
+                    return params;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(AddEvaluador.this);
+            requestQueue.add(request);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
-

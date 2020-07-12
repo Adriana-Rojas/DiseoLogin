@@ -21,14 +21,14 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddUsuario extends AppCompatActivity {
+public class AddAdmin extends AppCompatActivity {
 
             Button btnSave;
             EditText edt_nombre,edt_telefono,edt_correo,edt_contraseña;
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_add_usuario);
+                setContentView(R.layout.activity_add_admin);
 
                 edt_nombre = (EditText)findViewById(R.id.edt_nombre);
                 edt_telefono = (EditText)findViewById(R.id.edt_telefono);
@@ -74,26 +74,26 @@ public class AddUsuario extends AppCompatActivity {
 
                 else{
                     progressDialog.show();
-                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarusuario.php",
+                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertaradmin.php",
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
 
                                     if(response.equalsIgnoreCase("Data Inserted")){
-                                        Toast.makeText(AddUsuario.this, "Usuario Guardado", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AddAdmin.this, "Administrador Guardado", Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
-                                        startActivity(new Intent(getApplicationContext(),CrudUsuario.class));
+                                        startActivity(new Intent(getApplicationContext(),CrudAdmin.class));
                                         finish();
                                     }
                                     else{
-                                        Toast.makeText(AddUsuario.this, response, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AddAdmin.this, response, Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
                                     }
                                 }
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(AddUsuario.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         }
                     }
@@ -110,7 +110,7 @@ public class AddUsuario extends AppCompatActivity {
                             return params;
                         }
                     };
-                    RequestQueue requestQueue = Volley.newRequestQueue(AddUsuario.this);
+                    RequestQueue requestQueue = Volley.newRequestQueue(AddAdmin.this);
                     requestQueue.add(request);
                 }
             }

@@ -42,6 +42,10 @@
         <activity android:name=".AddEvaluador"/>
         <activity android:name=".EditEvaluador"/>
         <activity android:name=".DetailActivity"/>
+        <activity android:name=".AddAdmin"/>
+        <activity android:name=".EditAdmin"/>
+        <activity android:name=".DetailAdminActivity"/>
+        <activity android:name=".CrudAdmin"/>
         <activity android:name=".Login" />
     </application>
 

@@ -9,7 +9,7 @@ import android.widget.Button;
 public class MenuAdmin extends AppCompatActivity {
 
 
-    Button crudusuario,crudevaluador,asignarreportes,verreportes;
+    Button crudusuario,crudevaluador,crudadmin,asignarreportes,verreportes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class MenuAdmin extends AppCompatActivity {
 
         crudusuario=findViewById(R.id.crudusuario);
         crudevaluador=findViewById(R.id.crudevaluador);
+        crudadmin=findViewById(R.id.crudadmin);
         asignarreportes=findViewById(R.id.asignarreportes);
         verreportes=findViewById(R.id.verreportes);
 
@@ -27,6 +28,14 @@ public class MenuAdmin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuAdmin.this,CrudUsuario.class));
+                finish();
+            }
+        });
+
+        crudadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuAdmin.this,CrudAdmin.class));
                 finish();
             }
         });

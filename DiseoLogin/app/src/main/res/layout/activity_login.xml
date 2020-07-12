@@ -19,12 +19,14 @@
         android:gravity="center"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="283dp"
-            android:layout_height="187dp"
-            android:src="@drawable/logo1"
-            android:layout_marginBottom="50dp"
-            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="359dp"
+            android:layout_height="275dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="24867-online-doctor-app.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true" />
 
         <EditText
             android:id="@+id/et_correo"

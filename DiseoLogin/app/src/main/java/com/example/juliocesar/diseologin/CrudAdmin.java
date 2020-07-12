@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -25,22 +24,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrudUsuario extends AppCompatActivity {
+public class CrudAdmin extends AppCompatActivity {
 
     ListView listView;
     MyAdapter adapter;
     public static ArrayList<Employee> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.1.112/proyecto/retrieveusuario.php";
+    String url = "http://192.168.1.112/proyecto/retrieveadmin.php";
     Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crud_usuario);
+        setContentView(R.layout.activity_crud_admin);
 
         listView = findViewById(R.id.myListView);
         adapter = new MyAdapter(this,employeeArrayList);
@@ -70,7 +68,7 @@ public class CrudUsuario extends AppCompatActivity {
                                 break;
 
                             case 1:
-                                startActivity(new Intent(getApplicationContext(),EditUsuario.class)
+                                startActivity(new Intent(getApplicationContext(),EditAdmin.class)
                                         .putExtra("position",position));
 
                                 break;
@@ -90,19 +88,19 @@ public class CrudUsuario extends AppCompatActivity {
     }
     private void deleteData(final String id) {
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/deleteusuario.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/deleteadmin.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
                         if(response.equalsIgnoreCase("Data Deleted")){
-                            Toast.makeText(CrudUsuario.this, "Eliminado", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),CrudUsuario.class));
+                            Toast.makeText(CrudAdmin.this, "Eliminado", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), CrudAdmin.class));
                             finish();
 
                         }
                         else{
-                            Toast.makeText(CrudUsuario.this, "No Fue Eliminado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CrudAdmin.this, "No Fue Eliminado", Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -110,7 +108,7 @@ public class CrudUsuario extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(CrudUsuario.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CrudAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
@@ -139,7 +137,7 @@ public class CrudUsuario extends AppCompatActivity {
 
                             JSONObject jsonObject = new JSONObject(response);
                             String sucess = jsonObject.getString("success");
-                            JSONArray jsonArray = jsonObject.getJSONArray("usuario");
+                            JSONArray jsonArray = jsonObject.getJSONArray("administrador");
 
                             if(sucess.equals("1")){
 
@@ -183,7 +181,7 @@ public class CrudUsuario extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(CrudUsuario.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CrudAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -195,6 +193,6 @@ public class CrudUsuario extends AppCompatActivity {
 
     }
     public void btn_add_activity(View view) {
-        startActivity(new Intent(getApplicationContext(),AddUsuario.class));
+        startActivity(new Intent(getApplicationContext(),AddAdmin.class));
     }
 }
