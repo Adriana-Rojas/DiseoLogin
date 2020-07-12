@@ -12,8 +12,7 @@ import android.widget.Toast;
 import com.example.juliocesar.diseologin.database.DataHelper;
 
 public class AddEvaluador extends Activity {
-
-
+/*
     protected Cursor cursor;
     DataHelper dbHelper;
     Button btnSave;
@@ -64,6 +63,6 @@ public class AddEvaluador extends Activity {
 
 
 
-    }
+    }*/
 }
 

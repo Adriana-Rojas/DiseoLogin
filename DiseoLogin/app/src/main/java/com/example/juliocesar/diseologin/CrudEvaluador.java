@@ -35,13 +35,13 @@ public class CrudEvaluador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_evaluador);
 
-        ma = this;
+        /*ma = this;
 
         dataHelper = new DataHelper(this);
         getdata = dataHelper.getReadableDatabase();
 
         //
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+      //  recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         blogList = new ArrayList<>();
         blogAdapter = new EvaluadorCustomAdapter(blogList);
 
@@ -90,6 +90,6 @@ public class CrudEvaluador extends AppCompatActivity {
 
 
 
-        }
+        }*/
     }
 }

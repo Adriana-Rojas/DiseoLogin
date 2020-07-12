@@ -43,14 +43,18 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 usuario=edtUsuario.getText().toString();
                 password=edtPassword.getText().toString();
+                if(edtUsuario.length()== 0  ){
+                    edtUsuario.setError("Correo es obligatorio");
+                    edtUsuario.requestFocus();
+                }if( edtPassword.length()== 0 ){
+                    edtPassword.setError("Contraseña es obligatorio");
+                    edtPassword.requestFocus();}
                 if(!usuario.isEmpty()&&!password.isEmpty()){
                     /*
                     importante tiene que tener  el mismo wifiy ver en el cmd la direccion ipv4
                     */
 
-                    validarUsuario("http://192.168.1.101/developeru/validar_usuario.php");
-                }else{
-                    Toast.makeText(Login.this,"no se permite",Toast.LENGTH_SHORT).show();
+                    validarUsuario("http://192.168.1.112/proyecto/validar_usuario.php");
                 }
 
             }
@@ -67,7 +71,7 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),MenuAdmin.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(Login.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Usuario o Contraseña incorecto", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -80,8 +84,8 @@ public class Login extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("usuario", edtUsuario.getText().toString());
-                parametros.put("password", edtPassword.getText().toString());
+                parametros.put("correo", edtUsuario.getText().toString());
+                parametros.put("contraseña", edtPassword.getText().toString());
                 return parametros;
             }
         };

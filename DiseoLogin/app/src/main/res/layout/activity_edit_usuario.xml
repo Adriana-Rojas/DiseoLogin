@@ -119,23 +119,8 @@
             android:elevation="5dp"
             android:text="Guardar"
             android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/deleteData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/updateData"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_fondo_color"
-            android:backgroundTint="#AE1028"
-            android:elevation="5dp"
-            android:text="Eliminar"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="btn_updateData"/>
 
         </LinearLayout>
 

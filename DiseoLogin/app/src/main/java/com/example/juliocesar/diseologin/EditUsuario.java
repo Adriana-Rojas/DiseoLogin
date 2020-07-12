@@ -1,114 +1,108 @@
 package com.example.juliocesar.diseologin;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.juliocesar.diseologin.database.DataHelper;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class EditUsuario extends AppCompatActivity {
 
-    DataHelper dataHelper;
-    protected Cursor cursor;
-    DataHelper dbHelper;
-    EditText id_blog,edt_nombre,edt_telefono,edt_correo,edt_contraseña;
-    Button updateData,deleteData;
+        EditText edId,edNombre,edTelefono,edCorreo,edContraseña;
+        private int position;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_edit_usuario);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_usuario);
+            edId = findViewById(R.id.id_blog);
+            edNombre = findViewById(R.id.edt_nombre);
+            edTelefono = findViewById(R.id.edt_telefono);
+            edCorreo = findViewById(R.id.edt_correo);
+            edContraseña = findViewById(R.id.edt_contraseña);
 
-        //detail data
-        dataHelper = new DataHelper(this);
-        id_blog = (EditText) findViewById(R.id.id_blog);
-        Intent mIntent = getIntent();
-        id_blog.setText(mIntent.getStringExtra("id"));
+            Intent intent = getIntent();
+            position = intent.getExtras().getInt("position");
 
-        SQLiteDatabase db = dataHelper.getReadableDatabase();
-        Bundle bundle = getIntent().getExtras();
-        cursor = db.rawQuery("SELECT id," +
-                "nombre," +
-                "telefono," +
-                "correo," +
-                "contraseña FROM tb_blog " +
-                "WHERE id = '" +
-                mIntent.getStringExtra("id") + "'",null);
-        cursor.moveToFirst();
 
-        id_blog = (EditText)findViewById(R.id.id_blog);
-        id_blog.setText(cursor.getString(0).toString());
+            edId.setText(CrudUsuario.employeeArrayList.get(position).getId());
+            edNombre.setText(CrudUsuario.employeeArrayList.get(position).getNombre());
+            edTelefono.setText(CrudUsuario.employeeArrayList.get(position).getTelefono());
+            edCorreo.setText(CrudUsuario.employeeArrayList.get(position).getCorreo());
+            edContraseña.setText(CrudUsuario.employeeArrayList.get(position).getContraseña());
 
-        edt_nombre = (EditText)findViewById(R.id.edt_nombre);
-        edt_nombre.setText(cursor.getString(1).toString());
 
-        edt_telefono = (EditText)findViewById(R.id.edt_telefono);
-        edt_telefono.setText(cursor.getString(2).toString());
 
-        edt_correo = (EditText)findViewById(R.id.edt_correo);
-        edt_correo.setText(cursor.getString(3).toString());
 
-        edt_contraseña = (EditText)findViewById(R.id.edt_contraseña);
-        edt_contraseña.setText(cursor.getString(4).toString());
+        }
 
-        //update data
-        dbHelper = new DataHelper(this);
-        updateData = (Button) findViewById(R.id.updateData);
-        updateData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                //valiadciones
-                if(edt_nombre.length()== 0  ){
-                    edt_nombre.setError("Nombre es obligatorio");
-                    edt_nombre.requestFocus();
-                }if( edt_telefono.length()== 0 ){
-                    edt_telefono.setError("Telefono es obligatorio");
-                    edt_telefono.requestFocus();
-                } if(edt_correo.length()== 0  ){
-                    edt_correo.setError("Correo es obligatorio");
-                    edt_correo.requestFocus();
-                } if( edt_contraseña.length()== 0 ){
-                    edt_contraseña.setError("Contraseña es obligatorio");
-                    edt_contraseña.requestFocus();
+        public void btn_updateData(View view) {
+
+            final String nombre = edNombre.getText().toString();
+            final String telefono = edTelefono.getText().toString();
+            final String correo = edCorreo.getText().toString();
+            final String contraseña = edContraseña.getText().toString();
+            final String id = edId.getText().toString();
+
+
+
+
+
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Updating....");
+            progressDialog.show();
+
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/updateusuario.php",
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Toast.makeText(EditUsuario.this, response, Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),CrudUsuario.class));
+                            finish();
+                            progressDialog.dismiss();
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    Toast.makeText(EditUsuario.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+
                 }
-//todo correcto
-                else {
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
-                    db.execSQL("update tb_blog set nombre='" +
-                            edt_nombre.getText().toString() + "', telefono='" +
-                            edt_telefono.getText().toString() + "', correo='" +
-                            edt_correo.getText().toString() + "', contraseña='" +
-                            edt_contraseña.getText().toString() + "' where id='" +
-                            id_blog.getText().toString() + "'");
-                    Toast.makeText(getApplicationContext(), "Update Data", Toast.LENGTH_LONG).show();
-                    CrudUsuario.ma.getBlog();
-                    finish();
+            }){
+
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+
+                    Map<String,String> params = new HashMap<String,String>();
+
+                    params.put("id",id);
+                    params.put("nombre",nombre);
+                    params.put("telefono",telefono);
+                    params.put("correo",correo);
+                    params.put("contraseña",contraseña);
+
+                    return params;
                 }
-            }
-        });
+            };
 
-        //delete data
-        deleteData = (Button) findViewById(R.id.deleteData);
-        deleteData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("DELETE FROM tb_blog WHERE id ='"+id_blog.getText().toString()+"'");
-                Toast.makeText(getApplicationContext(), "Delete Data", Toast.LENGTH_LONG).show();
-                CrudUsuario.ma.getBlog();
-                finish();
-            }
-        });
+            RequestQueue requestQueue = Volley.newRequestQueue(EditUsuario.this);
+            requestQueue.add(request);
+        }
     }
-}

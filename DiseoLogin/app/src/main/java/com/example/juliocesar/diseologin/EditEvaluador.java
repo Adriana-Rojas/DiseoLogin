@@ -15,7 +15,7 @@ import com.example.juliocesar.diseologin.database.DataHelper;
 
 
 public class EditEvaluador extends AppCompatActivity {
-
+/*
     DataHelper dataHelper;
     protected Cursor cursor;
     DataHelper dbHelper;
@@ -110,5 +110,5 @@ public class EditEvaluador extends AppCompatActivity {
                 finish();
             }
         });
-    }
+    }*/
 }
