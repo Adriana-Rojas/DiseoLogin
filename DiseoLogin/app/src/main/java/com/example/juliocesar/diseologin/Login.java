@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
     EditText edtUsuario, edtPassword;
     Button btnLogin;
     String usuario,password;
+    int tipo=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +68,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(),MenuAdmin.class);
+                    Intent intent = new Intent(getApplicationContext(),MenuUsuario.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(Login.this, "Usuario o Contraseña incorecto", Toast.LENGTH_LONG).show();
-                }
 
+                    validarEvaluador("http://192.168.1.112/proyecto/validar_evaluador.php");
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -88,10 +89,65 @@ public class Login extends AppCompatActivity {
                 return parametros;
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+    private void validarEvaluador(String URL){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.isEmpty()){
+                    Intent intent = new Intent(getApplicationContext(),MenuEvaluador.class);
+                    startActivity(intent);
+                } else {
 
+                    validarAdministrador("http://192.168.1.112/proyecto/validar_administrador.php");
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Login.this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("correo", edtUsuario.getText().toString());
+                parametros.put("contraseña", edtPassword.getText().toString());
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+    private void validarAdministrador(String URL){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (!response.isEmpty()){
+                    Intent intent = new Intent(getApplicationContext(),MenuAdmin.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(Login.this, "Usuario o Contraseña incorecto", Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Login.this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("correo", edtUsuario.getText().toString());
+                parametros.put("contraseña", edtPassword.getText().toString());
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
 }

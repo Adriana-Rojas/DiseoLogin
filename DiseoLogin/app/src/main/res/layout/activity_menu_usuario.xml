@@ -44,7 +44,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/btn_fondo_color"
-            android:text="verinforme"
+            android:text="verinforme   USUARIO"
             android:textColor="#fff"
             android:textSize="16sp"
             android:elevation="5dp"/>
