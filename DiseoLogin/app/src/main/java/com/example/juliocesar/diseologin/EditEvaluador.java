@@ -35,20 +35,14 @@ public class EditEvaluador extends AppCompatActivity {
         edTelefono = findViewById(R.id.edt_telefono);
         edCorreo = findViewById(R.id.edt_correo);
         edContraseña = findViewById(R.id.edt_contraseña);
-
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position");
-
 
         edId.setText(CrudEvaluador.employeeArrayList.get(position).getId());
         edNombre.setText(CrudEvaluador.employeeArrayList.get(position).getNombre());
         edTelefono.setText(CrudEvaluador.employeeArrayList.get(position).getTelefono());
         edCorreo.setText(CrudEvaluador.employeeArrayList.get(position).getCorreo());
         edContraseña.setText(CrudEvaluador.employeeArrayList.get(position).getContraseña());
-
-
-
-
     }
 
     public void btn_updateData(View view) {
@@ -58,10 +52,6 @@ public class EditEvaluador extends AppCompatActivity {
         final String correo = edCorreo.getText().toString();
         final String contraseña = edContraseña.getText().toString();
         final String id = edId.getText().toString();
-
-
-
-
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating....");

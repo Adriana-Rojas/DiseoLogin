@@ -22,8 +22,6 @@ public class MenuAdmin extends AppCompatActivity {
         asignarreportes=findViewById(R.id.asignarreportes);
         verreportes=findViewById(R.id.verreportes);
 
-
-
         crudusuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +37,6 @@ public class MenuAdmin extends AppCompatActivity {
                 finish();
             }
         });
-
 
         crudevaluador.setOnClickListener(new View.OnClickListener() {
             @Override

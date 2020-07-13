@@ -39,7 +39,6 @@ public class AddEvaluador extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 insertData();
             }
         });
@@ -79,16 +78,10 @@ public class AddEvaluador extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
 
-                            if(response.equalsIgnoreCase("Data Inserted")){
                                 Toast.makeText(AddEvaluador.this, "Evaluador Guardado", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
                                 startActivity(new Intent(getApplicationContext(),CrudEvaluador.class));
                                 finish();
-                            }
-                            else{
-                                Toast.makeText(AddEvaluador.this, response, Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
-                            }
                         }
                     }, new Response.ErrorListener() {
                 @Override

@@ -25,6 +25,7 @@ public class AddUsuario extends AppCompatActivity {
 
             Button btnSave;
             EditText edt_nombre,edt_telefono,edt_correo,edt_contraseña;
+
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -39,7 +40,6 @@ public class AddUsuario extends AppCompatActivity {
                 btnSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         insertData();
                     }
                 });
@@ -51,9 +51,6 @@ public class AddUsuario extends AppCompatActivity {
                 final String telefono = edt_telefono.getText().toString().trim();
                 final String correo = edt_correo.getText().toString().trim();
                 final String contraseña = edt_contraseña.getText().toString().trim();
-
-                final ProgressDialog progressDialog = new ProgressDialog(this);
-                progressDialog.setMessage("Loading...");
 
                 if(nombre.isEmpty()){
                     Toast.makeText(this, "Enter Nombre", Toast.LENGTH_SHORT).show();
@@ -73,22 +70,18 @@ public class AddUsuario extends AppCompatActivity {
                 }
 
                 else{
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("Loading...");
                     progressDialog.show();
+
                     StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarusuario.php",
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-
-                                    if(response.equalsIgnoreCase("Data Inserted")){
                                         Toast.makeText(AddUsuario.this, "Usuario Guardado", Toast.LENGTH_SHORT).show();
-                                        progressDialog.dismiss();
                                         startActivity(new Intent(getApplicationContext(),CrudUsuario.class));
                                         finish();
-                                    }
-                                    else{
-                                        Toast.makeText(AddUsuario.this, response, Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
-                                    }
                                 }
                             }, new Response.ErrorListener() {
                         @Override

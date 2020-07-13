@@ -23,7 +23,6 @@ public class MyAdapter extends ArrayAdapter<Employee> {
 
         this.context = context;
         this.arrayListEmployee = arrayListEmployee;
-
     }
 
     @NonNull

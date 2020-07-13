@@ -61,21 +61,17 @@ public class CrudAdmin extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-
                                 startActivity(new Intent(getApplicationContext(),DetailActivity.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 1:
                                 startActivity(new Intent(getApplicationContext(),EditAdmin.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 2:
                                 deleteData(employeeArrayList.get(position).getId());
-
                                 break;
                         }
                     }
@@ -97,13 +93,10 @@ public class CrudAdmin extends AppCompatActivity {
                             Toast.makeText(CrudAdmin.this, "Eliminado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), CrudAdmin.class));
                             finish();
-
                         }
                         else{
                             Toast.makeText(CrudAdmin.this, "No Fue Eliminado", Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -123,7 +116,6 @@ public class CrudAdmin extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
 
-
     }
     public void retrieveData(){
 
@@ -141,7 +133,6 @@ public class CrudAdmin extends AppCompatActivity {
 
                             if(sucess.equals("1")){
 
-
                                 for(int i=0;i<jsonArray.length();i++){
 
                                     JSONObject object = jsonArray.getJSONObject(i);
@@ -156,26 +147,12 @@ public class CrudAdmin extends AppCompatActivity {
                                     employeeArrayList.add(employee);
                                     adapter.notifyDataSetChanged();
 
-
-
                                 }
-
-
-
                             }
-
-
-
-
                         }
                         catch (JSONException e){
                             e.printStackTrace();
                         }
-
-
-
-
-
 
                     }
                 }, new Response.ErrorListener() {
@@ -187,9 +164,6 @@ public class CrudAdmin extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
-
-
-
 
     }
     public void btn_add_activity(View view) {

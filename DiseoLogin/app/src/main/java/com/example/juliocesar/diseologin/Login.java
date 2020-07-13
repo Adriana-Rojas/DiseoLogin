@@ -53,7 +53,6 @@ public class Login extends AppCompatActivity {
                     /*
                     importante tiene que tener  el mismo wifiy ver en el cmd la direccion ipv4
                     */
-
                     validarUsuario("http://192.168.1.112/proyecto/validar_usuario.php");
                 }
 

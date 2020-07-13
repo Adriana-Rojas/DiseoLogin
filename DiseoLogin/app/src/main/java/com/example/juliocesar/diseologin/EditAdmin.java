@@ -39,16 +39,11 @@ public class EditAdmin extends AppCompatActivity {
             Intent intent = getIntent();
             position = intent.getExtras().getInt("position");
 
-
             edId.setText(CrudAdmin.employeeArrayList.get(position).getId());
             edNombre.setText(CrudAdmin.employeeArrayList.get(position).getNombre());
             edTelefono.setText(CrudAdmin.employeeArrayList.get(position).getTelefono());
             edCorreo.setText(CrudAdmin.employeeArrayList.get(position).getCorreo());
             edContraseña.setText(CrudAdmin.employeeArrayList.get(position).getContraseña());
-
-
-
-
         }
 
         public void btn_updateData(View view) {
@@ -58,10 +53,6 @@ public class EditAdmin extends AppCompatActivity {
             final String correo = edCorreo.getText().toString();
             final String contraseña = edContraseña.getText().toString();
             final String id = edId.getText().toString();
-
-
-
-
 
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Updating....");
@@ -83,7 +74,6 @@ public class EditAdmin extends AppCompatActivity {
 
                     Toast.makeText(EditAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-
                 }
             }){
 
@@ -101,7 +91,6 @@ public class EditAdmin extends AppCompatActivity {
                     return params;
                 }
             };
-
             RequestQueue requestQueue = Volley.newRequestQueue(EditAdmin.this);
             requestQueue.add(request);
         }

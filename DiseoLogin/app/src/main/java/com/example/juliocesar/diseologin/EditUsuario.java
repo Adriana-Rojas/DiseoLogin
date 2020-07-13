@@ -35,33 +35,22 @@ public class EditUsuario extends AppCompatActivity {
             edTelefono = findViewById(R.id.edt_telefono);
             edCorreo = findViewById(R.id.edt_correo);
             edContraseña = findViewById(R.id.edt_contraseña);
-
             Intent intent = getIntent();
             position = intent.getExtras().getInt("position");
-
 
             edId.setText(CrudUsuario.employeeArrayList.get(position).getId());
             edNombre.setText(CrudUsuario.employeeArrayList.get(position).getNombre());
             edTelefono.setText(CrudUsuario.employeeArrayList.get(position).getTelefono());
             edCorreo.setText(CrudUsuario.employeeArrayList.get(position).getCorreo());
             edContraseña.setText(CrudUsuario.employeeArrayList.get(position).getContraseña());
-
-
-
-
         }
 
         public void btn_updateData(View view) {
-
             final String nombre = edNombre.getText().toString();
             final String telefono = edTelefono.getText().toString();
             final String correo = edCorreo.getText().toString();
             final String contraseña = edContraseña.getText().toString();
             final String id = edId.getText().toString();
-
-
-
-
 
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Updating....");
@@ -83,7 +72,6 @@ public class EditUsuario extends AppCompatActivity {
 
                     Toast.makeText(EditUsuario.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-
                 }
             }){
 

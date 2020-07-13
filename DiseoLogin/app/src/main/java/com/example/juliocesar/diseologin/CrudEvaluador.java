@@ -63,21 +63,17 @@ public class CrudEvaluador extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-
                                 startActivity(new Intent(getApplicationContext(),DetailActivity.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 1:
                                 startActivity(new Intent(getApplicationContext(),EditEvaluador.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 2:
                                 deleteData(employeeArrayList.get(position).getId());
-
                                 break;
                         }
                     }
@@ -99,13 +95,10 @@ public class CrudEvaluador extends AppCompatActivity {
                             Toast.makeText(CrudEvaluador.this, "Eliminado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),CrudEvaluador.class));
                             finish();
-
                         }
                         else{
                             Toast.makeText(CrudEvaluador.this, "No Fue Eliminado", Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -143,7 +136,6 @@ public class CrudEvaluador extends AppCompatActivity {
 
                             if(sucess.equals("1")){
 
-
                                 for(int i=0;i<jsonArray.length();i++){
 
                                     JSONObject object = jsonArray.getJSONObject(i);
@@ -157,27 +149,12 @@ public class CrudEvaluador extends AppCompatActivity {
                                     employee = new Employee(id,nombre,telefono,correo,contraseña);
                                     employeeArrayList.add(employee);
                                     adapter.notifyDataSetChanged();
-
-
-
                                 }
-
-
-
                             }
-
-
-
-
                         }
                         catch (JSONException e){
                             e.printStackTrace();
                         }
-
-
-
-
-
 
                     }
                 }, new Response.ErrorListener() {
@@ -186,13 +163,8 @@ public class CrudEvaluador extends AppCompatActivity {
                 Toast.makeText(CrudEvaluador.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
-
-
-
-
     }
     public void btn_add_activity(View view) {
         startActivity(new Intent(getApplicationContext(),AddEvaluador.class));

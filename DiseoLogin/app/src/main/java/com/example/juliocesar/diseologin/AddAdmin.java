@@ -39,7 +39,6 @@ public class AddAdmin extends AppCompatActivity {
                 btnSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         insertData();
                     }
                 });
@@ -79,16 +78,10 @@ public class AddAdmin extends AppCompatActivity {
                                 @Override
                                 public void onResponse(String response) {
 
-                                    if(response.equalsIgnoreCase("Data Inserted")){
                                         Toast.makeText(AddAdmin.this, "Administrador Guardado", Toast.LENGTH_SHORT).show();
-                                        progressDialog.dismiss();
                                         startActivity(new Intent(getApplicationContext(),CrudAdmin.class));
                                         finish();
-                                    }
-                                    else{
-                                        Toast.makeText(AddAdmin.this, response, Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
-                                    }
                                 }
                             }, new Response.ErrorListener() {
                         @Override

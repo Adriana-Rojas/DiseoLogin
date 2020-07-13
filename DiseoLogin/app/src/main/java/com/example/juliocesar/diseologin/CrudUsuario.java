@@ -46,7 +46,6 @@ public class CrudUsuario extends AppCompatActivity {
         adapter = new MyAdapter(this,employeeArrayList);
         listView.setAdapter(adapter);
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, final long id) {
@@ -63,21 +62,17 @@ public class CrudUsuario extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-
                                 startActivity(new Intent(getApplicationContext(),DetailActivity.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 1:
                                 startActivity(new Intent(getApplicationContext(),EditUsuario.class)
                                         .putExtra("position",position));
-
                                 break;
 
                             case 2:
                                 deleteData(employeeArrayList.get(position).getId());
-
                                 break;
                         }
                     }
@@ -99,13 +94,10 @@ public class CrudUsuario extends AppCompatActivity {
                             Toast.makeText(CrudUsuario.this, "Eliminado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),CrudUsuario.class));
                             finish();
-
                         }
                         else{
                             Toast.makeText(CrudUsuario.this, "No Fue Eliminado", Toast.LENGTH_SHORT).show();
                         }
-
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -143,7 +135,6 @@ public class CrudUsuario extends AppCompatActivity {
 
                             if(sucess.equals("1")){
 
-
                                 for(int i=0;i<jsonArray.length();i++){
 
                                     JSONObject object = jsonArray.getJSONObject(i);
@@ -157,27 +148,12 @@ public class CrudUsuario extends AppCompatActivity {
                                     employee = new Employee(id,nombre,telefono,correo,contraseña);
                                     employeeArrayList.add(employee);
                                     adapter.notifyDataSetChanged();
-
-
-
                                 }
-
-
-
                             }
-
-
-
-
                         }
                         catch (JSONException e){
                             e.printStackTrace();
                         }
-
-
-
-
-
 
                     }
                 }, new Response.ErrorListener() {
@@ -189,10 +165,6 @@ public class CrudUsuario extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
-
-
-
-
     }
     public void btn_add_activity(View view) {
         startActivity(new Intent(getApplicationContext(),AddUsuario.class));
