@@ -73,7 +73,7 @@ public class AddEvaluador extends AppCompatActivity {
 
         else{
             progressDialog.show();
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarevaluador.php",
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.113/proyecto/insertarevaluador.php",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {

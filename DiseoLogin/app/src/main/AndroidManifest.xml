@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.juliocesar.diseologin">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".DatosAplicativo" />
         <activity
             android:name=".EditUsuario"
             android:label="@string/title_activity_edit_blog"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddUsuario"
             android:label="@string/title_activity_add_blog"
@@ -39,13 +39,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddEvaluador"/>
-        <activity android:name=".EditEvaluador"/>
-        <activity android:name=".DetailActivity"/>
-        <activity android:name=".AddAdmin"/>
-        <activity android:name=".EditAdmin"/>
-        <activity android:name=".DetailAdminActivity"/>
-        <activity android:name=".CrudAdmin"/>
+        <activity android:name=".AddEvaluador" />
+        <activity android:name=".EditEvaluador" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".AddAdmin" />
+        <activity android:name=".EditAdmin" />
+        <activity android:name=".CrudAdmin" />
+        <activity android:name=".DetailAdminActivity" />
+        <activity android:name=".DetailEvaluadorActivity" />
         <activity android:name=".Login" />
     </application>
 
