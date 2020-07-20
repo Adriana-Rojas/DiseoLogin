@@ -1,30 +1,35 @@
 package com.example.juliocesar.diseologin;
 
 public class Producto {
-    private  int id;
-    private String nombre;
+    private String id,tipoaplicativo;
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre) {
+    public Producto(String id, String tipoaplicativo) {
         this.id = id;
-        this.nombre = nombre;
+        this.tipoaplicativo = tipoaplicativo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTipoaplicativo() {
+        return tipoaplicativo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTipoaplicativo(String tipoaplicativo) {
+        this.tipoaplicativo = tipoaplicativo;
     }
+
+    @Override
+    public String toString() {
+        return tipoaplicativo;
+    }
+
 }
