@@ -37,8 +37,8 @@ public class DatosAplicativo extends AppCompatActivity {
     private AsyncHttpClient cliente;
     private Spinner spProductos;
     Button btnSave;
-    String tipo;
-    String tipoid;
+    int bandera=1;
+    String tipoidd, nombre,apk,manual,tipo;
     EditText edt_tipo,edt_nombre,edt_apk,edt_manual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class DatosAplicativo extends AppCompatActivity {
 
     }
     private  void llenarSpinner(){
-        String url="http://192.168.1.113/proyecto/retrieveaplicacion.php";
+        String url="http://192.168.1.112/proyecto/retrieveaplicacion.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -100,13 +100,13 @@ public class DatosAplicativo extends AppCompatActivity {
 
     private void insertData() {
         tipo = spProductos.getSelectedItem().toString();
-        BuscarIdSpinner("http://192.168.1.113/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
-        final String nombre = edt_nombre.getText().toString().trim();
-        final String apk = edt_apk.getText().toString().trim();
-        final String manual = edt_manual.getText().toString().trim();
+        BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
+        nombre = edt_nombre.getText().toString().trim();
+        apk = edt_apk.getText().toString().trim();
+        manual = edt_manual.getText().toString().trim();
 
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
+
+
 
         if(nombre.isEmpty()){
             Toast.makeText(this, "Enter Nombre", Toast.LENGTH_SHORT).show();
@@ -121,44 +121,49 @@ public class DatosAplicativo extends AppCompatActivity {
             return;
         }
 
-        else{
-            if (tipoid==null){
-                BuscarIdSpinner("http://192.168.1.113/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
-            }else {
-                progressDialog.show();
-                StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.113/proyecto/insertardatosaplicacion.php",
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
+        else {
 
-                                Toast.makeText(DatosAplicativo.this, "Aplicativo Guardado", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MenuUsuario.class));
-                                finish();
-                                progressDialog.dismiss();
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(DatosAplicativo.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                    }
+
+
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertardatosaplicacion.php",
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Toast.makeText(DatosAplicativo.this, "Aplicativo Guardado", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MenuUsuario.class));
+                            finish();
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // Toast.makeText(DatosAplicativo.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
                 }
-                ) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-
-                        Map<String, String> params = new HashMap<String, String>();
-
-                        params.put("nombre", nombre);
-                        params.put("tipoaplicativo", tipoid);
-                        params.put("subirapk", apk);
-                        params.put("subirmanual", manual);
-                        return params;
-                    }
-                };
-                RequestQueue requestQueue = Volley.newRequestQueue(DatosAplicativo.this);
-                requestQueue.add(request);
             }
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+
+                    Map<String, String> params = new HashMap<String, String>();
+                    //  tipoidd=tipoid;
+                    params.put("nombre", nombre);
+                    params.put("tipoaplicativo", tipoidd);
+                    params.put("subirapk", apk);
+                    params.put("subirmanual", manual);
+                    return params;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(DatosAplicativo.this);
+            requestQueue.add(request);
+
+            if (tipoidd == null && bandera==1) {
+                bandera++;
+                BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo=" + tipo);
+            }
+
+
         }
     }
 
@@ -169,13 +174,18 @@ public class DatosAplicativo extends AppCompatActivity {
     }
 
     private void BuscarIdSpinner(String URL) {
+
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject  jsonObject = response.getJSONObject(i);
-                         tipoid = jsonObject.getString("id");
+                        tipoidd = jsonObject.getString("id");
+                        if(tipoidd!=null && bandera==2){
+                            bandera++;
+                            insertData();
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -190,6 +200,8 @@ public class DatosAplicativo extends AppCompatActivity {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
+
+
 
     }
 
