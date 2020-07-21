@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
                     /*
                     importante tiene que tener  el mismo wifiy ver en el cmd la direccion ipv4
                     */
-                    validarUsuario("http://192.168.1.113/proyecto/validar_usuario.php");
+                    validarUsuario("http://192.168.1.112/proyecto/validar_usuario.php");
                 }
             }
         });
@@ -114,10 +114,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()){
+
+                    String url="http://192.168.1.112/proyecto/buscar_id.php";
+
                     Intent intent = new Intent(getApplicationContext(),MenuUsuario.class);
                     startActivity(intent);
                 } else {
-                    validarEvaluador("http://192.168.1.113/proyecto/validar_evaluador.php");
+                    validarEvaluador("http://192.168.1.112/proyecto/validar_evaluador.php");
                 }
             }
         }, new Response.ErrorListener() {
@@ -145,7 +148,7 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),MenuEvaluador.class);
                     startActivity(intent);
                 } else {
-                    validarAdministrador("http://192.168.1.113/proyecto/validar_administrador.php");
+                    validarAdministrador("http://192.168.1.112/proyecto/validar_administrador.php");
                 }
             }
         }, new Response.ErrorListener() {
