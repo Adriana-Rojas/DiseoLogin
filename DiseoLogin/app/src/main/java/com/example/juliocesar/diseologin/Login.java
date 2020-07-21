@@ -20,8 +20,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -32,6 +35,10 @@ public class Login extends AppCompatActivity {
     EditText edtUsuario, edtPassword;
     Button btnLogin;
     String usuario,password,usuario1="incorrecto",password1="incorrecto";
+     String tipoid;
+    String test;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,8 +121,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-
-                    String url="http://192.168.1.112/proyecto/buscar_id.php";
+                   /* JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                    tipoid=jsonObject.get("id").getAsString();
+                    String j=tipoid;
+                    test = j.replaceAll("[\\[\\](){}]", "");
+                    String url="http://192.168.1.112/proyecto/buscar_id.php";*/
 
                     Intent intent = new Intent(getApplicationContext(),MenuUsuario.class);
                     startActivity(intent);

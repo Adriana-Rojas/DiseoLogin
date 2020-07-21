@@ -38,7 +38,7 @@ public class DatosAplicativo extends AppCompatActivity {
     private Spinner spProductos;
     Button btnSave;
     int bandera=1;
-    String tipoidd, nombre,apk,manual,tipo;
+    String tipoidd,usuario, nombre,apk,manual,tipo;
     EditText edt_tipo,edt_nombre,edt_apk,edt_manual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,8 @@ public class DatosAplicativo extends AppCompatActivity {
     private void insertData() {
         tipo = spProductos.getSelectedItem().toString();
         BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
+        Login login=new Login();
+        usuario="1";
         nombre = edt_nombre.getText().toString().trim();
         apk = edt_apk.getText().toString().trim();
         manual = edt_manual.getText().toString().trim();
@@ -148,6 +150,7 @@ public class DatosAplicativo extends AppCompatActivity {
 
                     Map<String, String> params = new HashMap<String, String>();
                     //  tipoidd=tipoid;
+                    params.put("usuario", usuario);
                     params.put("nombre", nombre);
                     params.put("tipoaplicativo", tipoidd);
                     params.put("subirapk", apk);
