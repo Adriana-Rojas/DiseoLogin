@@ -114,6 +114,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()){
+
+                    String url="http://192.168.1.112/proyecto/buscar_id.php";
+
                     Intent intent = new Intent(getApplicationContext(),MenuUsuario.class);
                     startActivity(intent);
                 } else {

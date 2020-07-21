@@ -101,9 +101,9 @@ public class DatosAplicativo extends AppCompatActivity {
     private void insertData() {
         tipo = spProductos.getSelectedItem().toString();
         BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
-        nombre = edt_nombre.getText().toString().trim();
-        apk = edt_apk.getText().toString().trim();
-        manual = edt_manual.getText().toString().trim();
+           nombre = edt_nombre.getText().toString().trim();
+           apk = edt_apk.getText().toString().trim();
+           manual = edt_manual.getText().toString().trim();
 
 
 
@@ -125,10 +125,10 @@ public class DatosAplicativo extends AppCompatActivity {
 
 
 
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertardatosaplicacion.php",
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
+                StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertardatosaplicacion.php",
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
 
                             Toast.makeText(DatosAplicativo.this, "Aplicativo Guardado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MenuUsuario.class));
@@ -146,13 +146,21 @@ public class DatosAplicativo extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
 
-                    Map<String, String> params = new HashMap<String, String>();
-                    //  tipoidd=tipoid;
-                    params.put("nombre", nombre);
-                    params.put("tipoaplicativo", tipoidd);
-                    params.put("subirapk", apk);
-                    params.put("subirmanual", manual);
-                    return params;
+                        Map<String, String> params = new HashMap<String, String>();
+                      //  tipoidd=tipoid;
+                        params.put("nombre", nombre);
+                        params.put("tipoaplicativo", tipoidd);
+                        params.put("subirapk", apk);
+                        params.put("subirmanual", manual);
+                        return params;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(DatosAplicativo.this);
+                requestQueue.add(request);
+
+                if (tipoidd == null && bandera==1) {
+                    bandera++;
+                    BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo=" + tipo);
                 }
             };
             RequestQueue requestQueue = Volley.newRequestQueue(DatosAplicativo.this);
