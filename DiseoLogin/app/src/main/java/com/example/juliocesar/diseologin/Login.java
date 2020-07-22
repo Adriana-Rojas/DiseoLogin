@@ -18,10 +18,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,10 +40,7 @@ public class Login extends AppCompatActivity {
     EditText edtUsuario, edtPassword;
     Button btnLogin;
     String usuario,password,usuario1="incorrecto",password1="incorrecto";
-     String tipoid;
-    String test;
-
-
+    static String tipoid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +71,6 @@ public class Login extends AppCompatActivity {
                     password1=password;
                 }*/
                 if(!usuario1.isEmpty()&&!password1.isEmpty()){
-                    /*
-                    importante tiene que tener  el mismo wifiy ver en el cmd la direccion ipv4
-                    */
                     validarUsuario("http://192.168.1.112/proyecto/validar_usuario.php");
                 }
             }
@@ -121,14 +120,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-                   /* JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
-                    tipoid=jsonObject.get("id").getAsString();
-                    String j=tipoid;
-                    test = j.replaceAll("[\\[\\](){}]", "");
-                    String url="http://192.168.1.112/proyecto/buscar_id.php";*/
-
                     Intent intent = new Intent(getApplicationContext(),MenuUsuario.class);
                     startActivity(intent);
+                    JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                    tipoid=jsonObject.get("id").getAsString();
+                    tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
+                    String j=tipoid;
                 } else {
                     validarEvaluador("http://192.168.1.112/proyecto/validar_evaluador.php");
                 }

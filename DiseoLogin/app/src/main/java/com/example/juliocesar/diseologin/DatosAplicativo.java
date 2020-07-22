@@ -38,8 +38,24 @@ public class DatosAplicativo extends AppCompatActivity {
     private Spinner spProductos;
     Button btnSave;
     int bandera=1;
-    String tipoidd,usuario, nombre,apk,manual,tipo;
-    EditText edt_tipo,edt_nombre,edt_apk,edt_manual;
+    private String usuario;
+    String tipoidd, nombre,apk,manual,tipo;
+    EditText edt_nombre,edt_apk,edt_manual;
+    public DatosAplicativo() {
+    }
+
+    public DatosAplicativo(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,13 +118,10 @@ public class DatosAplicativo extends AppCompatActivity {
         tipo = spProductos.getSelectedItem().toString();
         BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
         Login login=new Login();
-        usuario="1";
+        usuario=login.tipoid;
         nombre = edt_nombre.getText().toString().trim();
         apk = edt_apk.getText().toString().trim();
         manual = edt_manual.getText().toString().trim();
-
-
-
 
         if(nombre.isEmpty()){
             Toast.makeText(this, "Enter Nombre", Toast.LENGTH_SHORT).show();
@@ -124,24 +137,20 @@ public class DatosAplicativo extends AppCompatActivity {
         }
 
         else {
-
-
-
             StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertardatosaplicacion.php",
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-                            Toast.makeText(DatosAplicativo.this, "Aplicativo Guardado", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MenuUsuario.class));
-                            finish();
+                        Toast.makeText(DatosAplicativo.this, "Aplicativo Guardado", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), MenuUsuario.class));
+                        finish();
 
-                        }
-                    }, new Response.ErrorListener() {
+                    }
+                }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     // Toast.makeText(DatosAplicativo.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
                 }
             }
             ) {
@@ -149,7 +158,6 @@ public class DatosAplicativo extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
 
                     Map<String, String> params = new HashMap<String, String>();
-                    //  tipoidd=tipoid;
                     params.put("usuario", usuario);
                     params.put("nombre", nombre);
                     params.put("tipoaplicativo", tipoidd);
@@ -165,8 +173,6 @@ public class DatosAplicativo extends AppCompatActivity {
                 bandera++;
                 BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo=" + tipo);
             }
-
-
         }
     }
 
