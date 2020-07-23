@@ -1,39 +1,28 @@
 package com.example.juliocesar.diseologin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Gravity;
 import android.view.View;
-import android.view.textclassifier.TextLinks;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Login extends AppCompatActivity {
 
@@ -125,7 +114,6 @@ public class Login extends AppCompatActivity {
                     JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
                     tipoid=jsonObject.get("id").getAsString();
                     tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
-                    String j=tipoid;
                 } else {
                     validarEvaluador("http://192.168.1.112/proyecto/validar_evaluador.php");
                 }
@@ -154,6 +142,9 @@ public class Login extends AppCompatActivity {
                 if (!response.isEmpty()){
                     Intent intent = new Intent(getApplicationContext(),MenuEvaluador.class);
                     startActivity(intent);
+                    JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                    tipoid=jsonObject.get("id").getAsString();
+                    tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
                 } else {
                     validarAdministrador("http://192.168.1.112/proyecto/validar_administrador.php");
                 }
@@ -182,6 +173,9 @@ public class Login extends AppCompatActivity {
                 if (!response.isEmpty()){
                     Intent intent = new Intent(getApplicationContext(),MenuAdmin.class);
                     startActivity(intent);
+                    JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                    tipoid=jsonObject.get("id").getAsString();
+                    tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
                 } else {
                     /// no me quiere funcionar el mensaje
                     Toast.makeText(Login.this, "Usuario o Contraseña incorecto", Toast.LENGTH_LONG).show();

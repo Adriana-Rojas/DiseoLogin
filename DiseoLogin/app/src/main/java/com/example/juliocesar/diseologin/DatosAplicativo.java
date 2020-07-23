@@ -1,6 +1,5 @@
 package com.example.juliocesar.diseologin;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.loopj.android.http.*;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,31 +40,14 @@ public class DatosAplicativo extends AppCompatActivity {
     private String usuario;
     String tipoidd, nombre,apk,manual,tipo;
     EditText edt_nombre,edt_apk,edt_manual;
-    public DatosAplicativo() {
-    }
-
-    public DatosAplicativo(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_aplicativo);
-
         cliente=new AsyncHttpClient();
         spProductos=(Spinner) findViewById(R.id.spinner);
         llenarSpinner();
-
-
         edt_nombre = (EditText)findViewById(R.id.edt_nombre);
         edt_apk = (EditText)findViewById(R.id.edt_apk);
         edt_manual = (EditText)findViewById(R.id.edt_manual);
