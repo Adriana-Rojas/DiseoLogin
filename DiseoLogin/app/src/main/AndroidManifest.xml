@@ -14,7 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Eficiencia"></activity>
+        <activity android:name=".Resultado"></activity>
+        <activity android:name=".Carga_Cognitiva" />
+        <activity android:name=".Universabilidad" />
+        <activity android:name=".Seguridad" />
+        <activity android:name=".Satisfaccion" />
+        <activity android:name=".Productividad" />
+        <activity android:name=".Memorabilidad" />
+        <activity android:name=".Eficacia" />
+        <activity android:name=".Eficiencia" />
         <activity android:name=".DatosAplicativo" />
         <activity
             android:name=".EditUsuario"

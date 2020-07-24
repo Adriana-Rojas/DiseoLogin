@@ -7,19 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Eficiencia extends AppCompatActivity {
+public class Universabilidad extends AppCompatActivity {
+
     Button siguiente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eficiencia);
-        siguiente = findViewById(R.id.eficiencia);
+        setContentView(R.layout.activity_universabilidad);
+        siguiente = findViewById(R.id.universabilidad);
 
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Eficiencia.this, Eficacia.class));
+                startActivity(new Intent(Universabilidad.this, Carga_Cognitiva.class));
                 finish();
             }
         });
