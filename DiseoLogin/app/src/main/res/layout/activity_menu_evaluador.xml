@@ -19,11 +19,14 @@
         android:gravity="center"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="283dp"
-            android:layout_height="187dp"
-            android:layout_marginBottom="50dp"
-            android:src="@drawable/evaluador" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="359dp"
+            android:layout_height="275dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="evaluador.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +47,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/btn_fondo_color"
-            android:text="evaluar aplicacio EVALUADOR"
+            android:text="evaluar aplicacion "
             android:textColor="#fff"
             android:textSize="16sp"
             android:elevation="5dp"/>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".Eficiencia">
 
     <ImageView
         android:layout_width="match_parent"
@@ -15,123 +15,297 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_height="match_parent">
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="283dp"
-            android:layout_height="187dp"
-            android:src="@drawable/evaluador"
-            android:layout_marginBottom="50dp"
-            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="324dp"
+            android:layout_height="227dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="asignar.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/prp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Eficiencia"
+            android:textAlignment="textStart"
+            android:textColor="#009688"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:scrollbars="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
+                android:id="@+id/pr1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="cursive"
-                android:text="EFICACIA   "
-                android:textAllCaps="true"
-                android:textColor="#fff"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="0.5dp"
+                android:layout_marginBottom="42dp"
+                android:layout_toStartOf="@+id/spinner1"
+                android:text="Tiempo inicio  "
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
             <TextView
+                android:id="@+id/pr2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr1"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="-29dp"
+                android:layout_marginEnd="0.2dp"
+                android:layout_toStartOf="@+id/spinner2"
+                android:text="Tarda en completar la operación seleccionada"
+                android:textAlignment="viewStart"
+                android:textColor="#054E47"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
                 android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:text="número de tareas completadas   "
-                android:textColor="#fff"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-29dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#054E47"
+                android:textColorHint="#054E47" />
 
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
-        </LinearLayout>
-        <Switch
-            android:id="@+id/aa"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr3"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#054E47"
+                android:textColorHint="#054E47" />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr4"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
+
+            <Spinner
+                android:id="@+id/spinner6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr5"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#054E47"
+                android:textColorHint="#000000" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:text="número total de tareas intentadas   "
-                android:textColor="#fff"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
-
-        <Switch
-            android:id="@+id/switch11"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:layout_height="wrap_content">
+                android:id="@+id/pr3"
+                android:layout_width="255dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr2"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/spinner3"
+                android:text="Consumo de memoria en la ejecución"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/pr4"
                 android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:text="¿Cuánto tiempo lleva completar una tarea?   "
-                android:textColor="#fff"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr3"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/spinner4"
+                android:text="El consumo de CPU en la ejecución de una tarea"
+                android:textAlignment="viewStart"
+                android:textColor="#054E47"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pr5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr4"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/spinner5"
+                android:text="Consumo de energía en la ejecución de una tarea"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pr6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr5"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/spinner6"
+                android:text="Pensé que el sistema era fácil de usar"
+                android:textAlignment="viewStart"
+                android:textColor="#054E47"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pr7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr6"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="1dp"
+                android:layout_toStartOf="@+id/spinner7"
+                android:text="Costo total de costo de equipo y recursos humanos "
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pr6"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/aves"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="" />
-
-
-
+    </ScrollView>
         <Button
+            android:id="@+id/eficiencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:id="@+id/crear_cuenta"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/btn_fondo_color"
-            android:text="Siguiente"
+            android:text="siguiente"
             android:textColor="#fff"
             android:textSize="16sp"
             android:elevation="5dp"/>
-
-
-
 
     </LinearLayout>
 

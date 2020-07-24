@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Eficiencia"></activity>
         <activity android:name=".DatosAplicativo" />
         <activity
             android:name=".EditUsuario"
@@ -23,7 +24,6 @@
             android:name=".AddUsuario"
             android:label="@string/title_activity_add_blog"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Eficiencia" />
         <activity android:name=".MenuUsuario" />
         <activity android:name=".MenuEvaluador" />
         <activity android:name=".ListarAplicaciones" />
