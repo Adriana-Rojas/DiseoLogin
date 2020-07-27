@@ -27,18 +27,7 @@
             app:lottie_fileName="evaluador.json"
             app:lottie_imageAssetsFolder="assets"
             app:lottie_loop="true" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:id="@+id/listaraplicacion"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_fondo_color"
-            android:text="listar aplicacion"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:elevation="5dp"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

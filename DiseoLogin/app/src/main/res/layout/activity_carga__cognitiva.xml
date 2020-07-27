@@ -226,6 +226,7 @@
                     android:textColor="#054E47"
                     android:textSize="20sp" />
 
+
                 <TextView
                     android:id="@+id/pr5"
                     android:layout_width="wrap_content"
@@ -235,32 +236,17 @@
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
-                    android:layout_toStartOf="@+id/spinner5"
-                    android:text="Se trata de una tarea fácil o difícil, lenta o rápida, relajada o cansada"
+                    android:layout_toStartOf="@+id/spinner6"
+                    android:text="¿Cuánta presión de tiempo sintió, debido al ritmo al cual se sucedían las tareas o los elementos de la tarea?"
                     android:textAlignment="viewStart"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/pr6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="241dp"
+                    android:layout_height="104dp"
                     android:layout_below="@+id/pr5"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_toStartOf="@+id/spinner6"
-                    android:text="¿Cuánta presión de tiempo sintió, debido al ritmo al cual se sucedían las tareas o los elementos de la tarea?"
-                    android:textAlignment="viewStart"
-                    android:textColor="#054E47"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/pr7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr6"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"
@@ -268,27 +254,10 @@
                     android:layout_toStartOf="@+id/spinner7"
                     android:text="Durante la tarea, en qué medida se ha sentido inseguro(a), desalentado(a), irritado (a), tensó(a), o preocupad(a), o, por el contrario, se ha sentido segur(a), contento (a), relajado(a), ¿y satisfecho (a)?"
                     android:textAlignment="viewStart"
-                    android:textColor="#000000"
+                    android:textColor="#054E47"
                     android:textSize="20sp" />
 
-                <Spinner
-                    android:id="@+id/spinner7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr6"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="41dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginRight="20dp"
-                    android:entries="@array/aves"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="10dp"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000" />
+
 
 
             </RelativeLayout>

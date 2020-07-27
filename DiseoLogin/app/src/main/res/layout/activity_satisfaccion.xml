@@ -474,7 +474,7 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner4"
-                    android:text="¿Iconos que facilitan el manejo y la comprensión?"
+                    android:text="la información que proporciona el aplicativo fue efectiva ayudando a completar la tarea"
                     android:textAlignment="viewStart"
                     android:textColor="#054E47"
                     android:textSize="20sp" />
