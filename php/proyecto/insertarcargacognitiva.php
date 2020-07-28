@@ -7,6 +7,9 @@ $dificultad_tarea=$_POST['dificultad_tarea'];
 $actividad_fisica=$_POST['actividad_fisica'];
 $exigencia=$_POST['exigencia'];
 $inseguro=$_POST['inseguro'];
+//
+$calculocarga="1";
+//
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
 // Check connection
@@ -17,10 +20,19 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO usosimultaneo(multitareas, actividad_mental, dificultad_tarea, actividad_fisica, exigencia, inseguro) 
 VALUES ('$multitareas', '$actividad_mental', '$dificultad_tarea', '$actividad_fisica', '$exigencia', '$inseguro')";
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idusosimultaneo= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
+}
+$sql2 = "INSERT INTO cargacognitiva(usosimultaneo, calculocarga)
+ VALUES ('$idusosimultaneo', '$calculocarga')";
+if(mysqli_query($conn, $sql2)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idcargacognitiva= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 
 

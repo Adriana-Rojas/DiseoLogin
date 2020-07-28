@@ -16,6 +16,11 @@ $calculoreusabilidad=$_POST['calculoreusabilidad'];
 
 $calculoescalabilidad=$_POST['calculoescalabilidad'];
 
+//
+$calcularcumplimientotarea="1";
+$calculoderelevancia="1";
+//
+
 
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
@@ -27,47 +32,69 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO terminaciontarea(tareascompletadas, totaltareas, calculoterminaciontarea) 
 VALUES ('$tareascompletadas', '$totaltareas', '$calculoterminaciontarea')";
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idterminaciontarea= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 $sql2 = "INSERT INTO efectividadtarea(calculoefectividad, numerofaltas) 
 VALUES ('$calculoefectividad', '$numerofaltas')";
-if ($conn->query($sql2) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql2)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idefectividadtarea= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 $sql3 = "INSERT INTO tiempotarea(calculotiempo) 
 VALUES ('$calculotiempo')";
-if ($conn->query($sql3) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql3 . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql3)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idtiempotarea= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 $sql4 = "INSERT INTO extensibilidad(calculoextensibilidad) 
 VALUES ('$calculoextensibilidad')";
-if ($conn->query($sql4) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql4 . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql4)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idextensibilidad= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 $sql5 = "INSERT INTO reusabilidad(calculoreusabilidad) 
 VALUES ('$calculoreusabilidad')";
-if ($conn->query($sql5) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql5 . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql5)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idreusabilidad= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 $sql6 = "INSERT INTO escalabilidad(calculoescalabilidad) 
 VALUES ('$calculoescalabilidad')";
-
-if ($conn->query($sql6) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sq6l . "<br>" . $conn->error;
+if(mysqli_query($conn, $sql6)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idescalabilidad= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
 }
 
+$sql7 = "INSERT INTO cumplimientotarea(efectividadtarea, tiempocompletar, calcularcumplimientotarea) 
+VALUES ('$idefectividadtarea', '$idtiempotarea', '$calcularcumplimientotarea')";
+if(mysqli_query($conn, $sql7)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $idcumplimientotarea= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
+}
+
+$sql8 = "INSERT INTO eficacia(terminaciontareas, cumpliminentotarea, calculoderelevancia, extensibilidad, reusabilidad, escalabilidad)
+VALUES ('$idterminaciontarea', '$idcumplimientotarea', '$calculoderelevancia', '$idextensibilidad', '$idreusabilidad', '$idescalabilidad')";
+if(mysqli_query($conn, $sql8)){
+  echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
+  $ideficacia= mysqli_insert_id($conn);
+}else{
+  echo "No se inserto el registro correctamente.";
+}
 $conn->close();
 ?>

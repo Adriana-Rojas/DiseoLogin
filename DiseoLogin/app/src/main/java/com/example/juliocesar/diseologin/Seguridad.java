@@ -25,7 +25,7 @@ public class Seguridad extends AppCompatActivity {
     private Spinner  seguridad,playstore,numeroserrores,tiempotarea,mensajes,prevencion,
             redundancia,enlaces;
 
-    String   sseguridad,splaystore,scalculofrecuenciaerrores,snumeroserrores,stiempotarea,sfrecuenciaerrores,smensajes,sprevencion,
+    String   sseguridad,splaystore,scalculofrecuenciaerrores,snumeroserrores,stiempotarea,smensajes,sprevencion,
             sredundancia,senlaces;
 
     @Override
@@ -56,7 +56,6 @@ public class Seguridad extends AppCompatActivity {
         snumeroserrores=numeroserrores.getSelectedItem().toString();
         stiempotarea=tiempotarea.getSelectedItem().toString();
         scalculofrecuenciaerrores=Integer.toString(Integer.parseInt(snumeroserrores)/Integer.parseInt(stiempotarea));
-        sfrecuenciaerrores="1";// ojo aca es la id de la tabla frecuencia error
         smensajes=mensajes.getSelectedItem().toString();
         sprevencion=prevencion.getSelectedItem().toString();
         sredundancia=redundancia.getSelectedItem().toString();
@@ -90,7 +89,6 @@ public class Seguridad extends AppCompatActivity {
                 params.put("numeroserrores", snumeroserrores);
                 params.put("tiempotarea", stiempotarea);
                 params.put("calculofrecuenciaerrores", scalculofrecuenciaerrores);
-                params.put("frecuenciaerrores", sfrecuenciaerrores);
                 params.put("mensajes", smensajes);
                 params.put("prevencion", sprevencion);
                 params.put("redundancia", sredundancia);

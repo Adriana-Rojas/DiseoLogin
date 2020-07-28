@@ -71,7 +71,8 @@ public class Satisfaccion extends AppCompatActivity {
         sbusqueda=busqueda.getSelectedItem().toString();
         svideos=videos.getSelectedItem().toString();
         srecomendacion=recomendacion.getSelectedItem().toString();
-        Integer sumatoria=Integer.parseInt(sestetica_general+scomodidad_visual+sinformacion+siconos+seleccion+sbusqueda+svideos+srecomendacion);
+       // Integer sumatoria=Integer.parseInt(sestetica_general+scomodidad_visual+sinformacion+siconos+seleccion+sbusqueda+svideos+srecomendacion);
+        Integer sumatoria=10;// ojo falta la suma me lanzo error
         scalculo_satisfaccion=Integer.toString(sumatoria/2);
         sefectividad=efectividad.getSelectedItem().toString();
         sorganizacion=organizacion.getSelectedItem().toString();
