@@ -17,8 +17,8 @@ $calculoreusabilidad=$_POST['calculoreusabilidad'];
 $calculoescalabilidad=$_POST['calculoescalabilidad'];
 
 //
-$calcularcumplimientotarea="1";
-$calculoderelevancia="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
+
 //
 
 
@@ -79,8 +79,8 @@ if(mysqli_query($conn, $sql6)){
   echo "No se inserto el registro correctamente.";
 }
 
-$sql7 = "INSERT INTO cumplimientotarea(efectividadtarea, tiempocompletar, calcularcumplimientotarea) 
-VALUES ('$idefectividadtarea', '$idtiempotarea', '$calcularcumplimientotarea')";
+$sql7 = "INSERT INTO cumplimientotarea(efectividadtarea, tiempocompletar) 
+VALUES ('$idefectividadtarea', '$idtiempotarea')";
 if(mysqli_query($conn, $sql7)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idcumplimientotarea= mysqli_insert_id($conn);

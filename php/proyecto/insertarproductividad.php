@@ -2,7 +2,7 @@
 include 'conexion.php';
 
 $productividad_inexperto=$_POST['productividad_inexperto'];
-$calculorelevancia="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
@@ -20,8 +20,8 @@ if(mysqli_query($conn, $sql)){
 }else{
   echo "No se inserto el registro correctamente.";
 }
-$sql2 = "INSERT INTO productividad(salidausuario, calculorelevancia) 
-VALUES ('$idsalidausuario', '$calculorelevancia')";
+$sql2 = "INSERT INTO productividad(salidausuario, calculoderelevancia) 
+VALUES ('$idsalidausuario', '$calculoderelevancia')";
 if(mysqli_query($conn, $sql2)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idproductividad= mysqli_insert_id($conn);

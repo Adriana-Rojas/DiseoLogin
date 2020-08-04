@@ -8,7 +8,7 @@ $contraste=$_POST['contraste'];
 $idioma=$_POST['idioma'];
 $uso=$_POST['uso'];
 //
-$calculocarga="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 //
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
@@ -34,8 +34,8 @@ if(mysqli_query($conn, $sql3)){
 }else{
   echo "No se inserto el registro correctamente.";
 }
-$sql4 = "INSERT INTO universabilidad(accesibilidad, fidelidad, calculocarga)
- VALUES ('$idaccesibilidad', '$idfidelidad', '$calculocarga')";
+$sql4 = "INSERT INTO universabilidad(accesibilidad, fidelidad, calculoderelevancia)
+ VALUES ('$idaccesibilidad', '$idfidelidad', '$calculoderelevancia')";
 if(mysqli_query($conn, $sql4)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $iduniversabilidad= mysqli_insert_id($conn);

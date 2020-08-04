@@ -2,7 +2,7 @@
 
 include 'conexion.php';
 	$id = $_POST["id"];
-	//$id ="2";
+	//$id ="4";
 	$result = array();
 	$result['evaluador'] = array();
 	$select= "SELECT * FROM registrardatosaplicativo r, asignarresportes a WHERE r.id = a.listaaplicaciones AND a.evaluador = '$id' ";
@@ -16,13 +16,11 @@ include 'conexion.php';
 			$index['tipoaplicativo'] = $row['3'];
 			$index['subirapk'] = $row['4'];
 			$index['subirmanual']      = $row['5'];
-			$index['evaluador']   = $row['6'];
-			$index['listaaplicaciones'] = $row['7'];
-			$index['administrador'] = $row['8'];
+			$index['evaluador']   = $row['7'];
+			$index['listaaplicaciones'] = $row['8'];
 			
 			array_push($result['evaluador'], $index);
-		}
-			
+		}			
 			$result["success"]="1";
 			echo json_encode($result);
 			mysqli_close($conexion);

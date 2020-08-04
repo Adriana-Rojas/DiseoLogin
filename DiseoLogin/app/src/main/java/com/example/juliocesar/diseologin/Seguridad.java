@@ -17,6 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,8 +29,9 @@ public class Seguridad extends AppCompatActivity {
     private Spinner  seguridad,playstore,numeroserrores,tiempotarea,mensajes,prevencion,
             redundancia,enlaces;
 
+    static String  seguridads,playstores,calculofrecuenciaerroress,mensajess,prevencions,redundancias,enlacess,sumaTotals;
     String   sseguridad,splaystore,scalculofrecuenciaerrores,snumeroserrores,stiempotarea,smensajes,sprevencion,
-            sredundancia,senlaces;
+            sredundancia,senlaces,scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class Seguridad extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertData();
+                relevancia();
             }
         });
     }
@@ -61,8 +66,16 @@ public class Seguridad extends AppCompatActivity {
         sredundancia=redundancia.getSelectedItem().toString();
         senlaces=enlaces.getSelectedItem().toString();
 
-       /* Login login=new Login();
-        idadministrador=login.tipoid;*/
+        String a=Float.toString((Float.parseFloat(seguridads)/Float.parseFloat(sumaTotals))*Float.parseFloat(sseguridad));
+        String b=Float.toString((Float.parseFloat(playstores)/Float.parseFloat(sumaTotals))*Float.parseFloat(splaystore));
+        String c=Float.toString((Float.parseFloat(calculofrecuenciaerroress)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculofrecuenciaerrores));
+        String d=Float.toString((Float.parseFloat(mensajess)/Float.parseFloat(sumaTotals))*Float.parseFloat(smensajes));
+        String e=Float.toString((Float.parseFloat(prevencions)/Float.parseFloat(sumaTotals))*Float.parseFloat(sprevencion));
+        String f=Float.toString((Float.parseFloat(redundancias)/Float.parseFloat(sumaTotals))*Float.parseFloat(sredundancia));
+        String g=Float.toString((Float.parseFloat(enlacess)/Float.parseFloat(sumaTotals))*Float.parseFloat(senlaces));
+        String h=Float.toString((Float.parseFloat(redundancias)/Float.parseFloat(sumaTotals))*Float.parseFloat(sredundancia));
+        scalculoderelevancia=Float.toString(Float.parseFloat(a)+Float.parseFloat(b)+Float.parseFloat(c)+Float.parseFloat(d)+Float.parseFloat(e)+Float.parseFloat(f));
+
 
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarseguridad.php",
                 new Response.Listener<String>() {
@@ -93,6 +106,7 @@ public class Seguridad extends AppCompatActivity {
                 params.put("prevencion", sprevencion);
                 params.put("redundancia", sredundancia);
                 params.put("enlaces", senlaces);
+                params.put("calculoderelevancia", scalculoderelevancia);
 
                 return params;
             }
@@ -100,7 +114,70 @@ public class Seguridad extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(Seguridad.this);
         requestQueue.add(request);
     }
+    private void relevancia() {
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/buscarrelevancia.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try{
+
+                            JSONObject jsonObject = new JSONObject(response);
+                            String sucess = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("relevancia");
+
+                            if(sucess.equals("1")){
+
+                                for(int i=0;i<jsonArray.length();i++){
+
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String  seguridad= object.getString("seguridad");
+                                    seguridads=seguridad;
+                                    String  playstore= object.getString("playstore");
+                                    playstores=playstore;
+                                    String  calculofrecuenciaerrores= object.getString("calculofrecuenciaerrores");
+                                    calculofrecuenciaerroress=calculofrecuenciaerrores;
+                                    String  mensajes= object.getString("mensajes");
+                                    mensajess=mensajes;
+                                    String  prevencion= object.getString("prevencion");
+                                    prevencions=prevencion;
+                                    String  redundancia= object.getString("redundancia");
+                                    redundancias=redundancia;
+                                    String  enlaces= object.getString("enlaces");
+                                    enlacess=enlaces;
+                                    String sumaTotal= object.getString("sumaTotal");
+                                    sumaTotals=sumaTotal;
+                                    insertData();
+
+                                }
+                            }
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Seguridad.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params = new HashMap<String,String>();
+
+                //   params.put("id",id);
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

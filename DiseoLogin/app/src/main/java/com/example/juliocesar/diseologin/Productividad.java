@@ -17,14 +17,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Productividad extends AppCompatActivity {
     Button siguiente;
     private Spinner  productividad_inexperto;
-
-    String   sproductividad_inexperto;
+    static String   productividad_inexpertos,sumaTotals;
+    String   sproductividad_inexperto,scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class Productividad extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertData();
+                relevancia();
             }
         });
     }
@@ -45,8 +49,9 @@ public class Productividad extends AppCompatActivity {
     private void insertData() {
         sproductividad_inexperto=productividad_inexperto.getSelectedItem().toString();
 
-       /* Login login=new Login();
-        idadministrador=login.tipoid;*/
+        String a=Float.toString((Float.parseFloat(productividad_inexpertos)/Float.parseFloat(sumaTotals))*Float.parseFloat(sproductividad_inexperto));
+        scalculoderelevancia=Float.toString(Float.parseFloat(a));
+
 
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertarproductividad.php",
                 new Response.Listener<String>() {
@@ -69,6 +74,8 @@ public class Productividad extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
                 params.put("productividad_inexperto", sproductividad_inexperto);
+                params.put("calculoderelevancia", scalculoderelevancia);
+
 
                 return params;
             }
@@ -76,7 +83,58 @@ public class Productividad extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(Productividad.this);
         requestQueue.add(request);
     }
+    private void relevancia() {
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/buscarrelevancia.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try{
+
+                            JSONObject jsonObject = new JSONObject(response);
+                            String sucess = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("relevancia");
+
+                            if(sucess.equals("1")){
+
+                                for(int i=0;i<jsonArray.length();i++){
+
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String  productividad_inexperto= object.getString("productividad_inexperto");
+                                    productividad_inexpertos=productividad_inexperto;
+                                    String sumaTotal= object.getString("sumaTotal");
+                                    sumaTotals=sumaTotal;
+                                    insertData();
+
+                                }
+                            }
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Productividad.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params = new HashMap<String,String>();
+
+                //   params.put("id",id);
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

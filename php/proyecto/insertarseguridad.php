@@ -23,7 +23,7 @@ $redundancia="7";
 $enlaces="7";
 */
 //
-$calculoderelevancia="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 //
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);

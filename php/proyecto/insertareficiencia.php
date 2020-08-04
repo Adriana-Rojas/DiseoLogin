@@ -17,10 +17,9 @@ $canticonsumida=$_POST['canticonsumida'];
 $consumomedbateria=$_POST['consumomedbateria'];
 $calculobateria=$_POST['calculobateria'];
 $esfuerzo=$_POST['esfuerzo'];
-$completartarea=$_POST['completartarea'];
-$calculoesfuerzo=$_POST['calculoesfuerzo'];
 $efectividadrelativatarea=$_POST['efectividadrelativatarea'];
 $costototal=$_POST['costototal'];
+$calculocostoeconomico=$_POST['calculocostoeconomico'];
 /*
 $tiempoinicio="2";
 $tiemporespuesta="2";
@@ -44,7 +43,7 @@ $efectividadrelativatarea="2";
 $costototal="2";*/
 //
 $calculorecursos="1";
-$calculoderelevancia="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 //
 
 // Create connection
@@ -90,16 +89,16 @@ if(mysqli_query($conn, $sql4)){
   echo "No se inserto el registro correctamente.";
 }
 
-$sql5 = "INSERT INTO esfuerzo(esfuerzo, completartarea, calculoesfuerzo) 
-VALUES ( '$esfuerzo', '$completartarea', '$calculoesfuerzo')";
+$sql5 = "INSERT INTO esfuerzo(esfuerzo) 
+VALUES ( '$esfuerzo')";
 if(mysqli_query($conn, $sql5)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idesfuerzo= mysqli_insert_id($conn);
 }else{
   echo "No se inserto el registro correctamente.";
 }
-$sql6 = "INSERT INTO costoeconomico( efectividadrelativatarea, costototal) 
-VALUES ('$efectividadrelativatarea', '$costototal')";
+$sql6 = "INSERT INTO costoeconomico( efectividadrelativatarea, costototal, calculocostoeconomico) 
+VALUES ('$efectividadrelativatarea', '$costototal','$calculocostoeconomico')";
 if(mysqli_query($conn, $sql6)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idcostoeconomico= mysqli_insert_id($conn);

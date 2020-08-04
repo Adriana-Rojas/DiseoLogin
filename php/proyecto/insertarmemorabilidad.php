@@ -6,7 +6,7 @@ $dificultad=$_POST['dificultad'];
 $aprendizaje=$_POST['aprendizaje'];
 $facilidad=$_POST['facilidad'];
 //
-$calculorelevancia="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 //
 
 // Create connection
@@ -24,8 +24,8 @@ if(mysqli_query($conn, $sql)){
 }else{
   echo "No se inserto el registro correctamente.";
 }
-$sql2 = "INSERT INTO memorabilidad(comprensibilidad,calculorelevancia) 
-VALUES ('$idcomprensibilidad','$calculorelevancia')";
+$sql2 = "INSERT INTO memorabilidad(comprensibilidad,calculoderelevancia) 
+VALUES ('$idcomprensibilidad','$calculoderelevancia')";
 if(mysqli_query($conn, $sql2)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idmemorabilidad= mysqli_insert_id($conn);

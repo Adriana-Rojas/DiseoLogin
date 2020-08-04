@@ -87,6 +87,7 @@ public class Memorabilidad extends AppCompatActivity {
                 params.put("dificultad", sdificultad);
                 params.put("aprendizaje", saprendizaje);
                 params.put("facilidad", sfacilidad);
+                params.put("calculoderelevancia", scalculoderelevancia);
 
                 return params;
             }

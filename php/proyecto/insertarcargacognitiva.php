@@ -8,7 +8,7 @@ $actividad_fisica=$_POST['actividad_fisica'];
 $exigencia=$_POST['exigencia'];
 $inseguro=$_POST['inseguro'];
 //
-$calculocarga="1";
+$calculoderelevancia=$_POST['calculoderelevancia'];
 //
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
@@ -26,8 +26,8 @@ if(mysqli_query($conn, $sql)){
 }else{
   echo "No se inserto el registro correctamente.";
 }
-$sql2 = "INSERT INTO cargacognitiva(usosimultaneo, calculocarga)
- VALUES ('$idusosimultaneo', '$calculocarga')";
+$sql2 = "INSERT INTO cargacognitiva(usosimultaneo, calculoderelevancia)
+ VALUES ('$idusosimultaneo', '$calculoderelevancia')";
 if(mysqli_query($conn, $sql2)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idcargacognitiva= mysqli_insert_id($conn);

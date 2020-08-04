@@ -141,7 +141,7 @@ public class Relevancia extends AppCompatActivity {
                                     String longitud= object.getString("longitud");
                                     longituds=longitud;
                                     String texto= object.getString("texto");
-                                    textos=texto;
+                                    textos=texto;//////////////////////////////////////////////////////////////////////////
                                     String  seguridad= object.getString("seguridad");
                                     seguridads=seguridad;
                                     String  playstore= object.getString("playstore");
@@ -155,7 +155,7 @@ public class Relevancia extends AppCompatActivity {
                                     String  redundancia= object.getString("redundancia");
                                     redundancias=redundancia;
                                     String  enlaces= object.getString("enlaces");
-                                    enlacess=enlaces;
+                                    enlacess=enlaces;//////////////////////////////////////////////////////////
                                     String resolucion= object.getString("resolucion");
                                     resolucions=resolucion;
                                     String lenguaje_clarol= object.getString("lenguaje_clarol");
@@ -165,9 +165,9 @@ public class Relevancia extends AppCompatActivity {
                                     String  contraste= object.getString("contraste");
                                     contrastes=contraste;
                                     String  idioma= object.getString("idioma");
-                                    idiomas=idioma;
+                                    idiomas=idioma;/////////////////////////////////////////////////////
                                     String  uso= object.getString("uso");
-                                    usos=uso;
+                                    usos=uso;///////////////////////////////////////////////////////
                                     String multitareas= object.getString("multitareas");
                                     multitareass=multitareas;
                                     String   actividad_mental= object.getString("actividad_mental");
