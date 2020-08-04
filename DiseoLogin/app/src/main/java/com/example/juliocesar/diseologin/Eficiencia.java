@@ -24,10 +24,10 @@ public class Eficiencia extends AppCompatActivity {
     Button siguiente;
     private Spinner  tiempoinicio,tiemporespuesta,numerodeevaluaciones,calculartiemporespuesta,consumoram,
             consumomedram,consumomaxram,calculoram,consumocpu,consumomedcpu,consumomaxcpu,calculocpu,canticonsumida,
-            consumomedbateria,calculobateria,esfuerzo,completartarea,calculoesfuerzo,efectividadrelativatarea,costototal;
+            consumomedbateria,calculobateria,esfuerzo,efectividadrelativatarea,costototal;
     String  stiempoinicio,stiemporespuesta,snumerodeevaluaciones,scalculartiemporespuesta,sconsumoram,
             sconsumomedram,sconsumomaxram,scalculoram,sconsumocpu,sconsumomedcpu,sconsumomaxcpu,scalculocpu,scanticonsumida,
-            sconsumomedbateria,scalculobateria,sesfuerzo,scompletartarea,scalculoesfuerzo,sefectividadrelativatarea,scostototal;
+            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +49,6 @@ public class Eficiencia extends AppCompatActivity {
         sconsumomedbateria="3";
         calculobateria=(Spinner) findViewById(R.id.spinner5);
         esfuerzo=(Spinner) findViewById(R.id.spinner6);
-        scompletartarea="3";
-        scalculoesfuerzo="3";
         sefectividadrelativatarea="3";
         costototal=(Spinner) findViewById(R.id.spinner7);
 
@@ -74,6 +72,7 @@ public class Eficiencia extends AppCompatActivity {
         scalculobateria= calculobateria.getSelectedItem().toString();
         sesfuerzo= esfuerzo.getSelectedItem().toString();
         scostototal= costototal.getSelectedItem().toString();
+        scalculocostoeconomico=Integer.toString((Integer.parseInt(sefectividadrelativatarea))/(Integer.parseInt(scostototal)));
 
        /* Login login=new Login();
         idadministrador=login.tipoid;*/
@@ -114,10 +113,9 @@ public class Eficiencia extends AppCompatActivity {
                 params.put("consumomedbateria", sconsumomedbateria);
                 params.put("calculobateria", scalculobateria);
                 params.put("esfuerzo", sesfuerzo);
-                params.put("completartarea", scompletartarea);
-                params.put("calculoesfuerzo", scalculoesfuerzo);
                 params.put("efectividadrelativatarea", sefectividadrelativatarea);
                 params.put("costototal", scostototal);
+                params.put("calculocostoeconomico", scalculocostoeconomico);
 
                 return params;
             }

@@ -1,13 +1,13 @@
 package com.example.juliocesar.diseologin;
 
 public class Employeepk {
-    private String id,usuario,nombre,tipoaplicativo,subirapk,subirmanual,evaluador,listaaplicaciones,administrador;
+    private String id,usuario,nombre,tipoaplicativo,subirapk,subirmanual,evaluador,listaaplicaciones;
 
 
     public Employeepk() {
     }
 
-    public Employeepk(String id, String usuario, String nombre, String tipoaplicativo, String subirapk, String subirmanual, String evaluador, String listaaplicaciones, String administrador) {
+    public Employeepk(String id, String usuario, String nombre, String tipoaplicativo, String subirapk, String subirmanual, String evaluador, String listaaplicaciones) {
         this.id = id;
         this.usuario = usuario;
         this.nombre = nombre;
@@ -16,7 +16,6 @@ public class Employeepk {
         this.subirmanual = subirmanual;
         this.evaluador = evaluador;
         this.listaaplicaciones = listaaplicaciones;
-        this.administrador = administrador;
     }
 
     public String getId() {
@@ -83,11 +82,4 @@ public class Employeepk {
         this.listaaplicaciones = listaaplicaciones;
     }
 
-    public String getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(String administrador) {
-        this.administrador = administrador;
-    }
 }

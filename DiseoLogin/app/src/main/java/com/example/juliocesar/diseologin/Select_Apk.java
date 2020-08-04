@@ -37,6 +37,7 @@ public class Select_Apk extends AppCompatActivity {
     public static ArrayList<Employeepk> employeeArrayList = new ArrayList<>();
     String url = "http://192.168.1.112/proyecto/retrieveevaluadorapk.php";
     Employeepk employeepk;
+    String idaplicacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class Select_Apk extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 ProgressDialog progressDialog = new ProgressDialog(view.getContext());
 
-                CharSequence[] dialogItem = {"Ver","Editar","Eliminar"};
+                CharSequence[] dialogItem = {"Evaluar","x","x"};
                 builder.setTitle(employeeArrayList.get(position).getNombre());
                 builder.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
@@ -63,8 +64,9 @@ public class Select_Apk extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-                                startActivity(new Intent(getApplicationContext(),Eficiencia.class)
+                                startActivity(new Intent(getApplicationContext(),Eficacia.class)//aca ba eficiencia
                                         .putExtra("position",position));
+
                                 break;
 
                             case 1:
@@ -148,10 +150,10 @@ public class Select_Apk extends AppCompatActivity {
                                     String subirmanual = object.getString("subirmanual");
                                     String evaluador = object.getString("evaluador");
                                     String listaaplicaciones = object.getString("listaaplicaciones");
-                                    String administrador = object.getString("administrador");
+                                    idaplicacion=listaaplicaciones;
 
 
-                                    employeepk = new Employeepk(id,usuario,nombre,tipoaplicativo,subirapk,subirmanual,evaluador,listaaplicaciones,administrador);
+                                    employeepk = new Employeepk(id,usuario,nombre,tipoaplicativo,subirapk,subirmanual,evaluador,listaaplicaciones);
                                     employeeArrayList.add(employeepk);
                                     adapterApk.notifyDataSetChanged();
                                 }

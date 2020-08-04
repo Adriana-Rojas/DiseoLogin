@@ -231,6 +231,7 @@
                     android:paddingBottom="10dp"
                     android:textColor="#000000"
                     android:textColorHint="#000000" />
+
                 <Spinner
                 android:id="@+id/spinner9"
                 android:layout_width="wrap_content"
@@ -286,23 +287,23 @@
                 android:textColor="#000000"
                 android:textColorHint="#000000" />
                 <Spinner
-                android:id="@+id/spinner12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pr11"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginRight="20dp"
-                android:entries="@array/aves"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000" />
+                    android:id="@+id/spinner12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr11"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
                 <Spinner
                     android:id="@+id/spinner13"
                     android:layout_width="wrap_content"
@@ -429,24 +430,6 @@
                     android:paddingBottom="10dp"
                     android:textColor="#000000"
                     android:textColorHint="#000000" />
-                <Spinner
-                    android:id="@+id/spinner20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr19"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="41dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginRight="20dp"
-                    android:entries="@array/aves"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="10dp"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000" />
 
 
                 <TextView
@@ -464,26 +447,12 @@
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
+
                 <TextView
                     android:id="@+id/pr9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pr8"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_toStartOf="@+id/spinner4"
-                    android:text="la información que proporciona el aplicativo fue efectiva ayudando a completar la tarea"
-                    android:textAlignment="viewStart"
-                    android:textColor="#054E47"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/pr10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr9"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"
@@ -495,10 +464,10 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/pr11"
+                    android:id="@+id/pr10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr10"
+                    android:layout_below="@+id/pr9"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"
@@ -510,10 +479,10 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/pr12"
+                    android:id="@+id/pr11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr11"
+                    android:layout_below="@+id/pr10"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"
@@ -600,6 +569,20 @@
                     android:textColor="#000000"
                     android:textSize="20sp" />
                 <TextView
+                    android:id="@+id/pr12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr11"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner7"
+                    android:text="El aplicativo tuvo todas las herramientas que esperaba que tuviera."
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+                <TextView
                     android:id="@+id/pr13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -609,9 +592,9 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="El aplicativo tuvo todas las herramientas que esperaba que tuviera."
+                    android:text="En general, estuve satisfecho con el aplicativo. "
                     android:textAlignment="viewStart"
-                    android:textColor="#054E47"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr14"
@@ -623,9 +606,9 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="En general, estuve satisfecho con el aplicativo. "
+                    android:text="Se emplea un lenguaje claro y conciso"
                     android:textAlignment="viewStart"
-                    android:textColor="#000000"
+                    android:textColor="#054E47"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr15"
@@ -637,9 +620,9 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="Se emplea un lenguaje claro y conciso"
+                    android:text="Se ha evitado la sobrecarga informativa"
                     android:textAlignment="viewStart"
-                    android:textColor="#054E47"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr16"
@@ -651,9 +634,9 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="Se ha evitado la sobrecarga informativa"
+                    android:text="Es una interfaz limpia, sin ruido visual."
                     android:textAlignment="viewStart"
-                    android:textColor="#000000"
+                    android:textColor="#054E47"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr17"
@@ -665,9 +648,9 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="Es una interfaz limpia, sin ruido visual."
+                    android:text="Uso correcto del espacio visual de la página"
                     android:textAlignment="viewStart"
-                    android:textColor="#054E47"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr18"
@@ -679,29 +662,15 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginEnd="1dp"
                     android:layout_toStartOf="@+id/spinner7"
-                    android:text="Uso correcto del espacio visual de la página"
+                    android:text="Se ha controlado la longitud de página"
                     android:textAlignment="viewStart"
-                    android:textColor="#000000"
+                    android:textColor="#054E47"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/pr19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pr18"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_toStartOf="@+id/spinner7"
-                    android:text="Se ha controlado la longitud de página"
-                    android:textAlignment="viewStart"
-                    android:textColor="#054E47"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/pr20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/pr19"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="11dp"

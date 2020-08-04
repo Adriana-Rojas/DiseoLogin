@@ -23,9 +23,9 @@ import java.util.Map;
 public class Satisfaccion extends AppCompatActivity {
 
     Button siguiente;
-    private Spinner estetica_general, comodidad_visual, informacion, iconos, eleccion, busqueda, videos, recomendacion,efectividad, organizacion, interfaz, gusto, herramientas, satisfaccion, lenguaje, sobrecarga, interfaz_limpia, espacio, longitud, texto;
+    private Spinner estetica_general, comodidad_visual, informacion, iconos, eleccion, busqueda, videos, recomendacion, organizacion, interfaz, gusto, herramientas, satisfaccion, lenguaje, sobrecarga, interfaz_limpia, espacio, longitud, texto;
 
-    String   sestetica_general, scomodidad_visual, sinformacion, siconos, seleccion, sbusqueda, svideos, srecomendacion, scalculo_satisfaccion, sefectividad, sorganizacion, sinterfaz, sgusto, sherramientas, ssatisfaccion, slenguaje, ssobrecarga, sinterfaz_limpia, sespacio, slongitud, stexto;
+    String   sestetica_general, scomodidad_visual, sinformacion, siconos, seleccion, sbusqueda, svideos, srecomendacion, scalculo_satisfaccion, sorganizacion, sinterfaz, sgusto, sherramientas, ssatisfaccion, slenguaje, ssobrecarga, sinterfaz_limpia, sespacio, slongitud, stexto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +41,17 @@ public class Satisfaccion extends AppCompatActivity {
         busqueda=(Spinner) findViewById(R.id.spinner6);
         videos=(Spinner) findViewById(R.id.spinner7);
         recomendacion=(Spinner) findViewById(R.id.spinner8);
-        efectividad=(Spinner) findViewById(R.id.spinner9);
-        organizacion=(Spinner) findViewById(R.id.spinner10);
-        interfaz=(Spinner) findViewById(R.id.spinner11);
-        gusto=(Spinner) findViewById(R.id.spinner12);
-        herramientas=(Spinner) findViewById(R.id.spinner13);
-        satisfaccion=(Spinner) findViewById(R.id.spinner14);
-        lenguaje=(Spinner) findViewById(R.id.spinner15);
-        sobrecarga=(Spinner) findViewById(R.id.spinner16);
-        interfaz_limpia=(Spinner) findViewById(R.id.spinner17);
-        espacio=(Spinner) findViewById(R.id.spinner18);
-        longitud=(Spinner) findViewById(R.id.spinner19);
-        texto=(Spinner) findViewById(R.id.spinner20);
+        organizacion=(Spinner) findViewById(R.id.spinner9);
+        interfaz=(Spinner) findViewById(R.id.spinner10);
+        gusto=(Spinner) findViewById(R.id.spinner11);
+        herramientas=(Spinner) findViewById(R.id.spinner12);
+        satisfaccion=(Spinner) findViewById(R.id.spinner13);
+        lenguaje=(Spinner) findViewById(R.id.spinner14);
+        sobrecarga=(Spinner) findViewById(R.id.spinner15);
+        interfaz_limpia=(Spinner) findViewById(R.id.spinner16);
+        espacio=(Spinner) findViewById(R.id.spinner17);
+        longitud=(Spinner) findViewById(R.id.spinner18);
+        texto=(Spinner) findViewById(R.id.spinner19);
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,10 +70,17 @@ public class Satisfaccion extends AppCompatActivity {
         sbusqueda=busqueda.getSelectedItem().toString();
         svideos=videos.getSelectedItem().toString();
         srecomendacion=recomendacion.getSelectedItem().toString();
-       // Integer sumatoria=Integer.parseInt(sestetica_general+scomodidad_visual+sinformacion+siconos+seleccion+sbusqueda+svideos+srecomendacion);
-        Integer sumatoria=10;// ojo falta la suma me lanzo error
-        scalculo_satisfaccion=Integer.toString(sumatoria/2);
-        sefectividad=efectividad.getSelectedItem().toString();
+      //  Integer a=Integer.parseInt(sestetica_general+scomodidad_visual+sinformacion+siconos+seleccion+sbusqueda+svideos+srecomendacion);
+        Integer a=Integer.parseInt(sestetica_general);
+        Integer b=Integer.parseInt(scomodidad_visual);
+        Integer c=Integer.parseInt(sinformacion);
+        Integer d=Integer.parseInt(siconos);
+        Integer e=Integer.parseInt(seleccion);
+        Integer f=Integer.parseInt(sbusqueda);
+        Integer g=Integer.parseInt(svideos);
+        Integer h=Integer.parseInt(srecomendacion);
+        Integer sumatoria=a+b+c+d+e+f+g+h;
+        scalculo_satisfaccion=Integer.toString(sumatoria/2);//dividido sobre la poblacion
         sorganizacion=organizacion.getSelectedItem().toString();
         sinterfaz=interfaz.getSelectedItem().toString();
         sgusto=gusto.getSelectedItem().toString();
@@ -119,7 +125,6 @@ public class Satisfaccion extends AppCompatActivity {
                 params.put("videos", svideos);
                 params.put("recomendacion", srecomendacion);
                 params.put("calculo_satisfaccion", scalculo_satisfaccion);
-                params.put("efectividad", sefectividad);
                 params.put("organizacion", sorganizacion);
                 params.put("interfaz", sinterfaz);
                 params.put("gusto", sgusto);
