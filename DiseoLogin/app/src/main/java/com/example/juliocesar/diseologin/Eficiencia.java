@@ -17,6 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +31,8 @@ public class Eficiencia extends AppCompatActivity {
             consumomedbateria,calculobateria,esfuerzo,efectividadrelativatarea,costototal;
     String  stiempoinicio,stiemporespuesta,snumerodeevaluaciones,scalculartiemporespuesta,sconsumoram,
             sconsumomedram,sconsumomaxram,scalculoram,sconsumocpu,sconsumomedcpu,sconsumomaxcpu,scalculocpu,scanticonsumida,
-            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico;
+            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico,scalculoderelevancia;
+    static String tiempoinicios,calculartiemporespuestas,calculorams,calculocpus,calculobaterias,esfuerzos,calculocostoeconomicos,sumaTotals;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,7 @@ public class Eficiencia extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertData();
+                relevancia();
             }
         });
 
@@ -74,8 +79,16 @@ public class Eficiencia extends AppCompatActivity {
         scostototal= costototal.getSelectedItem().toString();
         scalculocostoeconomico=Integer.toString((Integer.parseInt(sefectividadrelativatarea))/(Integer.parseInt(scostototal)));
 
-       /* Login login=new Login();
-        idadministrador=login.tipoid;*/
+        String a=Float.toString((Float.parseFloat(tiempoinicios)/Float.parseFloat(sumaTotals))*Float.parseFloat(stiempoinicio));
+        String b=Float.toString((Float.parseFloat(calculartiemporespuestas)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculartiemporespuesta));
+        String c=Float.toString((Float.parseFloat(calculorams)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculoram));
+        String d=Float.toString((Float.parseFloat(calculocpus)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculocpu));
+        String e=Float.toString((Float.parseFloat(calculobaterias)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculobateria));
+        String f=Float.toString((Float.parseFloat(esfuerzos)/Float.parseFloat(sumaTotals))*Float.parseFloat(sesfuerzo));
+        String g=Float.toString((Float.parseFloat(calculocostoeconomicos)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculocostoeconomico));
+        scalculoderelevancia=Float.toString(Float.parseFloat(a)+Float.parseFloat(b)+Float.parseFloat(c)+Float.parseFloat(d)+Float.parseFloat(e)+Float.parseFloat(f)+Float.parseFloat(g));
+
+
 
         StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertareficiencia.php",
                 new Response.Listener<String>() {
@@ -114,8 +127,10 @@ public class Eficiencia extends AppCompatActivity {
                 params.put("calculobateria", scalculobateria);
                 params.put("esfuerzo", sesfuerzo);
                 params.put("efectividadrelativatarea", sefectividadrelativatarea);
-                params.put("costototal", scostototal);
+                params.put("$costototal", scostototal);
                 params.put("calculocostoeconomico", scalculocostoeconomico);
+                params.put("calculoderelevancia", scalculoderelevancia);
+                params.put("calculoderelevancia", scalculoderelevancia);
 
                 return params;
             }
@@ -123,7 +138,70 @@ public class Eficiencia extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(Eficiencia.this);
         requestQueue.add(request);
     }
+    private void relevancia() {
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/buscarrelevancia.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try{
+
+                            JSONObject jsonObject = new JSONObject(response);
+                            String sucess = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("relevancia");
+
+                            if(sucess.equals("1")){
+
+                                for(int i=0;i<jsonArray.length();i++){
+
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String  tiempoinicio= object.getString("tiempoinicio");
+                                    tiempoinicios=tiempoinicio;
+                                    String  calculartiemporespuesta= object.getString("calculartiemporespuesta");
+                                    calculartiemporespuestas=calculartiemporespuesta;
+                                    String calculoram= object.getString("calculoram");
+                                    calculorams=calculoram;
+                                    String  calculocpu= object.getString("calculocpu");
+                                    calculocpus=calculocpu;
+                                    String  calculobateria= object.getString("calculobateria");
+                                    calculobaterias=calculobateria;
+                                    String  esfuerzo= object.getString("esfuerzo");
+                                    esfuerzos=esfuerzo;
+                                    String   calculocostoeconomico= object.getString("calculocostoeconomico");
+                                    calculocostoeconomicos=calculocostoeconomico;
+                                    String sumaTotal= object.getString("sumaTotal");
+                                    sumaTotals=sumaTotal;
+                                    insertData();
+
+                                }
+                            }
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Eficiencia.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params = new HashMap<String,String>();
+
+                //   params.put("id",id);
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

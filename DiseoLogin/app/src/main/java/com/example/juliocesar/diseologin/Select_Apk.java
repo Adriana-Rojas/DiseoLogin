@@ -64,7 +64,7 @@ public class Select_Apk extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-                                startActivity(new Intent(getApplicationContext(),Eficacia.class)//aca ba eficiencia
+                                startActivity(new Intent(getApplicationContext(),Eficiencia.class)
                                         .putExtra("position",position));
 
                                 break;

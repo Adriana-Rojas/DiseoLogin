@@ -31,7 +31,8 @@ public class Seguridad extends AppCompatActivity {
 
     static String  seguridads,playstores,calculofrecuenciaerroress,mensajess,prevencions,redundancias,enlacess,sumaTotals;
     String   sseguridad,splaystore,scalculofrecuenciaerrores,snumeroserrores,stiempotarea,smensajes,sprevencion,
-            sredundancia,senlaces,scalculoderelevancia;
+            sredundancia,senlaces;
+    static  String scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
