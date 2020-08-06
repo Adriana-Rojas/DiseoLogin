@@ -31,8 +31,8 @@ public class Eficiencia extends AppCompatActivity {
             consumomedbateria,calculobateria,esfuerzo,efectividadrelativatarea,costototal;
     String  stiempoinicio,stiemporespuesta,snumerodeevaluaciones,scalculartiemporespuesta,sconsumoram,
             sconsumomedram,sconsumomaxram,scalculoram,sconsumocpu,sconsumomedcpu,sconsumomaxcpu,scalculocpu,scanticonsumida,
-            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico,scalculoderelevancia;
-    static String tiempoinicios,calculartiemporespuestas,calculorams,calculocpus,calculobaterias,esfuerzos,calculocostoeconomicos,sumaTotals;
+            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico;
+    static String  idficiencia,tiempoinicios,calculartiemporespuestas,calculorams,calculocpus,calculobaterias,esfuerzos,calculocostoeconomicos,sumaTotals,scalculoderelevancia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +94,7 @@ public class Eficiencia extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idficiencia= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Eficiencia.this, "Eficiencia Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Eficacia.class));
                         finish();

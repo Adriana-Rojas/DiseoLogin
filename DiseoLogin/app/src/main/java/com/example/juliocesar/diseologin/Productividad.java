@@ -27,8 +27,8 @@ import java.util.Map;
 public class Productividad extends AppCompatActivity {
     Button siguiente;
     private Spinner  productividad_inexperto;
-    static String   productividad_inexpertos,sumaTotals;
-    String   sproductividad_inexperto,scalculoderelevancia;
+    static String  idproductividad, productividad_inexpertos,sumaTotals,scalculoderelevancia;
+    String   sproductividad_inexperto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class Productividad extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idproductividad= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Productividad.this, "Productividad Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Satisfaccion.class));
                         finish();

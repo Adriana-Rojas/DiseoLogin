@@ -42,7 +42,6 @@ $calculoesfuerzo="2";
 $efectividadrelativatarea="2";
 $costototal="2";*/
 //
-$calculorecursos="1";
 $calculoderelevancia=$_POST['calculoderelevancia'];
 //
 
@@ -106,8 +105,8 @@ if(mysqli_query($conn, $sql6)){
   echo "No se inserto el registro correctamente.";
 }
 
-$sql7 = "INSERT INTO recursos(tiemporespuesta, ram, cpu, bateria, calculorecursos)
-VALUES ('$idtiemporespuesta', '$idram', '$idcpu', '$idbateria', '$calculorecursos')";
+$sql7 = "INSERT INTO recursos(tiemporespuesta, ram, cpu, bateria)
+VALUES ('$idtiemporespuesta', '$idram', '$idcpu', '$idbateria')";
 if(mysqli_query($conn, $sql7)){
   echo "Registro insertado, el id insertado ha sido el " . mysqli_insert_id($conn);
   $idrecursos= mysqli_insert_id($conn);

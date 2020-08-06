@@ -29,8 +29,8 @@ public class Satisfaccion extends AppCompatActivity {
     Button siguiente;
     private Spinner estetica_general, comodidad_visual, informacion, iconos, eleccion, busqueda, videos, recomendacion, organizacion, interfaz, gusto, herramientas, satisfaccion, lenguaje, sobrecarga, interfaz_limpia, espacio, longitud, texto;
 
-    String   sestetica_general, scomodidad_visual, sinformacion, siconos, seleccion, sbusqueda, svideos, srecomendacion, scalculo_satisfaccion, sorganizacion, sinterfaz, sgusto, sherramientas, ssatisfaccion, slenguaje, ssobrecarga, sinterfaz_limpia, sespacio, slongitud, stexto,scalculoderelevancia;
-    static String estetica_generals,comodidad_visuals,informacions,iconoss,eleccions,busquedas,videoss,recomendacions,calculo_satisfaccions,organizacions,interfazs,gustos,herramientass,satisfaccions,lenguajes,sobrecargas,interfaz_limpias,espacios,longituds,textos,sumaTotals;
+    String   sestetica_general, scomodidad_visual, sinformacion, siconos, seleccion, sbusqueda, svideos, srecomendacion, scalculo_satisfaccion, sorganizacion, sinterfaz, sgusto, sherramientas, ssatisfaccion, slenguaje, ssobrecarga, sinterfaz_limpia, sespacio, slongitud, stexto;
+    static String idsatisfaccion,estetica_generals,comodidad_visuals,informacions,iconoss,eleccions,busquedas,videoss,recomendacions,calculo_satisfaccions,organizacions,interfazs,gustos,herramientass,satisfaccions,lenguajes,sobrecargas,interfaz_limpias,espacios,longituds,textos,sumaTotals,scalculoderelevancia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +125,7 @@ public class Satisfaccion extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idsatisfaccion= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Satisfaccion.this, "Satisfaccion Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Seguridad.class));
                         finish();

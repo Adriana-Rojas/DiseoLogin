@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Select_Apk"></activity>
-        <activity android:name=".Resultado" />
+        <activity android:name=".Usabilidad" />
         <activity android:name=".Carga_Cognitiva" />
         <activity android:name=".Universabilidad" />
         <activity android:name=".Seguridad" />

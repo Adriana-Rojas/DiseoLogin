@@ -27,8 +27,8 @@ import java.util.Map;
 public class Carga_Cognitiva extends AppCompatActivity {
     Button siguiente;
     private Spinner  multitareas, actividad_mental, dificultad_tarea, actividad_fisica, exigencia, inseguro;
-    String  smultitareas, sactividad_mental, sdificultad_tarea, sactividad_fisica, sexigencia, sinseguro,scalculoderelevancia;
-    static String multitareass,actividad_mentals,dificultad_tareas,actividad_fisicas,exigencias,inseguros,sumaTotals;
+    String  smultitareas, sactividad_mental, sdificultad_tarea, sactividad_fisica, sexigencia, sinseguro;
+    static String idcargacognitiva,multitareass,actividad_mentals,dificultad_tareas,actividad_fisicas,exigencias,inseguros,sumaTotals,scalculoderelevancia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +75,9 @@ public class Carga_Cognitiva extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idcargacognitiva= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Carga_Cognitiva.this, "Carga_cognitiva Guardada", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), Resultado.class));
+                        startActivity(new Intent(getApplicationContext(), Usabilidad.class));
                         finish();
                     }
                 }, new Response.ErrorListener() {

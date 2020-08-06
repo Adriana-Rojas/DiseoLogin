@@ -16,7 +16,6 @@ $playstore="7";
 $calculofrecuenciaerrores="7";
 $numeroserrores="7";
 $tiempotarea="7";
-$frecuenciaerrores="1"; ya no
 $mensajes="7";
 $prevencion="7";
 $redundancia="7";
@@ -24,6 +23,7 @@ $enlaces="7";
 */
 //
 $calculoderelevancia=$_POST['calculoderelevancia'];
+//$calculoderelevancia="7";
 //
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);

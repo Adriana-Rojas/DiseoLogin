@@ -29,10 +29,9 @@ public class Seguridad extends AppCompatActivity {
     private Spinner  seguridad,playstore,numeroserrores,tiempotarea,mensajes,prevencion,
             redundancia,enlaces;
 
-    static String  seguridads,playstores,calculofrecuenciaerroress,mensajess,prevencions,redundancias,enlacess,sumaTotals;
+    static String  idseguridad,seguridads,playstores,calculofrecuenciaerroress,mensajess,prevencions,redundancias,enlacess,sumaTotals,scalculoderelevancia;
     String   sseguridad,splaystore,scalculofrecuenciaerrores,snumeroserrores,stiempotarea,smensajes,sprevencion,
             sredundancia,senlaces;
-    static  String scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +81,7 @@ public class Seguridad extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idseguridad= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Seguridad.this, "Seguridad Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Universabilidad.class));
                         finish();

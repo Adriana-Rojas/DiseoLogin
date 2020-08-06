@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usabilidad">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="324dp"
+            android:layout_height="227dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="resultado.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/prp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Resultados"
+            android:textAlignment="textStart"
+            android:textColor="#009688"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:scrollbars="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/pr1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="0.5dp"
+                    android:layout_marginBottom="42dp"
+                    android:layout_toStartOf="@+id/spinner1"
+                    android:text="Eficiencia"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr1"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="-29dp"
+                    android:layout_marginEnd="0.2dp"
+                    android:layout_toStartOf="@+id/spinner2"
+                    android:text="Eficacia"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr3"
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr2"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner3"
+                    android:text="Memorabilidad"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr3"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Productividad"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/pr5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr4"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Satisfaccion"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner4"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/pr6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr5"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Seguridad"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner5"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/pr7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr6"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Universabilidad"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner6"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/pr8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr7"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Carga Cognitiva"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/spinner8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinner7"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Resultado"
+                    android:textAlignment="textStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+        <Button
+            android:id="@+id/resultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_fondo_color"
+            android:text="Graficas"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:elevation="5dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -28,8 +28,8 @@ public class Memorabilidad extends AppCompatActivity {
     Button siguiente;
     private Spinner  rapidez,dificultad,aprendizaje,facilidad;
 
-    String   srapidez,sdificultad,saprendizaje,sfacilidad,scalculoderelevancia;
-    static String rapidezs,dificultads,aprendizajes,facilidads,sumaTotals;
+    String   srapidez,sdificultad,saprendizaje,sfacilidad;
+    static String idmemorabilidad,rapidezs,dificultads,aprendizajes,facilidads,sumaTotals,scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class Memorabilidad extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        idmemorabilidad= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Memorabilidad.this, "Memorabilidad Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Productividad.class));
                         finish();

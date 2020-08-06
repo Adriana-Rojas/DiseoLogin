@@ -27,8 +27,8 @@ import java.util.Map;
 public class Universabilidad extends AppCompatActivity {
     Button siguiente;
     private Spinner  resolucion, lenguaje, fuente, contraste,idioma,uso;
-    String  sresolucion, slenguaje, sfuente, scontraste,sidioma,suso,scalculoderelevancia;
-    static String  resolucions,lenguaje_clarols,fuentes,contrastes,idiomas,usos,sumaTotals;
+    String  sresolucion, slenguaje, sfuente, scontraste,sidioma,suso;
+    static String iduniversabilidad,resolucions,lenguaje_clarols,fuentes,contrastes,idiomas,usos,sumaTotals,scalculoderelevancia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +75,7 @@ public class Universabilidad extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        iduniversabilidad= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Universabilidad.this, "Universabilidad Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Carga_Cognitiva.class));
                         finish();

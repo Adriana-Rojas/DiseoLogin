@@ -32,8 +32,8 @@ public class Eficacia extends AppCompatActivity {
             calculotiempo,calculoextensibilidad,calculoreusabilidad, calculoescalabilidad;
 
     String   stareascompletadas,stotaltareas,scalculoterminaciontarea, scalculoefectividad,snumerofaltas,
-            scalculotiempo,scalculoextensibilidad,scalculoreusabilidad, scalculoescalabilidad,scalculoderelevancia;
-    static String   calculoterminaciontareas,calculoefectividads,calculotiempos,calculoextensibilidads,calculoreusabilidads,calculoescalabilidads,sumaTotals;
+            scalculotiempo,scalculoextensibilidad,scalculoreusabilidad, scalculoescalabilidad;
+    static String  ideficacia, calculoterminaciontareas,calculoefectividads,calculotiempos,calculoextensibilidads,calculoreusabilidads,calculoescalabilidads,sumaTotals,scalculoderelevancia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +85,7 @@ public class Eficacia extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        ideficacia= response.substring(response.lastIndexOf(' ') + 1);
                         Toast.makeText(Eficacia.this, "Eficacia Guardada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), Memorabilidad.class));
                         finish();
