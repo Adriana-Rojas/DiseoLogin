@@ -29,8 +29,8 @@ import java.util.Map;
 public class Usabilidad extends AppCompatActivity {
     Button siguiente;
     private TextView eficienciat,eficaciat,memorabilidadt,productividadt,satisfacciont,seguridadt,universabilidadt,cargacognitivat,calcularusabilidadt;
-
-    String  aplicativo,eficiencia,eficacia,memorabilidad,productividad,satisfaccion,seguridad,universabilidad,cargacognitiva,calcularusabilidad,seficiencia,seficacia,smemorabilidad,sproductividad,ssatisfaccion,sseguridad,suniversabilidad,scargacognitiva,scalcularusabilidad;
+    static String seficiencia,seficacia,smemorabilidad,sproductividad,ssatisfaccion,sseguridad,suniversabilidad,scargacognitiva,scalcularusabilidad;
+    String  aplicativo,eficiencia,eficacia,memorabilidad,productividad,satisfaccion,seguridad,universabilidad,cargacognitiva,calcularusabilidad;
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
