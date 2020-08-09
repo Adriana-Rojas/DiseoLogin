@@ -2,8 +2,11 @@ package com.example.juliocesar.diseologin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -21,9 +24,10 @@ import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class Grafica extends AppCompatActivity {
+    Button siguiente;
     private BarChart barChart;
     private String [] factores=new  String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
-   // private Float [] valores=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
+    // private Float [] valores=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
 
     private int [] valores=new int[] {4,6,3,8,5,2,4,8};
     private  int [] color=new int[]{
@@ -41,15 +45,24 @@ public class Grafica extends AppCompatActivity {
         setContentView(R.layout.activity_grafica);
         barChart=(BarChart)findViewById(R.id.barChart);
         createCharts();
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Graficados.class));
+                finish();
+            }
+        });
     }
     private Chart getSaneChart(Chart chart,String descripcion,int textColor,int background,int animateY){
         chart.getDescription().setText(descripcion);
         chart.getDescription().setTextSize(45);
         chart.setBackgroundColor(background);
         chart.animateY(animateY);
+        legend(chart);
         return chart;
     }
     private  void legend (Chart chart){
+
         Legend legend=chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
@@ -70,8 +83,9 @@ public class Grafica extends AppCompatActivity {
         return entries;
     }
     private  void axisX(XAxis axis){
-        axis.setGranularityEnabled(true);
+        axis.setGranularityEnabled(true);//cada cuanto
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setLabelRotationAngle(270);
         axis.setValueFormatter(new IndexAxisValueFormatter(factores));
         //axis.setEnabled(false);
 
@@ -86,15 +100,14 @@ public class Grafica extends AppCompatActivity {
     public void createCharts(){
         barChart=(BarChart)getSaneChart(barChart,"",Color.WHITE,Color.WHITE,3000);
         barChart.setDrawBarShadow(true);
-        barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
         barChart.invalidate();
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
-      //   barChart.getLegend().setEnabled(false);//clores cuadros pequeos
+        barChart.getLegend().setEnabled(true);//clores cuadros pequeos
     }
-    private DataSet getData(DataSet dataSet){//pastel
+    private DataSet getData(DataSet dataSet){
         dataSet.setColors(color);
         dataSet.setValueTextSize(Color.rgb(104, 241, 175));
         dataSet.setValueTextSize(10);

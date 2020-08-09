@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Grafica"></activity>
+        <activity android:name=".Graficados"></activity>
+        <activity android:name=".Grafica" />
         <activity android:name=".Select_Apk" />
         <activity android:name=".Usabilidad" />
         <activity android:name=".Carga_Cognitiva" />
