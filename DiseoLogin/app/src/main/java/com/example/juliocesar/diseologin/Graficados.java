@@ -1,50 +1,25 @@
 package com.example.juliocesar.diseologin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.BubbleChart;
-import com.github.mikephil.charting.charts.CandleStickChart;
 import com.github.mikephil.charting.charts.Chart;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.RadarChart;
-import com.github.mikephil.charting.charts.ScatterChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.BubbleData;
-import com.github.mikephil.charting.data.BubbleDataSet;
-import com.github.mikephil.charting.data.BubbleEntry;
-import com.github.mikephil.charting.data.CandleData;
-import com.github.mikephil.charting.data.CandleDataSet;
-import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.data.DataSet;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.RadarData;
 import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
-import com.github.mikephil.charting.data.ScatterData;
-import com.github.mikephil.charting.data.ScatterDataSet;
-import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,15 +29,19 @@ import java.util.Arrays;
 public class Graficados extends AppCompatActivity {
 
     private RadarChart radarChart;
+    private HorizontalBarChart horizontalBarChart;
 
-    //Eje X
-    private String[]months=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
-
+    private String[]months=new String[]{"Enero","Febrero","Marzo","Abril","Mayo"};
+    int bandera=0;
+    //Eje Y
+    private int[]sale=new int[] {5};
+    private  int [] colors=new int[]{Color.rgb(21, 184, 175)};
     //Grafica de Radar(Radar)
     //Los criterios que se evaluaran el la grafica
-    private String[]variable=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
+    private String[]factores=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
+    private String[]usabilidad=new String[]{"Usabilidad"};
     //Valor para los criterios en un auto Chevrolet
-    private int[]valueChevrolet=new int[]{4,6,3,8,5,2,4,8};
+    private int[]valuefactores=new int[]{4,6,3,8,5,2,4,8};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +49,7 @@ public class Graficados extends AppCompatActivity {
         setContentView(R.layout.activity_graficados);
 
         radarChart = (RadarChart) findViewById(R.id.radarChart);
+        horizontalBarChart= (HorizontalBarChart) findViewById(R.id.horizontalBarChart);
         createCharts();
 
     }
@@ -84,34 +64,41 @@ public class Graficados extends AppCompatActivity {
         return chart;
     }
 
-
-
-
     private ArrayList<RadarEntry> getRadarEntriesChevrolet() {
         ArrayList<RadarEntry> entries = new ArrayList<>();
-        for (int i = 0; i < valueChevrolet.length; i++)
-            entries.add(new RadarEntry(valueChevrolet[i]));
+        for (int i = 0; i < valuefactores.length; i++)
+            entries.add(new RadarEntry(valuefactores[i]));
         return entries;
     }
 
     private ArrayList<String> getVariable() {
         ArrayList<String> entries = new ArrayList<>();
-        entries.addAll(Arrays.asList(variable));
+        entries.addAll(Arrays.asList(factores));
         return entries;
     }
-
+    private ArrayList<BarEntry>getBarEntries(){
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        for (int i = 0; i < sale.length; i++)
+            entries.add(new BarEntry(i,sale[i]));
+        return entries;
+    }
 
     //Eje horizontal o eje X
     private void axisX(XAxis axis){
         axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        axis.setValueFormatter(new IndexAxisValueFormatter(months));
+        if(bandera==1){
+            axis.setValueFormatter(new IndexAxisValueFormatter(usabilidad));
+        }else {
+            axis.setValueFormatter(new IndexAxisValueFormatter(factores));
+        }
+
     }
     //Eje Vertical o eje Y lado izquierdo
     private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-        axis.setGranularity(20);
+            axis.setSpaceTop(1);
+            axis.setAxisMinimum(0);
+            axis.setAxisMaximum(100);
     }
     //Eje Vertical o eje Y lado Derecho
     private void axisRight(YAxis axis){
@@ -123,19 +110,40 @@ public class Graficados extends AppCompatActivity {
         //RadarChart
 
         //En radar se valido la leyenda porque no podemos perzonalizarlo la leyenda se crea de acuerdo a los datos que se tienen dentro de la grafica.
-        radarChart = (RadarChart) getSameChart(radarChart, "", Color.WHITE, Color.WHITE, 3000,false);
+        radarChart = (RadarChart) getSameChart(radarChart, "", Color.GREEN, Color.WHITE, 3000,false);
         radarChart.setData(getRadarData());
         radarChart.invalidate();
+        bandera=0;
         axisX(radarChart.getXAxis());
+        bandera=1;
+        //BarChart
+        horizontalBarChart=(HorizontalBarChart)getSameChart(horizontalBarChart," ",Color.YELLOW,Color.WHITE,3000,true);
+        //barChart.setDrawGridBackground(true);
+        horizontalBarChart.setDrawBarShadow(true);
+        horizontalBarChart.setData(getBarData());
+        horizontalBarChart.invalidate();
+        //barChart.getLegend().setEnabled(false);
+        axisX(horizontalBarChart.getXAxis());
+        axisLeft(horizontalBarChart.getAxisLeft());
+        axisRight(horizontalBarChart.getAxisRight());
 
     }
 
     //Carasteristicas comunes en dataset
     private DataSet getDataSame(DataSet dataSet){
-        dataSet.setValueTextColor(Color.WHITE);
+        dataSet.setColors(colors);
+        dataSet.setValueTextColor(Color.rgb(21, 184, 175));
         dataSet.setValueTextSize(10);
         return dataSet;
     }
+    private BarData getBarData(){
+        BarDataSet barDataSet=(BarDataSet)getDataSame(new BarDataSet(getBarEntries(),"% de usabilidad"));
+        barDataSet.setBarShadowColor(Color.WHITE);
+        BarData barData=new BarData(barDataSet);
+        barData.setBarWidth(0.45f);
+        return barData;
+    }
+
     private RadarData getRadarData() {
 
         RadarDataSet chevrolet = (RadarDataSet) getDataSame(new RadarDataSet(getRadarEntriesChevrolet(), "Usabilidad"));
@@ -149,7 +157,5 @@ public class Graficados extends AppCompatActivity {
         data.setLabels(getVariable());
         return data;
     }
-
-
 
 }

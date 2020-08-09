@@ -31,7 +31,7 @@ public class Grafica extends AppCompatActivity {
 
     private BarChart barChart;
     //Eje X
-    private String[]months=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
+    private String[]factores=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
     //Eje Y
     private int[]sale=new int[] {4,6,3,8,5,2,4,8};
     //Colors
@@ -85,10 +85,10 @@ public class Grafica extends AppCompatActivity {
         legend.setDrawInside(false);
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
-        for (int i = 0; i < months.length; i++) {
+        for (int i = 0; i < factores.length; i++) {
             LegendEntry entry = new LegendEntry();
             entry.formColor = colors[i];
-            entry.label = months[i];
+            entry.label = factores[i];
             entries.add(entry);
         }
         legend.setCustom(entries);
@@ -106,7 +106,7 @@ public class Grafica extends AppCompatActivity {
         axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
         axis.setLabelRotationAngle(270);
-        axis.setValueFormatter(new IndexAxisValueFormatter(months));
+        axis.setValueFormatter(new IndexAxisValueFormatter(factores));
     }
     //Eje Vertical o eje Y lado izquierdo
     private void axisLeft(YAxis axis){
@@ -135,7 +135,7 @@ public class Grafica extends AppCompatActivity {
     //Carasteristicas comunes en dataset
     private DataSet getDataSame(DataSet dataSet){
         dataSet.setColors(colors);
-        dataSet.setValueTextColor(Color.WHITE);
+        dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(10);
         return dataSet;
     }
