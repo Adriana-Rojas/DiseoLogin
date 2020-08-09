@@ -26,7 +26,15 @@ public class Grafica extends AppCompatActivity {
    // private Float [] valores=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
 
     private int [] valores=new int[] {4,6,3,8,5,2,4,8};
-    private  int [] color=new int[]{Color.BLACK,Color.BLUE,Color.GRAY,Color.GREEN,Color.CYAN,Color.RED,Color.YELLOW,Color.MAGENTA};
+    private  int [] color=new int[]{
+            Color.rgb(0, 104, 98),
+            Color.rgb(18, 178, 226),
+            Color.rgb(92, 182, 138),
+            Color.rgb(21, 184, 175),
+            Color.rgb(230, 142, 121),
+            Color.rgb(234, 136, 155),
+            Color.rgb(183, 151, 221),
+            Color.rgb(129, 165, 236)};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,25 +65,26 @@ public class Grafica extends AppCompatActivity {
     }
     private ArrayList<BarEntry>getBarEntries(){
         ArrayList<BarEntry> entries=new ArrayList<>();
-        for (int i=0;i<valores.length;i++){
+        for (int i=0;i<valores.length;i++)
             entries.add(new BarEntry(i,valores[i]));
-        }
         return entries;
     }
     private  void axisX(XAxis axis){
         axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
         axis.setValueFormatter(new IndexAxisValueFormatter(factores));
+        //axis.setEnabled(false);
+
     }
     private void  axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMaximum(30);
+        axis.setSpaceTop(100);
+        axis.setAxisMaximum(10);
     }
     private void axisRight(YAxis axis){
         axis.setEnabled(false);
     }
     public void createCharts(){
-        barChart=(BarChart)getSaneChart(barChart,"Usabilidad",Color.DKGRAY,Color.LTGRAY,3000);
+        barChart=(BarChart)getSaneChart(barChart,"",Color.WHITE,Color.WHITE,3000);
         barChart.setDrawBarShadow(true);
         barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
@@ -83,16 +92,17 @@ public class Grafica extends AppCompatActivity {
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
+      //   barChart.getLegend().setEnabled(false);//clores cuadros pequeos
     }
-    private DataSet getData(DataSet dataSet){
+    private DataSet getData(DataSet dataSet){//pastel
         dataSet.setColors(color);
-        dataSet.setValueTextSize(Color.WHITE);
+        dataSet.setValueTextSize(Color.rgb(104, 241, 175));
         dataSet.setValueTextSize(10);
         return dataSet;
     }
     private BarData getBarData(){
         BarDataSet barDataSet=(BarDataSet)getData(new BarDataSet(getBarEntries(),""));
-        barDataSet.setBarShadowColor(Color.CYAN);
+        barDataSet.setBarShadowColor(Color.WHITE);
         BarData barData=new BarData(barDataSet);
         barData.setBarWidth(0.45f);
         return barData;
