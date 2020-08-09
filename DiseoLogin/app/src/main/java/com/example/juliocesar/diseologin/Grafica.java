@@ -1,12 +1,12 @@
 package com.example.juliocesar.diseologin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -18,19 +18,24 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
 
-public class Grafica extends AppCompatActivity {
-    Button siguiente;
-    private BarChart barChart;
-    private String [] factores=new  String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
-    // private Float [] valores=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
 
-    private int [] valores=new int[] {4,6,3,8,5,2,4,8};
-    private  int [] color=new int[]{
+
+public class Grafica extends AppCompatActivity {
+
+
+    private BarChart barChart;
+    //Eje X
+    private String[]months=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
+    //Eje Y
+    private int[]sale=new int[] {4,6,3,8,5,2,4,8};
+    //Colors
+    private  int [] colors=new int[]{
             Color.rgb(0, 104, 98),
             Color.rgb(18, 178, 226),
             Color.rgb(92, 182, 138),
@@ -44,83 +49,103 @@ public class Grafica extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grafica);
         barChart=(BarChart)findViewById(R.id.barChart);
+
         createCharts();
-        siguiente.setOnClickListener(new View.OnClickListener() {
+
+        Button btn = (Button) findViewById(R.id.siguiente);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Graficados.class));
-                finish();
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Graficados.class);
+                startActivityForResult(intent, 0);
             }
         });
+
     }
-    private Chart getSaneChart(Chart chart,String descripcion,int textColor,int background,int animateY){
-        chart.getDescription().setText(descripcion);
-        chart.getDescription().setTextSize(45);
+    //Carasteristicas comunes en las graficas
+    private Chart getSameChart(Chart chart,String description,int textColor,int background,int animateY,boolean leyenda){
+        chart.getDescription().setText(description);
+        chart.getDescription().setTextColor(textColor);
+        chart.getDescription().setTextSize(15);
         chart.setBackgroundColor(background);
         chart.animateY(animateY);
-        legend(chart);
+
+
+        if(leyenda)
+            legend(chart);
         return chart;
     }
-    private  void legend (Chart chart){
 
-        Legend legend=chart.getLegend();
+    private void legend(Chart chart) {
+        Legend legend = chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
-        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.CENTER); // set vertical alignment for legend
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT); // set horizontal alignment for legend
+        legend.setOrientation(Legend.LegendOrientation.VERTICAL); // set orientation for legend
+        legend.setDrawInside(false);
 
-        ArrayList<LegendEntry>entries=new ArrayList<>();
-        for (int i=8;i<factores.length;i++){
-            LegendEntry entry=new LegendEntry();
-            entry.formColor=color[i];
-            entry.label=factores[i];
+        ArrayList<LegendEntry> entries = new ArrayList<>();
+        for (int i = 0; i < months.length; i++) {
+            LegendEntry entry = new LegendEntry();
+            entry.formColor = colors[i];
+            entry.label = months[i];
             entries.add(entry);
         }
         legend.setCustom(entries);
     }
     private ArrayList<BarEntry>getBarEntries(){
-        ArrayList<BarEntry> entries=new ArrayList<>();
-        for (int i=0;i<valores.length;i++)
-            entries.add(new BarEntry(i,valores[i]));
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        for (int i = 0; i < sale.length; i++)
+            entries.add(new BarEntry(i,sale[i]));
         return entries;
     }
-    private  void axisX(XAxis axis){
-        axis.setGranularityEnabled(true);//cada cuanto
+
+
+    //Eje horizontal o eje X
+    private void axisX(XAxis axis){
+        axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
         axis.setLabelRotationAngle(270);
-        axis.setValueFormatter(new IndexAxisValueFormatter(factores));
-        //axis.setEnabled(false);
-
+        axis.setValueFormatter(new IndexAxisValueFormatter(months));
     }
-    private void  axisLeft(YAxis axis){
+    //Eje Vertical o eje Y lado izquierdo
+    private void axisLeft(YAxis axis){
         axis.setSpaceTop(100);
         axis.setAxisMaximum(10);
     }
+    //Eje Vertical o eje Y lado Derecho
     private void axisRight(YAxis axis){
         axis.setEnabled(false);
     }
+
+    //Crear graficas
     public void createCharts(){
-        barChart=(BarChart)getSaneChart(barChart,"",Color.WHITE,Color.WHITE,3000);
+        //BarChart
+        barChart=(BarChart)getSameChart(barChart," ",Color.WHITE,Color.WHITE,3000,true);
+        //barChart.setDrawGridBackground(true);
         barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
         barChart.invalidate();
+        //barChart.getLegend().setEnabled(false);
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
-        barChart.getLegend().setEnabled(true);//clores cuadros pequeos
     }
-    private DataSet getData(DataSet dataSet){
-        dataSet.setColors(color);
-        dataSet.setValueTextSize(Color.rgb(104, 241, 175));
+
+    //Carasteristicas comunes en dataset
+    private DataSet getDataSame(DataSet dataSet){
+        dataSet.setColors(colors);
+        dataSet.setValueTextColor(Color.WHITE);
         dataSet.setValueTextSize(10);
         return dataSet;
     }
+
     private BarData getBarData(){
-        BarDataSet barDataSet=(BarDataSet)getData(new BarDataSet(getBarEntries(),""));
+        BarDataSet barDataSet=(BarDataSet)getDataSame(new BarDataSet(getBarEntries(),""));
         barDataSet.setBarShadowColor(Color.WHITE);
         BarData barData=new BarData(barDataSet);
         barData.setBarWidth(0.45f);
         return barData;
-
     }
 
 }
-
