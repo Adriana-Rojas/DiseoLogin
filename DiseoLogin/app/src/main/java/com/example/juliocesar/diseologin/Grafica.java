@@ -33,7 +33,9 @@ public class Grafica extends AppCompatActivity {
     //Eje X
     private String[]factores=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
     //Eje Y
-    private int[]sale=new int[] {4,6,3,8,5,2,4,8};
+    //private int[]sale=new int[] {4,6,3,8,5,2,4,8};
+     private Float [] sale=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
+
     //Colors
     private  int [] colors=new int[]{
             Color.rgb(0, 104, 98),
@@ -110,8 +112,9 @@ public class Grafica extends AppCompatActivity {
     }
     //Eje Vertical o eje Y lado izquierdo
     private void axisLeft(YAxis axis){
-        axis.setSpaceTop(100);
-        axis.setAxisMaximum(10);
+        axis.setSpaceTop(1);
+        axis.setAxisMinimum(0);
+        axis.setAxisMaximum(50);
     }
     //Eje Vertical o eje Y lado Derecho
     private void axisRight(YAxis axis){

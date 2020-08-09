@@ -64,7 +64,7 @@ public class Select_Apk extends AppCompatActivity {
                         switch (i){
 
                             case 0:
-                                startActivity(new Intent(getApplicationContext(),Grafica.class)//Eficiencia
+                                startActivity(new Intent(getApplicationContext(),Eficiencia.class)//Eficiencia
                                         .putExtra("position",position));
 
                                 break;
