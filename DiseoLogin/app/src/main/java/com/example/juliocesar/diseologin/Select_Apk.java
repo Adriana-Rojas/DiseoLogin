@@ -37,7 +37,7 @@ public class Select_Apk extends AppCompatActivity {
     public static ArrayList<Employeepk> employeeArrayList = new ArrayList<>();
     String url = "http://192.168.1.112/proyecto/retrieveevaluadorapk.php";
     Employeepk employeepk;
-    String idaplicacion;
+    static String idaplicacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +64,10 @@ public class Select_Apk extends AppCompatActivity {
                         switch (i){
 
                             case 0:
+                                idaplicacion=employeeArrayList.get(position).getId();
                                 startActivity(new Intent(getApplicationContext(),Eficiencia.class)//Eficiencia
                                         .putExtra("position",position));
+
 
                                 break;
 

@@ -72,7 +72,7 @@ public class Usabilidad extends AppCompatActivity {
 
     public void insertData() {
         DecimalFormat df = new DecimalFormat("#.00");
-        aplicativo="819";
+        aplicativo=Select_Apk.idaplicacion;
         eficiencia=Eficiencia.scalculoderelevancia;
         seficiencia=df.format(Float.parseFloat(eficiencia)*10);
         eficacia=Eficacia.scalculoderelevancia;
