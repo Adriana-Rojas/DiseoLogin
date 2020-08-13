@@ -44,6 +44,8 @@ public class Select_Evaluados extends AppCompatActivity {
         listView = findViewById(R.id.myListView);
         adapterEvaluados = new MyAdapterEvaluados(this,employeeArrayList);
         listView.setAdapter(adapterEvaluados);
+        
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,7 +65,7 @@ public class Select_Evaluados extends AppCompatActivity {
 
                             case 0:
                                 idaplicacion=employeeArrayList.get(position).getId();
-                                startActivity(new Intent(getApplicationContext(),GraficaEvaluados.class)
+                                startActivity(new Intent(getApplicationContext(),Graficaresultados.class)
                                         .putExtra("position",position));
 
 

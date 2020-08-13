@@ -33,7 +33,7 @@ public class GraficadosEvaluados extends AppCompatActivity {
     int bandera=0;
     //Eje Y
     //private int[]sale=new int[] {5};
-    private Float[]sale=new Float[] {GraficaEvaluados.fcalcularusabilidad};
+    private Float[]sale=new Float[] {Graficaresultados.fcalcularusabilidad};
     private  int [] colors=new int[]{Color.rgb(21, 184, 175)};
     //Grafica de Radar(Radar)
     //Los criterios que se evaluaran el la grafica
@@ -41,7 +41,7 @@ public class GraficadosEvaluados extends AppCompatActivity {
     private String[]usabilidad=new String[]{"Usabilidad"};
     //Valor para los criterios en un auto Chevrolet
     //private int[]valuefactores=new int[]{4,6,3,8,5,2,4,8};
-    private Float [] valuefactores=new Float[] {GraficaEvaluados.feficiencia,GraficaEvaluados.feficacia,GraficaEvaluados.fmemorabilidad,GraficaEvaluados.fproductividad,GraficaEvaluados.fsatisfaccion,GraficaEvaluados.fseguridad,GraficaEvaluados.funiversabilidad,GraficaEvaluados.fcargacognitiva};
+    private Float [] valuefactores=new Float[] {Graficaresultados.feficiencia,Graficaresultados.feficacia,Graficaresultados.fmemorabilidad,Graficaresultados.fproductividad,Graficaresultados.fsatisfaccion,Graficaresultados.fseguridad,Graficaresultados.funiversabilidad,Graficaresultados.fcargacognitiva};
 
 
     @Override

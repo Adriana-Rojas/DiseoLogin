@@ -18,6 +18,7 @@
         <activity android:name=".Grafica" />
         <activity android:name=".GraficadosEvaluados"></activity>
         <activity android:name=".GraficaEvaluados" />
+        <activity android:name=".Graficaresultados" />
         <activity android:name=".Select_Apk" />
         <activity android:name=".Usabilidad" />
         <activity android:name=".Carga_Cognitiva" />
