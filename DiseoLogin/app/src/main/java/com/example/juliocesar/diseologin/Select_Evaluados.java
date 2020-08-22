@@ -33,7 +33,7 @@ public class Select_Evaluados extends AppCompatActivity {
     ListView listView;
     MyAdapterEvaluados adapterEvaluados;
     public static ArrayList<Employeevaluados> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.1.112/proyecto/retrieveevaluadosdif.php";
+    String url = "http://192.168.101.5/proyecto/retrieveevaluadosdif.php";
     Employeevaluados employeevaluados;
     static String idaplicacion;
     @Override
@@ -44,7 +44,7 @@ public class Select_Evaluados extends AppCompatActivity {
         listView = findViewById(R.id.myListView);
         adapterEvaluados = new MyAdapterEvaluados(this,employeeArrayList);
         listView.setAdapter(adapterEvaluados);
-        
+
 
 
 

@@ -62,7 +62,7 @@ public class DatosAplicativo extends AppCompatActivity {
 
     }
     private  void llenarSpinner(){
-        String url="http://192.168.1.112/proyecto/retrieveaplicacion.php";
+        String url="http://192.168.101.5/proyecto/retrieveaplicacion.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -98,7 +98,7 @@ public class DatosAplicativo extends AppCompatActivity {
 
     private void insertData() {
         tipo = spProductos.getSelectedItem().toString();
-        BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
+        BuscarIdSpinner("http://192.168.101.5/proyecto/buscaraplicacion.php?tipoaplicativo="+tipo);
         Login login=new Login();
         usuario=login.tipoid;
         nombre = edt_nombre.getText().toString().trim();
@@ -119,7 +119,7 @@ public class DatosAplicativo extends AppCompatActivity {
         }
 
         else {
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/insertardatosaplicacion.php",
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertardatosaplicacion.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -153,7 +153,7 @@ public class DatosAplicativo extends AppCompatActivity {
 
             if (tipoidd == null && bandera==1) {
                 bandera++;
-                BuscarIdSpinner("http://192.168.1.112/proyecto/buscaraplicacion.php?tipoaplicativo=" + tipo);
+                BuscarIdSpinner("http://192.168.101.5/proyecto/buscaraplicacion.php?tipoaplicativo=" + tipo);
             }
         }
     }

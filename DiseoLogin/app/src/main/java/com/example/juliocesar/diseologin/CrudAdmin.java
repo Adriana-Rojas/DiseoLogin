@@ -33,7 +33,7 @@ public class CrudAdmin extends AppCompatActivity {
     ListView listView;
     MyAdapter adapter;
     public static ArrayList<Employee> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.1.112/proyecto/retrieveadmin.php";
+    String url = "http://192.168.101.5/proyecto/retrieveadmin.php";
     Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class CrudAdmin extends AppCompatActivity {
     }
     private void deleteData(final String id) {
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.112/proyecto/deleteadmin.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/deleteadmin.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
