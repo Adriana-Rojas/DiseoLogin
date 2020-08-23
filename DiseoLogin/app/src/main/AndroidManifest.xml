@@ -21,6 +21,7 @@
         <activity android:name=".Graficaresultados" />
         <activity android:name=".Select_Apk" />
         <activity android:name=".Usabilidad" />
+        <activity android:name=".Eficiencia1" />
         <activity android:name=".Carga_Cognitiva" />
         <activity android:name=".Universabilidad" />
         <activity android:name=".Seguridad" />
@@ -63,6 +64,8 @@
         <activity android:name=".DetailAdminActivity" />
         <activity android:name=".DetailEvaluadorActivity" />
         <activity android:name=".Login" />
+
+
     </application>
 
 </manifest>
