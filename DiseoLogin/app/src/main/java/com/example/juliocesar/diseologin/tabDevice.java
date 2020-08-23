@@ -36,7 +36,7 @@ public class tabDevice extends Fragment {
         LinearLayout llayout = rootView.findViewById(R.id.llayout);
         try {
 
-            int textDisColor = Eficiencia1.themeColor;
+            int textDisColor = Eficiencia.themeColor;
             int lineColor = GetDetails.getThemeColor(Objects.requireNonNull(getContext()), R.attr.colorButtonNormal);
             tm = (TelephonyManager) Objects.requireNonNull(getActivity()).getSystemService(Context.TELEPHONY_SERVICE);
 

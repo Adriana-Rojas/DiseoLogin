@@ -9,7 +9,7 @@
     android:layout_centerHorizontal="true"
     android:clipToPadding="false"
     android:scrollbars="none"
-    tools:context=".Eficiencia1">
+    tools:context=".Eficiencia">
 
     <RelativeLayout
         android:id="@+id/relmain"

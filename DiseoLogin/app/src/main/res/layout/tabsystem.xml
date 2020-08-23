@@ -8,7 +8,7 @@
     android:paddingLeft="1dp"
     android:paddingRight="1dp"
     android:paddingTop="1dp"
-    tools:context=".Eficiencia1">
+    tools:context="com.ytheekshana.deviceinfo.Eficiencia">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewSystem"

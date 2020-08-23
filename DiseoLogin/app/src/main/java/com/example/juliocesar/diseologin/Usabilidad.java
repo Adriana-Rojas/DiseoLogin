@@ -73,7 +73,7 @@ public class Usabilidad extends AppCompatActivity {
     public void insertData() {
         DecimalFormat df = new DecimalFormat("#.00");
         aplicativo=Select_Apk.idaplicacion;
-        eficiencia=Eficiencia.scalculoderelevancia;
+      //  eficiencia=Eficiencia.scalculoderelevancia;
         seficiencia=df.format(Float.parseFloat(eficiencia)*10);
         eficacia=Eficacia.scalculoderelevancia;
         seficacia=df.format(Float.parseFloat(eficacia)*10);
@@ -113,7 +113,7 @@ public class Usabilidad extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
                 params.put("aplicativo", aplicativo);
-                params.put("eficiencia", Eficiencia.idficiencia);
+               // params.put("eficiencia", Eficiencia.idficiencia);
                 params.put("eficacia", Eficacia.ideficacia);
                 params.put("memorabilidad", Memorabilidad.idmemorabilidad);
                 params.put("productividad",Productividad.idproductividad);

@@ -407,7 +407,22 @@ public class GetDetails {
         return "";
     }
 
-
+    @SuppressLint("HardwareIds")
+    static String getBluetoothMac(Context context) {
+        String result = "";
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                result = android.provider.Settings.Secure.getString(context.getContentResolver(),
+                        "bluetooth_address");
+            } else {
+                BluetoothAdapter bta = BluetoothAdapter.getDefaultAdapter();
+                result = (bta != null) ? bta.getAddress() : "";
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
 
     static int getBatteryCapacity(Context context) {
         double batteryCapacity = 0;

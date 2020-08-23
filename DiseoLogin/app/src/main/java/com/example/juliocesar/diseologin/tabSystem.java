@@ -32,10 +32,10 @@ public class tabSystem extends Fragment {
         TextView txtRootStatus = rootView.findViewById(R.id.txtRootStatus);
 
         try {
-            int textDisColor = Eficiencia1.themeColor;
+            int textDisColor = Eficiencia.themeColor;
             int lineColor = GetDetails.getThemeColor(Objects.requireNonNull(getContext()), R.attr.colorButtonNormal);
             CardView cardviewRam = rootView.findViewById(R.id.cardviewSystem);
-            cardviewRam.setCardBackgroundColor(Eficiencia1.themeColor);
+            cardviewRam.setCardBackgroundColor(Eficiencia.themeColor);
 
             switch (Build.VERSION.SDK_INT) {
                 case 21:

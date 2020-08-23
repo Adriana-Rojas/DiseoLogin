@@ -20,7 +20,7 @@ public class MenuEvaluador extends AppCompatActivity {
         evaluaraplicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuEvaluador.this, Eficiencia1.class));//Select_Apk
+                startActivity(new Intent(MenuEvaluador.this, Eficiencia.class));//Select_Apk
                 finish();
             }
         });

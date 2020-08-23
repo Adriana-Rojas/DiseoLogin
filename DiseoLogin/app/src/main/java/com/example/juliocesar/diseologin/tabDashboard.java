@@ -71,7 +71,7 @@ public class tabDashboard extends Fragment {
             ImageView imgSensor = rootView.findViewById(R.id.imageSensor);
             ImageView imgApps = rootView.findViewById(R.id.imageApps);
 
-            ColorFilter accentFilter = new LightingColorFilter(Color.BLACK, Eficiencia1.themeColor);
+            ColorFilter accentFilter = new LightingColorFilter(Color.BLACK, Eficiencia.themeColor);
             imgROM.setColorFilter(accentFilter);
             imgInStorage.setColorFilter(accentFilter);
             imgExStorage.setColorFilter(accentFilter);
@@ -86,7 +86,7 @@ public class tabDashboard extends Fragment {
             cu2 = new CPUUsage();
 
             CardView cardviewRam = rootView.findViewById(R.id.cardviewRam);
-            cardviewRam.setCardBackgroundColor(Eficiencia1.themeColor);
+            cardviewRam.setCardBackgroundColor(Eficiencia.themeColor);
 
             final CardView cardRom = rootView.findViewById(R.id.cardviewRom);
             final CardView cardInternalStorage = rootView.findViewById(R.id.cardviewInStorage);
@@ -135,22 +135,22 @@ public class tabDashboard extends Fragment {
             rightAxis.setTextSize(9);
 
             arcProgressRam = rootView.findViewById(R.id.arcProgressRam);
-            arcProgressRam.setUnfinishedStrokeColor(Eficiencia1.themeColorDark);
+            arcProgressRam.setUnfinishedStrokeColor(Eficiencia.themeColorDark);
 
             ProgressBar progressBarRom = rootView.findViewById(R.id.progressRom);
-            DrawableCompat.setTint(progressBarRom.getProgressDrawable(), Eficiencia1.themeColor);
+            DrawableCompat.setTint(progressBarRom.getProgressDrawable(), Eficiencia.themeColor);
 
             ProgressBarBattery = rootView.findViewById(R.id.progressBattery);
-            DrawableCompat.setTint(ProgressBarBattery.getProgressDrawable(), Eficiencia1.themeColor);
+            DrawableCompat.setTint(ProgressBarBattery.getProgressDrawable(), Eficiencia.themeColor);
 
             ProgressBar progressBarInStorage = rootView.findViewById(R.id.progressInStorage);
-            DrawableCompat.setTint(progressBarInStorage.getProgressDrawable(), Eficiencia1.themeColor);
+            DrawableCompat.setTint(progressBarInStorage.getProgressDrawable(), Eficiencia.themeColor);
 
             ProgressBar progressBarExStorage = rootView.findViewById(R.id.progressExStorage);
-            DrawableCompat.setTint(progressBarExStorage.getProgressDrawable(), Eficiencia1.themeColor);
+            DrawableCompat.setTint(progressBarExStorage.getProgressDrawable(), Eficiencia.themeColor);
 
             ProgressBarCPU = rootView.findViewById(R.id.progressCPU);
-            DrawableCompat.setTint(ProgressBarCPU.getProgressDrawable(), Eficiencia1.themeColor);
+            DrawableCompat.setTint(ProgressBarCPU.getProgressDrawable(), Eficiencia.themeColor);
 
             int startCPU = cu2.getTotalCpuUsage();
 

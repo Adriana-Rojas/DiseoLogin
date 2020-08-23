@@ -32,7 +32,7 @@ public class tabCPU extends Fragment {
         cu = new CPUUsage();
 
         try {
-            int textDisColor = Eficiencia1.themeColor;
+            int textDisColor = Eficiencia.themeColor;
             int lineColor = GetDetails.getThemeColor(Objects.requireNonNull(getContext()), R.attr.colorButtonNormal);
 
             TextView txtProcessor = new TextView(getContext());

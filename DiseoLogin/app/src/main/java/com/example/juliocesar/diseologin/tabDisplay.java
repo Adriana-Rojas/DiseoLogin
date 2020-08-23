@@ -22,7 +22,7 @@ public class tabDisplay extends Fragment {
         View rootView = inflater.inflate(R.layout.tabdisplay, container, false);
         LinearLayout llayout = rootView.findViewById(R.id.llayout);
         try {
-            int textDisColor = Eficiencia1.themeColor;
+            int textDisColor = Eficiencia.themeColor;
             int lineColor = GetDetails.getThemeColor(Objects.requireNonNull(getContext()), R.attr.colorButtonNormal);
 
             String brightnessLevelPerc = String.valueOf((Settings.System.getInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS) * 100) / 255) + "%";

@@ -6,22 +6,23 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.appbar.AppBarLayout;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.List;
 
@@ -107,7 +108,8 @@ public class Eficiencia1 extends AppCompatActivity {
         editor = sharedPrefs.edit();
         boolean requestReview = sharedPrefs.getBoolean("RequestReview", false);
         if (!requestReview) {
-
+            //BottomSheetEnjoy bottomSheetEnjoy = BottomSheetEnjoy.newInstance();
+          //  bottomSheetEnjoy.show(getSupportFragmentManager(), "EnjoyAppFragment");
             editor.putBoolean("RequestReview", true);
             editor.apply();
             editor.commit();
@@ -116,7 +118,18 @@ public class Eficiencia1 extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+           /* case R.id.action_settings: {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                this.finish();
+                return true;
+            }*/
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -142,7 +155,6 @@ public class Eficiencia1 extends AppCompatActivity {
                     return new tabDisplay();
                 case 6:
                     return new tabMemory();
-
                 default:
                     return null;
             }
@@ -170,7 +182,6 @@ public class Eficiencia1 extends AppCompatActivity {
                     return "Display";
                 case 6:
                     return "Memory";
-
             }
             return null;
         }

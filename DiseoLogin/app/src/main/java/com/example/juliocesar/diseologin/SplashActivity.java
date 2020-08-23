@@ -158,7 +158,7 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
                     deviceName = GetDetails.GetFromBuildProp("ro.semc.product.name");
                 }
                 wifiMac = GetDetails.getWifiMacAddress();
-
+                bluetoothMac = GetDetails.getBluetoothMac(context);
                 if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_USB_HOST)) {
                     usbHost = "Supported";
                 } else {
@@ -308,7 +308,7 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Intent loadMain = new Intent(context, Eficiencia1.class);
+            Intent loadMain = new Intent(context, Eficiencia.class);
             startActivity(loadMain);
             ((Activity) context).finish();
             overridePendingTransition(R.anim.slide_activity_enter, R.anim.slide_activity_exit);
