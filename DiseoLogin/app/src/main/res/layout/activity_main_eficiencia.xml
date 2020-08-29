@@ -6,13 +6,13 @@
     android:id="@+id/cordmain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Eficiencia">
+    tools:context="Eficiencia">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
+        android:paddingTop="8dp"
         android:theme="?attr/optionsMenuStyle">
 
         <androidx.appcompat.widget.Toolbar

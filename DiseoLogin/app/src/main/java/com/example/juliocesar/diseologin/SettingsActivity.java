@@ -21,8 +21,10 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
-import com.kizitonwose.colorpreferencecompat.*;
+
+
 import com.obsez.android.lib.filechooser.ChooserDialog;
+
 import java.util.Objects;
 
 @SuppressLint("StaticFieldLeak")
@@ -74,7 +76,7 @@ public class SettingsActivity extends AppCompatActivity  {
                 sharedPrefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()));
                 shareEdit = sharedPrefs.edit();
 
-           //     theme_color = findPreference("accent_color_dialog");
+               // theme_color = findPreference("accent_color_dialog");
                 dark_theme_Pref = findPreference("dark_theme_switch");
                 app_version_pref = findPreference("app_version_pref");
                 dark_theme_Pref.setOnPreferenceClickListener(preference -> {
@@ -164,12 +166,12 @@ public class SettingsActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-   
- /*   public void onColorSelected(int newColor, String s) {
+
+    public void onColorSelected(int newColor, String s) {
         try {
 
 
-            theme_color.setValue(newColor);
+         //   theme_color.setValue(newColor);
             final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor sharedEdit = sharedPref.edit();
             sharedEdit.putInt("accent_color_dialog", newColor);
@@ -201,5 +203,5 @@ public class SettingsActivity extends AppCompatActivity  {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }*/
+    }
 }
