@@ -73,7 +73,7 @@ public class AddAdmin extends AppCompatActivity {
 
                 else{
                     progressDialog.show();
-                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertaradmin.php",
+                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/insertaradmin.php",
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {

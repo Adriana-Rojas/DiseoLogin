@@ -44,7 +44,7 @@ public class Relevancia extends AppCompatActivity {
 
     public void retrieveData(){
         final String id = Login.tipoid;
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

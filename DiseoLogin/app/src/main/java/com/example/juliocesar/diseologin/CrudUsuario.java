@@ -35,7 +35,7 @@ public class CrudUsuario extends AppCompatActivity {
     ListView listView;
     MyAdapter adapter;
     public static ArrayList<Employee> employeeArrayList = new ArrayList<>();
-   String url = "http://192.168.101.5/proyecto/retrieveusuario.php";
+   String url = "http://192.168.101.2/proyecto/retrieveusuario.php";
     Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +85,7 @@ public class CrudUsuario extends AppCompatActivity {
     }
     private void deleteData(final String id) {
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/deleteusuario.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/deleteusuario.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

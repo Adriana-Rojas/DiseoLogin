@@ -62,7 +62,7 @@ public class Memorabilidad extends AppCompatActivity {
         scalculoderelevancia=Float.toString(Float.parseFloat(a)+Float.parseFloat(b)+Float.parseFloat(c)+Float.parseFloat(d));
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertarmemorabilidad.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/insertarmemorabilidad.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -97,7 +97,7 @@ public class Memorabilidad extends AppCompatActivity {
         requestQueue.add(request);
     }
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
