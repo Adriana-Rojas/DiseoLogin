@@ -27,7 +27,7 @@ import java.util.Map;
 public class Graficaresultados extends AppCompatActivity {
     ListView listView;
     public static ArrayList<Employeevaluados> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.101.5/proyecto/retrieveevaluados.php";
+    String url = "http://192.168.101.2/proyecto/retrieveevaluados.php";
     static  Float fcalcularusabilidad=0.f,feficiencia=0.f,feficacia=0.f,fmemorabilidad=0.f,fproductividad=0.f,fsatisfaccion=0.f,fseguridad=0.f,funiversabilidad=0.f,fcargacognitiva=0.f;
 
 

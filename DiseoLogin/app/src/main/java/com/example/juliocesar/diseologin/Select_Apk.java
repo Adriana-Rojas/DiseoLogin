@@ -35,7 +35,7 @@ public class Select_Apk extends AppCompatActivity {
     ListView listView;
     MyAdapterApk adapterApk;
     public static ArrayList<Employeepk> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.101.5/proyecto/retrieveevaluadorapk.php";
+    String url = "http://192.168.101.2/proyecto/retrieveevaluadorapk.php";
     Employeepk employeepk;
     static String idaplicacion;
     @Override
@@ -65,7 +65,7 @@ public class Select_Apk extends AppCompatActivity {
 
                             case 0:
                                 idaplicacion=employeeArrayList.get(position).getId();
-                                startActivity(new Intent(getApplicationContext(),Eficiencia.class)//Eficiencia
+                                startActivity(new Intent(getApplicationContext(),Eficacia.class)//Eficiencia
                                         .putExtra("position",position));
 
 
@@ -90,7 +90,7 @@ public class Select_Apk extends AppCompatActivity {
     }
     private void deleteData(final String id) {
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/deleteevaluador.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/deleteevaluador.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
