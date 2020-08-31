@@ -65,7 +65,7 @@ public class Select_Apk extends AppCompatActivity {
 
                             case 0:
                                 idaplicacion=employeeArrayList.get(position).getId();
-                                startActivity(new Intent(getApplicationContext(),Eficiencia.class)//Eficiencia
+                                startActivity(new Intent(getApplicationContext(),Eficacia.class)//Eficiencia
                                         .putExtra("position",position));
 
 
