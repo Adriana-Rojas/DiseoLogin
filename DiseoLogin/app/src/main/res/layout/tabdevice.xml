@@ -6,7 +6,11 @@
     android:paddingLeft="1dp"
     android:paddingRight="1dp"
     android:paddingTop="1dp"
+<<<<<<< HEAD
+    tools:context=".Eficiencia">
+=======
     tools:context="com.ytheekshana.deviceinfo.Eficiencia">
+>>>>>>> x
 
     <ScrollView
         android:id="@+id/devicescroll"
