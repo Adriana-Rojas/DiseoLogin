@@ -1,0 +1,254 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="5dp"
+    android:scrollbars="none"
+    tools:context="com.ytheekshana.deviceinfo.Eficiencia">
+
+    <RelativeLayout
+        android:id="@+id/rlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardRamInfo"
+            style="?attr/cardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageRam"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/imgRAM"
+                    android:tint="@color/progress_ram"
+                    app:srcCompat="@drawable/ram" />
+
+                <TextView
+                    android:id="@+id/txtRAMTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageRam"
+                    android:text="@string/RAM"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtRAMStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtRAMTitle"
+                    android:layout_toEndOf="@id/imageRam"
+                    android:text="13GB used of 32GB" />
+
+                <ProgressBar
+                    android:id="@+id/progressRam"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtRAMStatus"
+                    android:layout_toEndOf="@id/imageRam"
+                    android:progress="80" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardRomInfo"
+            style="?attr/cardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardRamInfo"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageRom"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/imgROM"
+                    android:tint="@color/progress_rom"
+                    app:srcCompat="@drawable/rom" />
+
+                <TextView
+                    android:id="@+id/txtROMTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageRom"
+                    android:text="@string/ROM"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtROMPath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtROMTitle"
+                    android:layout_toEndOf="@id/imageRom"
+                    android:text="/storage/emulated/2" />
+
+                <TextView
+                    android:id="@+id/txtROMStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtROMPath"
+                    android:layout_toEndOf="@id/imageRom"
+                    android:text="4GB used of 5GB" />
+
+                <ProgressBar
+                    android:id="@+id/progressRom"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtROMStatus"
+                    android:layout_toEndOf="@id/imageRom"
+                    android:progress="80" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardInStorageInfo"
+            style="?attr/cardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardRomInfo"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageInStorage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/imgInternalStorage"
+                    android:tint="@color/progress_insto"
+                    app:srcCompat="@drawable/instorage" />
+
+                <TextView
+                    android:id="@+id/txtInStorageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageInStorage"
+                    android:text="@string/InternalStorage"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtInStoragePath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtInStorageTitle"
+                    android:layout_toEndOf="@id/imageInStorage"
+                    android:text="/storage/emulated/2" />
+
+                <TextView
+                    android:id="@+id/txtInStorageStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtInStoragePath"
+                    android:layout_toEndOf="@id/imageInStorage"
+                    android:text="19GB used of 23GB" />
+
+                <ProgressBar
+                    android:id="@+id/progressInStorage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtInStorageStatus"
+                    android:layout_toEndOf="@id/imageInStorage"
+                    android:progress="80" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardExStorageInfo"
+            style="?attr/cardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardInStorageInfo"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageExStorage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/imgExternalStorage"
+                    android:tint="@color/progress_exsto"
+                    app:srcCompat="@drawable/exstorage" />
+
+                <TextView
+                    android:id="@+id/txtExStorageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageExStorage"
+                    android:text="@string/ExternalStorage"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtExStoragePath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtExStorageTitle"
+                    android:layout_toEndOf="@id/imageExStorage"
+                    android:text="/storage/emulated/2" />
+
+                <TextView
+                    android:id="@+id/txtExStorageStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtExStoragePath"
+                    android:layout_toEndOf="@id/imageExStorage"
+                    android:text="3GB used of 31GB" />
+
+                <ProgressBar
+                    android:id="@+id/progressExStorage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtExStorageStatus"
+                    android:layout_toEndOf="@id/imageExStorage"
+                    android:progress="80" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</ScrollView>

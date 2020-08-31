@@ -6,7 +6,7 @@
     android:clipToPadding="false"
     android:padding="5dp"
     android:scrollbars="none"
-    tools:context="com.ytheekshana.deviceinfo.Eficiencia">
+    tools:context=".Eficiencia">
 
     <RelativeLayout
         android:id="@+id/rlayout"

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Universabilidad">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="324dp"
+            android:layout_height="227dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="universabilidad.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/prp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Universabilidad"
+            android:textAlignment="textStart"
+            android:textColor="#009688"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:scrollbars="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/pr1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="0.5dp"
+                    android:layout_marginBottom="42dp"
+                    android:layout_toStartOf="@+id/spinner1"
+                    android:text="Se visualiza correctamente con la resolución de la pantalla"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
+
+                <TextView
+                    android:id="@+id/pr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr1"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="-29dp"
+                    android:layout_marginEnd="0.2dp"
+                    android:layout_toStartOf="@+id/spinner2"
+                    android:text="Lenguaje claro y conciso "
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="-29dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#054E47"
+                    android:textColorHint="#054E47" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
+
+                <Spinner
+                    android:id="@+id/spinner4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#054E47"
+                    android:textColorHint="#054E47" />
+
+                <Spinner
+                    android:id="@+id/spinner5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr4"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
+
+                <Spinner
+                    android:id="@+id/spinner6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr5"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="20dp"
+                    android:entries="@array/aves"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#054E47"
+                    android:textColorHint="#000000" />
+
+                <TextView
+                    android:id="@+id/pr3"
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr2"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner3"
+                    android:text="El tamaño de fuente se ha definido de forma relativa, o por lo menos, la fuente es lo suficientemente grande como para no dificultar la legibilidad del texto"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr3"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner4"
+                    android:text="Existe un alto contraste entre el color de fuente y el fondo"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr4"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner5"
+                    android:text="Dispone de versiones en varios idiomas"
+                    android:textAlignment="viewStart"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/pr6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pr5"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_toStartOf="@+id/spinner6"
+                    android:text="Creo que me gustaría usar este sistema con frecuencia"
+                    android:textAlignment="viewStart"
+                    android:textColor="#054E47"
+                    android:textSize="20sp" />
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+        <Button
+            android:id="@+id/universabilidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_fondo_color"
+            android:text="siguiente"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:elevation="5dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -10,8 +10,8 @@
         tools:targetApi="n_mr1">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.ytheekshana.deviceinfo.AboutActivity"
-            android:targetPackage="com.ytheekshana.deviceinfo" />
+            android:targetClass=".AboutActivity"
+            android:targetPackage=".deviceinfo" />
     </shortcut>
 
     <shortcut
@@ -24,8 +24,8 @@
         tools:targetApi="n_mr1">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.ytheekshana.deviceinfo.DonateActivity"
-            android:targetPackage="com.ytheekshana.deviceinfo" />
+            android:targetClass=".DonateActivity"
+            android:targetPackage="c.deviceinfo" />
     </shortcut>
     <!--shortcut
         android:enabled="true"
