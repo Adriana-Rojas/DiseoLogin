@@ -68,7 +68,6 @@ public class tabDashboard extends Fragment {
             ImageView imgExStorage = rootView.findViewById(R.id.imageExStorage);
             ImageView imgBattery = rootView.findViewById(R.id.imageBattery);
             ImageView imgCPU = rootView.findViewById(R.id.imageCPU);
-            ImageView imgSensor = rootView.findViewById(R.id.imageSensor);
             ImageView imgApps = rootView.findViewById(R.id.imageApps);
 
             ColorFilter accentFilter = new LightingColorFilter(Color.BLACK, Eficiencia.themeColor);
@@ -77,7 +76,6 @@ public class tabDashboard extends Fragment {
             imgExStorage.setColorFilter(accentFilter);
             imgBattery.setColorFilter(accentFilter);
             imgCPU.setColorFilter(accentFilter);
-            imgSensor.setColorFilter(accentFilter);
             imgApps.setColorFilter(accentFilter);
 
             IntentFilter batteryIntentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
@@ -93,7 +91,6 @@ public class tabDashboard extends Fragment {
             final CardView cardExternalStorage = rootView.findViewById(R.id.cardviewExStorage);
             final CardView cardBattery = rootView.findViewById(R.id.cardviewBattery);
             final CardView cardCpu = rootView.findViewById(R.id.cardviewCPU);
-            final CardView cardSensor = rootView.findViewById(R.id.cardviewSensor);
             final CardView cardApps = rootView.findViewById(R.id.cardviewApp);
 
             txtUsedRam = rootView.findViewById(R.id.txtUsedRam);
@@ -109,7 +106,6 @@ public class tabDashboard extends Fragment {
             TextView txtExStorageStatus = rootView.findViewById(R.id.txtExStorageStatus);
             txtCPUPerce = rootView.findViewById(R.id.txtCPUPerc);
             TextView txtCPUStatus = rootView.findViewById(R.id.txtCPUStatus);
-            TextView txtSensorCount = rootView.findViewById(R.id.txtSensorCount);
             TextView txtAppCount = rootView.findViewById(R.id.txtAppCount);
 
             lineChartRam = rootView.findViewById(R.id.lineChartRam);
@@ -155,7 +151,6 @@ public class tabDashboard extends Fragment {
             int startCPU = cu2.getTotalCpuUsage();
 
             animateTextView(SplashActivity.numberOfInstalledApps, txtAppCount);
-            animateTextView(SplashActivity.numberOfSensors, txtSensorCount);
 
             int startRAM = (int) SplashActivity.usedRamPercentage;
             txtUsedRam.setText(String.valueOf((int) SplashActivity.usedRam));
@@ -275,11 +270,7 @@ public class tabDashboard extends Fragment {
                 animCpu.setInterpolator(bounceInterpolator);
                 cardCpu.startAnimation(animCpu);
             });
-            cardSensor.setOnClickListener(v -> {
-                Animation animSensor = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_dash);
-                animSensor.setInterpolator(bounceInterpolator);
-                cardSensor.startAnimation(animSensor);
-            });
+           
             cardApps.setOnClickListener(v -> {
                 Animation animApps = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_dash);
                 animApps.setInterpolator(bounceInterpolator);
