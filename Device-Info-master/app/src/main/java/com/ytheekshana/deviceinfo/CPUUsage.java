@@ -127,6 +127,7 @@ public class CPUUsage {
             mUsage = 0;
             mLastTotal = 0;
             mLastIdle = 0;
+            int a=0;
         }
 
         private int getUsage() {

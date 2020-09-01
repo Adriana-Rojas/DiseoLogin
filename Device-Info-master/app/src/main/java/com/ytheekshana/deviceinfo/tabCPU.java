@@ -23,6 +23,7 @@ public class tabCPU extends Fragment {
     private TextView txtCore[];
     private String cUsage;
     private Timer timer;
+    //static
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -141,7 +142,7 @@ public class tabCPU extends Fragment {
             txtCPUFrequencydis.setPadding(0, 0, 0, 15);
             txtCPUFrequencydis.setTextColor(textDisColor);
             txtCPUFrequencydis.setTextSize(16);
-            String frequ = String.format(Locale.US, "%.0f", SplashActivity.cpuMinFreq) + " MHz - " + String.format(Locale.US, "%.0f", SplashActivity.cpuMaxFreq) + " MHz";
+            String frequ = String.format(Locale.US, "%.0f", SplashActivity.cpuMinFreq) + " MHz - " + String.format(Locale.US, "%.0f", SplashActivity.cpuMaxFreq) + " MHz";/////////////////
             txtCPUFrequencydis.setText(frequ);
             txtCPUFrequencydis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             txtCPUFrequency.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -262,7 +263,7 @@ public class tabCPU extends Fragment {
                             String curfreg = readerCurFreq.readLine();
                             currentFreq = Double.parseDouble(curfreg) / 1000;
                             readerCurFreq.close();
-                            final String settextcorecores = "\t\tCore " + corecount + "       " + (int) currentFreq + " Mhz";
+                            final String settextcorecores = "\t\tCore " + corecount + "       " + (int) currentFreq + " Mhz";//////////////////////
                             final int finalCorecount1 = corecount;
                             txtCore[corecount].post(() -> txtCore[finalCorecount1].setText(settextcorecores));
 

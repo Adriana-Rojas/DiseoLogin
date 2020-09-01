@@ -168,13 +168,13 @@ public class tabDashboard extends Fragment {
             txtTotalRam.setText(ssTotalRam);
 
             int startROM = (int) SplashActivity.usedRomPercentage;
-            String setRom = "Free: " + String.format(Locale.US, "%.1f", SplashActivity.availableRom) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalRom) + " GB";
+            String setRom = "Libre: " + String.format(Locale.US, "%.1f", SplashActivity.availableRom) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalRom) + " GB";
             txtRomStatus.setText(setRom);
             String storage_percentageRom = String.valueOf((int) SplashActivity.usedRomPercentage) + "%";
             txtRomPerce.setText(storage_percentageRom);
 
             int startInStorage = (int) SplashActivity.usedInternalPercentage;
-            String setInStorage = "Free: " + String.format(Locale.US, "%.1f", SplashActivity.availableInternalStorage) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalInternalStorage) + " GB";
+            String setInStorage = "Libre: " + String.format(Locale.US, "%.1f", SplashActivity.availableInternalStorage) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalInternalStorage) + " GB";
             txtInStorageStatus.setText(setInStorage);
             String in_storage_percentage = String.valueOf((int) SplashActivity.usedInternalPercentage) + "%";
             txtInStoragePerce.setText(in_storage_percentage);
@@ -182,7 +182,7 @@ public class tabDashboard extends Fragment {
             if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED) && ContextCompat.getExternalFilesDirs(Objects.requireNonNull(getContext()), null).length >= 2) {
                 cardExternalStorage.setVisibility(View.VISIBLE);
                 startExStorage = (int) SplashActivity.usedExternalPercentage;
-                String setExStorage = "Free: " + String.format(Locale.US, "%.1f", SplashActivity.availableExternalStorage) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalExternalStorage) + " GB";
+                String setExStorage = "Libre: " + String.format(Locale.US, "%.1f", SplashActivity.availableExternalStorage) + " GB,  Total: " + String.format(Locale.US, "%.1f", SplashActivity.totalExternalStorage) + " GB";
                 txtExStorageStatus.setText(setExStorage);
                 String ex_storage_percentage = String.valueOf((int) SplashActivity.usedExternalPercentage) + "%";
                 txtExStoragePerce.setText(ex_storage_percentage);
@@ -225,7 +225,7 @@ public class tabDashboard extends Fragment {
 
                 }
             }, 1000, 1000);
-            String cpuStatus = "Cores: " + Runtime.getRuntime().availableProcessors() + ",  Max Frequency: " + (int) SplashActivity.cpuMaxFreq + " MHz";
+            String cpuStatus = "Nucleos: " + Runtime.getRuntime().availableProcessors() + ",  Frecuencia max: " + (int) SplashActivity.cpuMaxFreq + " MHz";
             txtCPUStatus.setText(cpuStatus);
 
             ObjectAnimator arcProgressAnimatorRAM = ObjectAnimator.ofInt(arcProgressRam, "progress", 0, startRAM);
@@ -309,7 +309,7 @@ public class tabDashboard extends Fragment {
             final int batlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
             int voltage = intent.getIntExtra("voltage", 0);
             int temperature = (intent.getIntExtra("temperature", 0)) / 10;
-            String setBattery = "Voltage: " + voltage + "mV,  Temperature: " + temperature + " \u2103";
+            String setBattery = "Voltaje: " + voltage + "mV,  Temperatura: " + temperature + " \u2103";
             txtBatteryStatus.setText(setBattery);
             String battery_percentage = Integer.toString(batlevel) + "%";
             txtBatteryPerce.setText(battery_percentage);

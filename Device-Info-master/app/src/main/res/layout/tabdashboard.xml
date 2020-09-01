@@ -59,7 +59,7 @@
                     android:layout_alignParentEnd="true"
                     android:fontFamily="@font/google"
                     android:paddingBottom="1dp"
-                    android:text=" MB Used"
+                    android:text=" MB Utilizado"
                     android:textColor="@color/white"
                     android:textSize="12sp" />
 
@@ -82,7 +82,7 @@
                     android:layout_alignParentEnd="true"
                     android:fontFamily="@font/google"
                     android:paddingBottom="1dp"
-                    android:text=" MB Free"
+                    android:text=" MB Libre"
                     android:textColor="@color/white"
                     android:textSize="9sp" />
 
@@ -140,7 +140,7 @@
                     android:layout_alignTop="@+id/imageROM"
                     android:layout_toEndOf="@+id/imageROM"
                     android:gravity="top"
-                    android:text="@string/DashROM"
+                    android:text="Almacenamiento del Sistema"
                     android:textStyle="bold" />
 
                 <ProgressBar
@@ -173,7 +173,7 @@
                     android:layout_below="@id/progressRom"
                     android:layout_toEndOf="@+id/imageROM"
                     android:gravity="top"
-                    android:text="Free:0GB, Total:0GB"
+                    android:text="Libre:0GB, Total:0GB"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -209,7 +209,7 @@
                     android:layout_alignTop="@+id/imageInStorage"
                     android:layout_toEndOf="@+id/imageInStorage"
                     android:gravity="top"
-                    android:text="@string/DashInternalStorage"
+                    android:text="Almacenamiento Interno"
                     android:textStyle="bold" />
 
                 <ProgressBar
@@ -242,7 +242,7 @@
                     android:layout_below="@id/progressInStorage"
                     android:layout_toEndOf="@+id/imageInStorage"
                     android:gravity="top"
-                    android:text="Free:0GB, Total:0GB"
+                    android:text="Libre:0GB, Total:0GB"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -278,7 +278,7 @@
                     android:layout_alignTop="@+id/imageExStorage"
                     android:layout_toEndOf="@+id/imageExStorage"
                     android:gravity="top"
-                    android:text="@string/DashExternalStorage"
+                    android:text="Almacenamiento Externo"
                     android:textStyle="bold" />
 
                 <ProgressBar
@@ -311,7 +311,7 @@
                     android:layout_below="@id/progressExStorage"
                     android:layout_toEndOf="@+id/imageExStorage"
                     android:gravity="top"
-                    android:text="Free:0GB, Total:0GB"
+                    android:text="Libre:0GB, Total:0GB"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -347,7 +347,7 @@
                     android:layout_alignTop="@+id/imageBattery"
                     android:layout_toEndOf="@+id/imageBattery"
                     android:gravity="top"
-                    android:text="@string/DashBattery"
+                    android:text="Bateria"
                     android:textStyle="bold" />
 
                 <ProgressBar

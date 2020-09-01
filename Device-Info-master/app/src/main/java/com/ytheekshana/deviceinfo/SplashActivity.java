@@ -82,7 +82,7 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
 
         getWindow().setStatusBarColor(themeColorDark);
         Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
-        ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(getString(R.string.app_name), icon, themeColor);
+        ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription("Eficiencia", icon, themeColor);
         setTaskDescription(taskDescription);
 
         RelativeLayout relativeLayout = findViewById(R.id.mainlayout_Splash);
@@ -93,19 +93,7 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
 
         progressBarSplash = findViewById(R.id.progressBar_Splash);
         TextView txtAppName = findViewById(R.id.txtAppName);
-        ImageView imageLogoSplash1 = findViewById(R.id.imageLogoSplash1);
-        ImageView imageLogoSplash2 = findViewById(R.id.imageLogoSplash2);
-        ImageView imageLogoSplash3 = findViewById(R.id.imageLogoSplash3);
-        ImageView imageLogoSplash4 = findViewById(R.id.imageLogoSplash4);
 
-        Animation animLogoFromTop = AnimationUtils.loadAnimation(this, R.anim.logo_from_top);
-        imageLogoSplash1.setAnimation(animLogoFromTop);
-        Animation animLogoFromBottom = AnimationUtils.loadAnimation(this, R.anim.logo_from_bottom);
-        imageLogoSplash2.setAnimation(animLogoFromBottom);
-        Animation animLogoFromLeft = AnimationUtils.loadAnimation(this, R.anim.logo_from_left);
-        imageLogoSplash3.setAnimation(animLogoFromLeft);
-        Animation animLogoFromRight = AnimationUtils.loadAnimation(this, R.anim.logo_from_right);
-        imageLogoSplash4.setAnimation(animLogoFromRight);
 
         Animation animpTextview = AnimationUtils.loadAnimation(this, R.anim.from_bottom);
         txtAppName.setAnimation(animpTextview);

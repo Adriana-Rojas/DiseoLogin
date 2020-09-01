@@ -179,29 +179,29 @@ public class Eficiencia extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Dashboard";
+                    return "Inicio";
                 case 1:
-                    return "Device";
+                    return "Dispositivo";
                 case 2:
-                    return "System";
+                    return "Sistema";
                 case 3:
                     return "CPU";
                 case 4:
-                    return "Battery";
+                    return "Bateria";
                 case 5:
-                    return "Display";
+                    return "Pantalla";
                 case 6:
-                    return "Memory";
+                    return "Memoria";
                 case 7:
-                    return "Camera";
+                    return "Camara";
                 case 8:
-                    return "Thermal";
+                    return "Termico";
                 case 9:
-                    return "Sensors";
+                    return "Sensores";
                 case 10:
-                    return "Apps";
+                    return "Aplicaciones";
                 case 11:
-                    return "Tests";
+                    return "Pruebas";
             }
             return null;
         }
