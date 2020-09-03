@@ -1,9 +1,7 @@
 package com.ytheekshana.deviceinfo;
 
 public class Aplicaciones {
-    /**
-     * Created by androidmorefast on 26/05/2016.
-     */
+
         private int id;
         private String name;
 
