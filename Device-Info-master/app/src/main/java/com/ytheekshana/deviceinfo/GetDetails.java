@@ -91,7 +91,7 @@ public class GetDetails {
                 OSName = "Android Pie";
                 break;
             default:
-                OSName = "Unknown";
+                OSName = "Desconocido";
         }
         return OSName;
     }
@@ -135,7 +135,7 @@ public class GetDetails {
                 OSReleaseDate = "August 09, 2018";
                 break;
             default:
-                OSReleaseDate = "Unknown";
+                OSReleaseDate = "Desconocido";
         }
         return OSReleaseDate;
     }
@@ -179,7 +179,7 @@ public class GetDetails {
                 OSName = "Pie";
                 break;
             default:
-                OSName = "Unknown";
+                OSName = "Desconocido";
         }
         return OSName;
     }
@@ -219,10 +219,10 @@ public class GetDetails {
                     }
                 }
                 if (Final.equals("") || Final.equals("0")) {
-                    Final = "Unknown";
+                    Final = "Desconocido";
                 }
             } else {
-                Final = "Unknown";
+                Final = "Desconocido";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -254,11 +254,11 @@ public class GetDetails {
                         Final = cpuinfo[a + 1].substring(1, getlastindex);
                         break;
                     } else {
-                        Final = "Unknown";
+                        Final = "Desconocido";
                     }
                 }
             } else {
-                Final = "Unknown";
+                Final = "Desconocido";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -282,7 +282,7 @@ public class GetDetails {
 
     static String getTime(long millis) {
         if (millis < 0) {
-            throw new IllegalArgumentException("Duration must be greater than zero!");
+            throw new IllegalArgumentException("¡La duración debe ser mayor que cero!");
         }
         return String.format(Locale.US, "%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis), TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
     }
@@ -360,7 +360,7 @@ public class GetDetails {
                 Type = "UMTS";
                 break;
             default:
-                Type = "Not Available";
+                Type = "Desconocido";
                 break;
         }
         return Type;

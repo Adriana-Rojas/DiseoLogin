@@ -148,9 +148,9 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
                 wifiMac = GetDetails.getWifiMacAddress();
                 bluetoothMac = GetDetails.getBluetoothMac(context);
                 if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_USB_HOST)) {
-                    usbHost = "Supported";
+                    usbHost = "Soportado";
                 } else {
-                    usbHost = "Not Supported";
+                    usbHost = "No Soportado";
                 }
 
                 Thread.sleep(threadSleepAmount);
@@ -227,11 +227,11 @@ public class SplashActivity extends Activity implements GLSurfaceView.Renderer {
                 diplayRefreshRate = display.getRefreshRate();
                 int orie = activity.getResources().getConfiguration().orientation;
                 if (orie == Configuration.ORIENTATION_PORTRAIT) {
-                    displayOrientation = "Portrait";
+                    displayOrientation = "Retrato";
                 } else if (orie == Configuration.ORIENTATION_LANDSCAPE) {
-                    displayOrientation = "Landscape";
+                    displayOrientation = "Paisaje";
                 } else if (orie == Configuration.ORIENTATION_UNDEFINED) {
-                    displayOrientation = "Undefined";
+                    displayOrientation = "Indefinido";
                 }
                 fontSize = getResources().getConfiguration().fontScale;
                 displayPhysicalSize = GetDetails.getDisplaySize(activity);

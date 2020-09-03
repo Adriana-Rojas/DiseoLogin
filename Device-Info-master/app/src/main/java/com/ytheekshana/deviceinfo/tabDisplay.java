@@ -28,7 +28,7 @@ public class tabDisplay extends Fragment {
             String brightnessLevelPerc = String.valueOf((Settings.System.getInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS) * 100) / 255) + "%";
             String brightnessMode = "";
             if (Settings.System.getInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                brightnessMode = "Adaptive";
+                brightnessMode = "Automatico";
             } else if (Settings.System.getInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL) {
                 brightnessMode = "Manual";
             }
@@ -39,13 +39,13 @@ public class tabDisplay extends Fragment {
             View v = new View(getContext());
             v.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v.setBackgroundColor(lineColor);
-            txtResolution.setText(R.string.Resolution);
+            txtResolution.setText("Resoluciòn");
             txtResolution.setTypeface(null, Typeface.BOLD);
             txtResolution.setTextSize(16);
             txtResolutiondis.setPadding(0, 0, 0, 15);
             txtResolutiondis.setTextColor(textDisColor);
             txtResolutiondis.setTextSize(16);
-            String Res = String.valueOf(SplashActivity.displayWidth) + " x " + String.valueOf(SplashActivity.displayHeight) + " Pixels";
+            String Res = String.valueOf(SplashActivity.displayWidth) + " x " + String.valueOf(SplashActivity.displayHeight) + " Pixeles";
             txtResolutiondis.setText(Res);
             txtResolutiondis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             txtResolution.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -58,7 +58,7 @@ public class tabDisplay extends Fragment {
             View v1 = new View(getContext());
             v1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v1.setBackgroundColor(lineColor);
-            txtDensity.setText(R.string.Density);
+            txtDensity.setText("Densidad");
             txtDensity.setTypeface(null, Typeface.BOLD);
             txtDensity.setTextSize(16);
             txtDensity.setPadding(0, 15, 0, 0);
@@ -78,7 +78,7 @@ public class tabDisplay extends Fragment {
             View v2 = new View(getContext());
             v2.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v2.setBackgroundColor(lineColor);
-            txtFontScale.setText(R.string.FontScale);
+            txtFontScale.setText("Tamaño de la Fuenta");
             txtFontScale.setTypeface(null, Typeface.BOLD);
             txtFontScale.setTextSize(16);
             txtFontScale.setPadding(0, 15, 0, 0);
@@ -98,14 +98,14 @@ public class tabDisplay extends Fragment {
             View v3 = new View(getContext());
             v3.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v3.setBackgroundColor(lineColor);
-            txtScreenPhysical.setText(R.string.PhysicalSize);
+            txtScreenPhysical.setText("Tamaño fisico");
             txtScreenPhysical.setTypeface(null, Typeface.BOLD);
             txtScreenPhysical.setTextSize(16);
             txtScreenPhysical.setPadding(0, 15, 0, 0);
             txtScreenPhysicaldis.setPadding(0, 0, 0, 15);
             txtScreenPhysicaldis.setTextColor(textDisColor);
             txtScreenPhysicaldis.setTextSize(16);
-            String physical_size = SplashActivity.displayPhysicalSize + " inches";
+            String physical_size = SplashActivity.displayPhysicalSize + " pulgadas";
             txtScreenPhysicaldis.setText(physical_size);
             txtScreenPhysicaldis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             txtFontScale.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -118,7 +118,7 @@ public class tabDisplay extends Fragment {
             View v4 = new View(getContext());
             v4.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v4.setBackgroundColor(lineColor);
-            txtRefreshRate.setText(R.string.RefreshRate);
+            txtRefreshRate.setText("Frecuencia de Actualizacion");
             txtRefreshRate.setTypeface(null, Typeface.BOLD);
             txtRefreshRate.setTextSize(16);
             txtRefreshRate.setPadding(0, 15, 0, 0);
@@ -138,7 +138,7 @@ public class tabDisplay extends Fragment {
             View v5 = new View(getContext());
             v5.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v5.setBackgroundColor(lineColor);
-            txtBrightnessLevel.setText(R.string.brightnessLevel);
+            txtBrightnessLevel.setText("Nivel de Brillo");
             txtBrightnessLevel.setTypeface(null, Typeface.BOLD);
             txtBrightnessLevel.setTextSize(16);
             txtBrightnessLevel.setPadding(0, 15, 0, 0);
@@ -157,7 +157,7 @@ public class tabDisplay extends Fragment {
             View v6 = new View(getContext());
             v6.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v6.setBackgroundColor(lineColor);
-            txtBrightnessMode.setText(R.string.brightnessMode);
+            txtBrightnessMode.setText("Modo de Brillo");
             txtBrightnessMode.setTypeface(null, Typeface.BOLD);
             txtBrightnessMode.setTextSize(16);
             txtBrightnessMode.setPadding(0, 15, 0, 0);
@@ -176,7 +176,7 @@ public class tabDisplay extends Fragment {
             View v7 = new View(getContext());
             v7.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v7.setBackgroundColor(lineColor);
-            txtScreenTimeout.setText(R.string.screenTimeout);
+            txtScreenTimeout.setText("Tiempo de Espera de la Pantalla");
             txtScreenTimeout.setTypeface(null, Typeface.BOLD);
             txtScreenTimeout.setTextSize(16);
             txtScreenTimeout.setPadding(0, 15, 0, 0);
@@ -195,7 +195,7 @@ public class tabDisplay extends Fragment {
             View v8 = new View(getContext());
             v8.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v8.setBackgroundColor(lineColor);
-            txtOrientation.setText(R.string.Orientation);
+            txtOrientation.setText("Orientacion");
             txtOrientation.setTypeface(null, Typeface.BOLD);
             txtOrientation.setTextSize(16);
             txtOrientation.setPadding(0, 15, 0, 0);

@@ -41,7 +41,7 @@ public class tabBattery extends Fragment {
             View v = new View(getContext());
             v.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v.setBackgroundColor(lineColor);
-            txtBatteryHealth.setText(R.string.Health);
+            txtBatteryHealth.setText("Salud");
             txtBatteryHealth.setTypeface(null, Typeface.BOLD);
             txtBatteryHealth.setTextSize(16);
             txtBatteryHealthdis.setPadding(0, 0, 0, 15);
@@ -58,7 +58,7 @@ public class tabBattery extends Fragment {
             View v1 = new View(getContext());
             v1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v1.setBackgroundColor(lineColor);
-            txtBatteryLevel.setText(R.string.Level);
+            txtBatteryLevel.setText("Nivel");
             txtBatteryLevel.setTypeface(null, Typeface.BOLD);
             txtBatteryLevel.setTextSize(16);
             txtBatteryLeveldis.setPadding(0, 0, 0, 15);
@@ -75,7 +75,7 @@ public class tabBattery extends Fragment {
             View v2 = new View(getContext());
             v2.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v2.setBackgroundColor(lineColor);
-            txtBatteryStatus.setText(R.string.Status);
+            txtBatteryStatus.setText("Estado");
             txtBatteryStatus.setTypeface(null, Typeface.BOLD);
             txtBatteryStatus.setTextSize(16);
             txtBatteryStatus.setPadding(0, 15, 0, 0);
@@ -93,7 +93,7 @@ public class tabBattery extends Fragment {
             View v3 = new View(getContext());
             v3.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v3.setBackgroundColor(lineColor);
-            txtPowerSource.setText(R.string.PowerSource);
+            txtPowerSource.setText("Fuente de alimentacion");
             txtPowerSource.setTypeface(null, Typeface.BOLD);
             txtPowerSource.setTextSize(16);
             txtPowerSource.setPadding(0, 15, 0, 0);
@@ -111,7 +111,7 @@ public class tabBattery extends Fragment {
             View v4 = new View(getContext());
             v4.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v4.setBackgroundColor(lineColor);
-            txtTechnology.setText(R.string.Technology);
+            txtTechnology.setText("Tecnologia");
             txtTechnology.setTypeface(null, Typeface.BOLD);
             txtTechnology.setTextSize(16);
             txtTechnology.setPadding(0, 15, 0, 0);
@@ -129,7 +129,7 @@ public class tabBattery extends Fragment {
             View v5 = new View(getContext());
             v5.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v5.setBackgroundColor(lineColor);
-            txtTemperature.setText(R.string.Temperature);
+            txtTemperature.setText("Temperatura");
             txtTemperature.setTypeface(null, Typeface.BOLD);
             txtTemperature.setTextSize(16);
             txtTemperature.setPadding(0, 15, 0, 0);
@@ -147,7 +147,7 @@ public class tabBattery extends Fragment {
             View v6 = new View(getContext());
             v6.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v6.setBackgroundColor(lineColor);
-            txtBatteryVoltage.setText(R.string.Voltage);
+            txtBatteryVoltage.setText("Voltaje");
             txtBatteryVoltage.setTypeface(null, Typeface.BOLD);
             txtBatteryVoltage.setTextSize(16);
             txtBatteryVoltage.setPadding(0, 15, 0, 0);
@@ -165,7 +165,7 @@ public class tabBattery extends Fragment {
             View v7 = new View(getContext());
             v7.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v7.setBackgroundColor(lineColor);
-            txtBatteryCapacity.setText(R.string.Capacity);
+            txtBatteryCapacity.setText("Capacidad");
             txtBatteryCapacity.setTypeface(null, Typeface.BOLD);
             txtBatteryCapacity.setTextSize(16);
             txtBatteryCapacity.setPadding(0, 15, 0, 0);
@@ -201,39 +201,39 @@ public class tabBattery extends Fragment {
                 String battechno = Objects.requireNonNull(intent.getExtras()).getString(BatteryManager.EXTRA_TECHNOLOGY);
 
                 if (batstatus == BatteryManager.BATTERY_STATUS_CHARGING) {
-                    batstatusdis = "Charging";
+                    batstatusdis = "Cargando";
                 } else if (batstatus == BatteryManager.BATTERY_STATUS_DISCHARGING) {
-                    batstatusdis = "Discharging";
+                    batstatusdis = "Descargando";
                 } else if (batstatus == BatteryManager.BATTERY_STATUS_FULL) {
-                    batstatusdis = "Battery Full";
+                    batstatusdis = "Bateria llena";
                 } else if (batstatus == BatteryManager.BATTERY_STATUS_UNKNOWN) {
-                    batstatusdis = "Unknown";
+                    batstatusdis = "Desconocida";
                 } else if (batstatus == BatteryManager.BATTERY_STATUS_NOT_CHARGING) {
-                    batstatusdis = "Not Charging";
+                    batstatusdis = "No Cargando";
                 }
 
                 if (batpowersource == BatteryManager.BATTERY_PLUGGED_USB) {
-                    batpowersourcedis = "USB Port";
+                    batpowersourcedis = "Puerto USB";
                 } else if (batpowersource == BatteryManager.BATTERY_PLUGGED_AC) {
-                    batpowersourcedis = "AC";
+                    batpowersourcedis = "Corriente Alterna";
                 } else {
-                    batpowersourcedis = "Battery";
+                    batpowersourcedis = "Batería";
                 }
 
                 if (bathealth == BatteryManager.BATTERY_HEALTH_COLD) {
-                    bathealthdis = "Cold";
+                    bathealthdis = "Frío";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_DEAD) {
-                    bathealthdis = "Dead";
+                    bathealthdis = "Muerto";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_GOOD) {
-                    bathealthdis = "Good";
+                    bathealthdis = "Bueno";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE) {
-                    bathealthdis = "Over Voltage";
+                    bathealthdis = "Sobre voltaje";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_OVERHEAT) {
-                    bathealthdis = "Overheat";
+                    bathealthdis = "Sobrecaliente";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_UNKNOWN) {
-                    bathealthdis = "Unknown";
+                    bathealthdis = "Desconocido";
                 } else if (bathealth == BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE) {
-                    bathealthdis = "Failure";
+                    bathealthdis = "Fracaso";
                 }
 
                 String battery_level = String.valueOf(batlevel) + "%";

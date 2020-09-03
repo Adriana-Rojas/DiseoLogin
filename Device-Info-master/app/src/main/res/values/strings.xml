@@ -93,10 +93,10 @@
     <string name="screenTimeout">Screen Timeout</string>
     <string name="Orientation">Orientation</string>
 
-    <string name="RAM">Random Access Memory</string>
-    <string name="ROM">System Storage</string>
-    <string name="InternalStorage">Internal Storage</string>
-    <string name="ExternalStorage">External Storage</string>
+    <string name="RAM">Memoria de acceso aleatorio</string>
+    <string name="ROM">Almacenamiento del sistema</string>
+    <string name="InternalStorage">Almacenamiento interno</string>
+    <string name="ExternalStorage">Almacenamiento externo</string>
 
     <string name="about_shortcut_short_label">About</string>
     <string name="about_shortcut_long_label">About</string>

@@ -23,6 +23,7 @@ public class tabCPU extends Fragment {
     private TextView txtCore[];
     private String cUsage;
     private Timer timer;
+    static int cpuuso;
     //static
 
     @Override
@@ -36,49 +37,14 @@ public class tabCPU extends Fragment {
             int textDisColor = Eficiencia.themeColor;
             int lineColor = GetDetails.getThemeColor(Objects.requireNonNull(getContext()), R.attr.colorButtonNormal);
 
-            TextView txtProcessor = new TextView(getContext());
-            TextView txtProcessordis = new TextView(getContext());
-            View v = new View(getContext());
-            v.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
-            v.setBackgroundColor(lineColor);
-            txtProcessor.setText(R.string.Processor);
-            txtProcessor.setTypeface(null, Typeface.BOLD);
-            txtProcessor.setTextSize(16);
-            txtProcessordis.setPadding(0, 0, 0, 15);
-            txtProcessordis.setTextColor(textDisColor);
-            txtProcessordis.setTextSize(16);
-            txtProcessordis.setText(SplashActivity.processorName);
-            txtProcessordis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            txtProcessor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            llayout.addView(txtProcessor);
-            llayout.addView(txtProcessordis);
-            llayout.addView(v);
 
-            TextView txtABI = new TextView(getContext());
-            TextView txtABIdis = new TextView(getContext());
-            View v1 = new View(getContext());
-            v1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
-            v1.setBackgroundColor(lineColor);
-            txtABI.setText(R.string.ABIs);
-            txtABI.setTypeface(null, Typeface.BOLD);
-            txtABI.setTextSize(16);
-            txtABI.setPadding(0, 15, 0, 0);
-            txtABIdis.setPadding(0, 0, 0, 15);
-            txtABIdis.setTextColor(textDisColor);
-            txtABIdis.setTextSize(16);
-            txtABIdis.setText(SplashActivity.cpuABIs);
-            txtABIdis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            txtABI.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            llayout.addView(txtABI);
-            llayout.addView(txtABIdis);
-            llayout.addView(v1);
 
             TextView txtCPUHardware = new TextView(getContext());
             TextView txtCPUHardwaredis = new TextView(getContext());
             View v2 = new View(getContext());
             v2.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v2.setBackgroundColor(lineColor);
-            txtCPUHardware.setText(R.string.CPUHardware);
+            txtCPUHardware.setText("Hardware del CPU");
             txtCPUHardware.setTypeface(null, Typeface.BOLD);
             txtCPUHardware.setTextSize(16);
             txtCPUHardware.setPadding(0, 15, 0, 0);
@@ -92,31 +58,13 @@ public class tabCPU extends Fragment {
             llayout.addView(txtCPUHardwaredis);
             llayout.addView(v2);
 
-            TextView txtCPUGovernor = new TextView(getContext());
-            TextView txtCPUGovernordis = new TextView(getContext());
-            View v3 = new View(getContext());
-            v3.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
-            v3.setBackgroundColor(lineColor);
-            txtCPUGovernor.setText(R.string.CPUGovernor);
-            txtCPUGovernor.setTypeface(null, Typeface.BOLD);
-            txtCPUGovernor.setTextSize(16);
-            txtCPUGovernor.setPadding(0, 15, 0, 0);
-            txtCPUGovernordis.setPadding(0, 0, 0, 15);
-            txtCPUGovernordis.setTextColor(textDisColor);
-            txtCPUGovernordis.setTextSize(16);
-            txtCPUGovernordis.setText(SplashActivity.cpuGovernor);
-            txtCPUGovernordis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            txtCPUGovernor.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            llayout.addView(txtCPUGovernor);
-            llayout.addView(txtCPUGovernordis);
-            llayout.addView(v3);
 
             TextView txtCPUCores = new TextView(getContext());
             final TextView txtCPUCoresdis = new TextView(getContext());
             View v4 = new View(getContext());
             v4.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v4.setBackgroundColor(lineColor);
-            txtCPUCores.setText(R.string.Cores);
+            txtCPUCores.setText("Nucleos");
             txtCPUCores.setTypeface(null, Typeface.BOLD);
             txtCPUCores.setTextSize(16);
             txtCPUCores.setPadding(0, 15, 0, 0);
@@ -135,7 +83,7 @@ public class tabCPU extends Fragment {
             View v5 = new View(getContext());
             v5.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v5.setBackgroundColor(lineColor);
-            txtCPUFrequency.setText(R.string.CPUFrequency);
+            txtCPUFrequency.setText("CPU Frecuencia");
             txtCPUFrequency.setTypeface(null, Typeface.BOLD);
             txtCPUFrequency.setTextSize(16);
             txtCPUFrequency.setPadding(0, 15, 0, 0);
@@ -154,7 +102,7 @@ public class tabCPU extends Fragment {
             View v6 = new View(getContext());
             v6.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v6.setBackgroundColor(lineColor);
-            txtRunningCPU.setText(R.string.RunningCPUs);
+            txtRunningCPU.setText("CPUs Corriendo");
             txtRunningCPU.setTypeface(null, Typeface.BOLD);
             txtRunningCPU.setTextSize(16);
             txtRunningCPU.setPadding(0, 15, 0, 0);
@@ -179,37 +127,21 @@ public class tabCPU extends Fragment {
             View v7 = new View(getContext());
             v7.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
             v7.setBackgroundColor(lineColor);
-            txtCPUUsage.setText(R.string.CPUUsage);
+            txtCPUUsage.setText("Uso de CPU");
             txtCPUUsage.setTypeface(null, Typeface.BOLD);
             txtCPUUsage.setTextSize(16);
             txtCPUUsage.setPadding(0, 15, 0, 0);
             txtCPUUsagedis.setPadding(0, 0, 0, 15);
             txtCPUUsagedis.setTextColor(textDisColor);
             txtCPUUsagedis.setTextSize(16);
+            txtCPUUsagedis.setText("50");
             txtCPUUsagedis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             txtCPUUsage.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             llayout.addView(txtCPUUsage);
             llayout.addView(txtCPUUsagedis);
             llayout.addView(v7);
 
-            TextView txtGPURenderer = new TextView(getContext());
-            TextView txtGPURendererdis = new TextView(getContext());
-            View v8 = new View(getContext());
-            v8.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
-            v8.setBackgroundColor(lineColor);
-            txtGPURenderer.setText(R.string.GPURenderer);
-            txtGPURenderer.setTypeface(null, Typeface.BOLD);
-            txtGPURenderer.setTextSize(16);
-            txtGPURenderer.setPadding(0, 15, 0, 0);
-            txtGPURendererdis.setPadding(0, 0, 0, 15);
-            txtGPURendererdis.setTextColor(textDisColor);
-            txtGPURendererdis.setTextSize(16);
-            txtGPURendererdis.setText(SplashActivity.gpuRenderer);
-            txtGPURendererdis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            txtGPURenderer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            llayout.addView(txtGPURenderer);
-            llayout.addView(txtGPURendererdis);
-            llayout.addView(v8);
+
 
             TextView txtGPUVendor = new TextView(getContext());
             TextView txtGPUVendordis = new TextView(getContext());
@@ -230,45 +162,36 @@ public class tabCPU extends Fragment {
             llayout.addView(txtGPUVendordis);
             llayout.addView(v9);
 
-            TextView txtGPUVersion = new TextView(getContext());
-            TextView txtGPUVersiondis = new TextView(getContext());
-            View v10 = new View(getContext());
-            v10.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
-            v10.setBackgroundColor(lineColor);
-            txtGPUVersion.setText(R.string.GPUVersion);
-            txtGPUVersion.setTypeface(null, Typeface.BOLD);
-            txtGPUVersion.setTextSize(16);
-            txtGPUVersion.setPadding(0, 15, 0, 0);
-            txtGPUVersiondis.setPadding(0, 0, 0, 15);
-            txtGPUVersiondis.setTextColor(textDisColor);
-            txtGPUVersiondis.setTextSize(16);
-            txtGPUVersiondis.setText(SplashActivity.gpuVersion);
-            txtGPUVersiondis.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            txtGPUVersion.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            llayout.addView(txtGPUVersion);
-            llayout.addView(txtGPUVersiondis);
-            llayout.addView(v10);
+
 
             timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    cUsage = String.valueOf(cu.getTotalCpuUsage()) + " %";
+
+                  //  cUsage = String.valueOf(cu.getTotalCpuUsage()) + " %";
 
                     for (int corecount = 0; corecount < Runtime.getRuntime().availableProcessors(); corecount++) {
                         try {
+                            int usocpu ;
                             double currentFreq;
                             RandomAccessFile readerCurFreq;
                             readerCurFreq = new RandomAccessFile("/sys/devices/system/cpu/cpu" + corecount + "/cpufreq/scaling_cur_freq", "r");
                             String curfreg = readerCurFreq.readLine();
                             currentFreq = Double.parseDouble(curfreg) / 1000;
                             readerCurFreq.close();
-                            final String settextcorecores = "\t\tCore " + corecount + "       " + (int) currentFreq + " Mhz";//////////////////////
+                            final String settextcorecores = "\t\tNucleo " + corecount + "       " + (int) currentFreq + " Mhz";//////////////////////
                             final int finalCorecount1 = corecount;
                             txtCore[corecount].post(() -> txtCore[finalCorecount1].setText(settextcorecores));
 
+                            if(corecount == 0){
+                                usocpu=(int)((currentFreq/SplashActivity.cpuMaxFreq)*100);
+                                cUsage = (usocpu) + " %";
+                                //cpuuso=Integer.parseInt(cUsage);
+                            }
+
                         } catch (Exception ex) {
-                            final String settextcorecoresEX = "\t\tCore " + corecount + "       " + "Idle";
+                            final String settextcorecoresEX = "\t\tNucleo " + corecount + "       " + "Idle";
                             final int finalCorecount = corecount;
                             txtCore[corecount].post(() -> txtCore[finalCorecount].setText(settextcorecoresEX));
                         }

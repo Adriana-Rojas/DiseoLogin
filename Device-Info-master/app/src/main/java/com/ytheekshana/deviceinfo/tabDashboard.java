@@ -213,7 +213,7 @@ public class tabDashboard extends Fragment {
             timercUsage.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    usagecpu = cu2.getTotalCpuUsage();
+                    usagecpu = tabCPU.cpuuso;
                     cUsage = String.valueOf(usagecpu) + " %";
                     txtCPUPerce.post(() -> txtCPUPerce.setText(cUsage));
                     ProgressBarCPU.post(() -> ProgressBarCPU.setProgress(usagecpu * 10));

@@ -135,7 +135,7 @@ public class tabDevice extends Fragment {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                    txtNetworkOperatordis.setText(R.string.GrantPermission);
+                    txtNetworkOperatordis.setText("Haga Click Para Otorgar Permiso");
                     txtNetworkOperatordis.setOnClickListener(view -> ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()), new String[]{Manifest.permission.READ_PHONE_STATE}, REQUEST_PHONE_STATE));
                 } else {
                     txtNetworkOperatordis.setText(tm.getNetworkOperatorName());

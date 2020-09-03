@@ -63,7 +63,7 @@ public class tabMemory extends Fragment {
             Runnable runnable = new Runnable() {
                 public void run() {
                     memoryInfo.Ram();
-                    String ramStatus = Double.toString(memoryInfo.getUsedRam()) + "MB used of " + Double.toString(memoryInfo.getTotalRam()) + "MB";
+                    String ramStatus = Double.toString(memoryInfo.getUsedRam()) + "MB en uso de " + Double.toString(memoryInfo.getTotalRam()) + "MB";
                     txtRAMStatus.setText(ramStatus);
                     progressRam.setProgress((int) memoryInfo.getUsedRamPercentage());
                     updateRam.postDelayed(this, 1000);
@@ -71,12 +71,12 @@ public class tabMemory extends Fragment {
             };
             updateRam.postDelayed(runnable, 0);
 
-            String romStatus = String.format(Locale.US, "%.2f", SplashActivity.usedRom) + "GB used of " + String.format(Locale.US, "%.2f", SplashActivity.totalRom) + "GB";
+            String romStatus = String.format(Locale.US, "%.2f", SplashActivity.usedRom) + "GB en uso de " + String.format(Locale.US, "%.2f", SplashActivity.totalRom) + "GB";
             txtROMStatus.setText(romStatus);
             txtROMPath.setText(SplashActivity.romPath);
             progressRom.setProgress((int) SplashActivity.usedRomPercentage);
 
-            String internalStorageStatus = String.format(Locale.US, "%.2f", SplashActivity.usedInternalStorage) + "GB used of " + String.format(Locale.US, "%.2f", SplashActivity.totalInternalStorage) + "GB";
+            String internalStorageStatus = String.format(Locale.US, "%.2f", SplashActivity.usedInternalStorage) + "GB en uso de " + String.format(Locale.US, "%.2f", SplashActivity.totalInternalStorage) + "GB";
             txtInStorageStatus.setText(internalStorageStatus);
             txtInStoragePath.setText(SplashActivity.internalStoragePath);
             progressInStorage.setProgress((int) SplashActivity.usedInternalPercentage);
@@ -85,7 +85,7 @@ public class tabMemory extends Fragment {
             if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED) && ContextCompat.getExternalFilesDirs(context, null).length >= 2) {
                 cardExStorage.setVisibility(View.VISIBLE);
 
-                String externalStorageStatus = String.format(Locale.US, "%.2f", SplashActivity.usedExternalStorage) + "GB used of " + String.format(Locale.US, "%.2f", SplashActivity.totalExternalStorage) + "GB";
+                String externalStorageStatus = String.format(Locale.US, "%.2f", SplashActivity.usedExternalStorage) + "GB en uso de" + String.format(Locale.US, "%.2f", SplashActivity.totalExternalStorage) + "GB";
                 txtExStorageStatus.setText(externalStorageStatus);
                 txtExStoragePath.setText(SplashActivity.externalStoragePath);
                 progressExStorage.setProgress((int) SplashActivity.usedExternalPercentage);
