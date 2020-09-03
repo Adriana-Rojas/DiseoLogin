@@ -36,7 +36,8 @@ public class Eficiencia extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        setTitle("Eficiencia");
+        //  setContentView(R.layout.main);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         int themeId = sharedPrefs.getInt("ThemeNoBar", R.style.AppTheme_NoActionBar);
         requestReviewCount = sharedPrefs.getInt("requestReviewCount", 0);
@@ -121,12 +122,12 @@ public class Eficiencia extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings: {
+           /* case R.id.action_settings: {
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 this.finish();
                 return true;
-            }
+            }*/
         }
         return super.onOptionsItemSelected(item);
     }
@@ -155,16 +156,16 @@ public class Eficiencia extends AppCompatActivity {
                     return new tabDisplay();
                 case 6:
                     return new tabMemory();
-                case 7:
-                    return new tabCamera();
-                case 8:
-                    return new tabThermal();
+               case 7:
+                   return new tabApps();
+                /* case 8:
+                   // return new tabThermal();
                 case 9:
-                    return new tabSensor();
+                   // return new tabSensor();
                 case 10:
                     return new tabApps();
-                case 11:
-                    return new tabTests();
+              /*  case 11:
+                   // return new tabTests();*/
                 default:
                     return null;
             }
@@ -172,7 +173,7 @@ public class Eficiencia extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 12;
+            return 8;
         }
 
         @Override
@@ -192,16 +193,16 @@ public class Eficiencia extends AppCompatActivity {
                     return "Pantalla";
                 case 6:
                     return "Memoria";
-                case 7:
-                    return "Camara";
-                case 8:
-                    return "Termico";
+                 case 7:
+                   return "Aplicaciones";
+                /* case 8:
+                  //  return "Termico";
                 case 9:
-                    return "Sensores";
+                 //   return "Sensores";
                 case 10:
                     return "Aplicaciones";
-                case 11:
-                    return "Pruebas";
+              /*  case 11:
+                 //   return "Pruebas";*/
             }
             return null;
         }
