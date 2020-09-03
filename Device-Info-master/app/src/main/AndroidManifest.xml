@@ -117,46 +117,6 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".Eficiencia" />
-        <activity
-            android:name=".FlashlightTestActivity"
-            android:label="@string/flashlight_test" />
-        <activity
-            android:name=".DisplayTestActivity"
-            android:label="@string/display_test" />
-        <activity
-            android:name=".DisplayTestFullScreen"
-            android:label="@string/display_test"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".LoudSpeakerTestActivity"
-            android:label="@string/loudspeaker_test" />
-        <activity
-            android:name=".EarSpeakerTestActivity"
-            android:label="@string/earspeaker_test" />
-        <activity
-            android:name=".EarProximityTestActivity"
-            android:label="@string/earproximity_test" />
-        <activity
-            android:name=".LightSensorTestActivity"
-            android:label="@string/lightsensor_test" />
-        <activity
-            android:name=".VibrationTestActivity"
-            android:label="@string/vibration_test" />
-        <activity
-            android:name=".WifiTestActivity"
-            android:label="@string/wifi_test" />
-        <activity
-            android:name=".BluetoothTestActivity"
-            android:label="@string/bluetooth_test" />
-        <activity
-            android:name=".FingerprintTestActivity"
-            android:label="@string/fingerprint_test" />
-        <activity
-            android:name=".VolumeUpTestActivity"
-            android:label="@string/volumeup_test" />
-        <activity
-            android:name=".VolumeDownTestActivity"
-            android:label="@string/volumedown_test" />
 
         <service
             android:name=".DeviceInfoFCM"

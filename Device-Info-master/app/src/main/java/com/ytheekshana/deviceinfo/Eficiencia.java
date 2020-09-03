@@ -108,7 +108,7 @@ public class Eficiencia extends AppCompatActivity {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPrefs.edit();
         boolean requestReview = sharedPrefs.getBoolean("RequestReview", false);
-        if (!requestReview) {
+       /* if (!requestReview) {
             BottomSheetEnjoy bottomSheetEnjoy = BottomSheetEnjoy.newInstance();
             bottomSheetEnjoy.show(getSupportFragmentManager(), "EnjoyAppFragment");
             editor.putBoolean("RequestReview", true);
@@ -116,7 +116,7 @@ public class Eficiencia extends AppCompatActivity {
             editor.commit();
         } else {
             super.onBackPressed();
-        }
+        }*/
     }
 
     @Override
