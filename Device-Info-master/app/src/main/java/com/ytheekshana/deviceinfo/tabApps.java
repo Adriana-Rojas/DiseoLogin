@@ -129,7 +129,7 @@ public class tabApps extends Fragment implements SearchView.OnQueryTextListener 
         }
 
         swipeapplist.setOnRefreshListener(() -> {
-            //new Thread(loadApps).start();
+
             if (appAdapter instanceof AppAdapter) {
                 reloadAppList();
             }

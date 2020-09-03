@@ -32,15 +32,10 @@ public class Graficados extends AppCompatActivity {
     private String[]months=new String[]{"Enero","Febrero","Marzo","Abril","Mayo"};
     int bandera=0;
     //Eje Y
-    //private int[]sale=new int[] {5};
     private Float[]sale=new Float[] {Float.parseFloat(Usabilidad.scalcularusabilidad)};
     private  int [] colors=new int[]{Color.rgb(21, 184, 175)};
-    //Grafica de Radar(Radar)
-    //Los criterios que se evaluaran el la grafica
     private String[]factores=new String[]{"Eficiencia","Eficacia","Memorabilidad","Productividad","Satisfaccion","Seguridad","Universabilidad","Carga cognitiva"};
     private String[]usabilidad=new String[]{"Usabilidad"};
-    //Valor para los criterios en un auto Chevrolet
-    //private int[]valuefactores=new int[]{4,6,3,8,5,2,4,8};
     private Float [] valuefactores=new Float[] {Float.parseFloat(Usabilidad.seficiencia),Float.parseFloat(Usabilidad.seficacia),Float.parseFloat(Usabilidad.smemorabilidad),Float.parseFloat(Usabilidad.sproductividad),Float.parseFloat(Usabilidad.ssatisfaccion),Float.parseFloat(Usabilidad.sseguridad),Float.parseFloat(Usabilidad.suniversabilidad),Float.parseFloat(Usabilidad.scargacognitiva)};
 
 

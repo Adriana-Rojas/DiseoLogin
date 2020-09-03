@@ -23,8 +23,6 @@ public class tabCPU extends Fragment {
     private TextView txtCore[];
     private String cUsage;
     private Timer timer;
-    static int cpuuso;
-    //static
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -173,21 +171,20 @@ public class tabCPU extends Fragment {
 
                     for (int corecount = 0; corecount < Runtime.getRuntime().availableProcessors(); corecount++) {
                         try {
-                            int usocpu ;
+                            int usocpu;
                             double currentFreq;
                             RandomAccessFile readerCurFreq;
                             readerCurFreq = new RandomAccessFile("/sys/devices/system/cpu/cpu" + corecount + "/cpufreq/scaling_cur_freq", "r");
                             String curfreg = readerCurFreq.readLine();
                             currentFreq = Double.parseDouble(curfreg) / 1000;
                             readerCurFreq.close();
-                            final String settextcorecores = "\t\tNucleo " + corecount + "       " + (int) currentFreq + " Mhz";//////////////////////
+                            final String settextcorecores = "\t\tNucleo " + corecount + "       " + (int) currentFreq + " Mhz";
                             final int finalCorecount1 = corecount;
                             txtCore[corecount].post(() -> txtCore[finalCorecount1].setText(settextcorecores));
 
                             if(corecount == 0){
-                                usocpu=(int)((currentFreq/SplashActivity.cpuMaxFreq)*100);
+                                 usocpu = (int) ((currentFreq / SplashActivity.cpuMaxFreq) * 100);
                                 cUsage = (usocpu) + " %";
-                                //cpuuso=Integer.parseInt(cUsage);
                             }
 
                         } catch (Exception ex) {

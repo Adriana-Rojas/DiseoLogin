@@ -64,9 +64,6 @@ public class GraficaEvaluados extends AppCompatActivity {
         });
 
     }
-
-
-
     //Carasteristicas comunes en las graficas
     private Chart getSameChart(Chart chart, String description, int textColor, int background, int animateY, boolean leyenda){
         chart.getDescription().setText(description);

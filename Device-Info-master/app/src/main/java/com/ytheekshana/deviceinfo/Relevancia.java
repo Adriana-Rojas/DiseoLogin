@@ -89,7 +89,7 @@ public class Relevancia extends AppCompatActivity {
                                     String aprendizaje= object.getString("aprendizaje");
                                     aprendizajes=aprendizaje;
                                     String  facilidad= object.getString("facilidad");
-                                    facilidads=facilidad;///////////////////////////////////////////////////////////////////////////////
+                                    facilidads=facilidad;
                                     String  productividad_inexperto= object.getString("productividad_inexperto");
                                     productividad_inexpertos=productividad_inexperto;
                                     String  estetica_general= object.getString("estetica_general");
@@ -172,7 +172,6 @@ public class Relevancia extends AppCompatActivity {
                                     inseguros=inseguro;
                                     String  sumaTotal= object.getString("sumaTotal");
                                     sumaTotals=sumaTotal;
-                                  //  employeepki = new Employeepki(id,tipoaplicativo,tiempoinicio,calculartiemporespuesta,calculoram,calculocpu,calculobateria,esfuerzo,calculocostoeconomico,calculoterminaciontarea,calculoefectividad,calculotiempo,calculoextensibilidad,calculoreusabilidad,calculoescalabilidad,rapidez,dificultad,aprendizaje,facilidad,productividad_inexperto,estetica_general,comodidad_visual,informacion,iconos,eleccion,busqueda,videos,recomendacion,calculo_satisfaccion,organizacion,interfaz,gusto,herramientas,satisfaccion,lenguaje,sobrecarga,interfaz_limpia,espacio,longitud,texto,seguridad,playstore,calculofrecuenciaerrores,mensajes,prevencion,redundancia,enlaces,resolucion,lenguaje_clarol,fuente,contraste,idioma,uso,multitareas,actividad_mental,dificultad_tarea,actividad_fisica,exigencia,inseguro,sumaTotal);
 
                                 }
                             }

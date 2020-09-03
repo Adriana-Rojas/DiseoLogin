@@ -39,6 +39,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
+import java.io.RandomAccessFile;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Timer;
@@ -56,6 +57,8 @@ public class tabDashboard extends Fragment {
     private float usedRam = 0;
     private Handler handlerChart, handlerRam;
     private Runnable runnableChart;
+    private Timer timer;
+    private  int usocpu ;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -209,17 +212,42 @@ public class tabDashboard extends Fragment {
             };
             handlerChart.postDelayed(runnableChart, 0);
 
+            timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+
+                    for (int corecount = 0; corecount < Runtime.getRuntime().availableProcessors(); corecount++) {
+                        try {
+                            double currentFreq;
+                            RandomAccessFile readerCurFreq;
+                            readerCurFreq = new RandomAccessFile("/sys/devices/system/cpu/cpu" + corecount + "/cpufreq/scaling_cur_freq", "r");
+                            String curfreg = readerCurFreq.readLine();
+                            currentFreq = Double.parseDouble(curfreg) / 1000;
+                            readerCurFreq.close();
+
+                            if(corecount == 0){
+                                usocpu = (int) ((currentFreq / SplashActivity.cpuMaxFreq) * 100);
+                                cUsage = (usocpu) + " %";
+                            }
+
+                        } catch (Exception ex) {
+                            final String settextcorecoresEX = "\t\tNucleo " + corecount + "       " + "Idle";
+                            final int finalCorecount = corecount;
+                        }
+                    }
+                }
+            }, 0, 1000);
+
             timercUsage = new Timer();
             timercUsage.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    usagecpu = tabCPU.cpuuso;
-                    cUsage = String.valueOf(usagecpu) + " %";
                     txtCPUPerce.post(() -> txtCPUPerce.setText(cUsage));
-                    ProgressBarCPU.post(() -> ProgressBarCPU.setProgress(usagecpu * 10));
-
+                    ProgressBarCPU.post(() -> ProgressBarCPU.setProgress(usocpu * 10));
                 }
             }, 1000, 1000);
+
             String cpuStatus = "Nucleos: " + Runtime.getRuntime().availableProcessors() + ",  Frecuencia max: " + (int) SplashActivity.cpuMaxFreq + " MHz";
             txtCPUStatus.setText(cpuStatus);
 
@@ -298,7 +326,7 @@ public class tabDashboard extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             final int batlevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-            int voltage = intent.getIntExtra("voltage", 0);
+            int voltage = intent.getIntExtra("voltaje", 0);
             int temperature = (intent.getIntExtra("temperature", 0)) / 10;
             String setBattery = "Voltaje: " + voltage + "mV,  Temperatura: " + temperature + " \u2103";
             txtBatteryStatus.setText(setBattery);

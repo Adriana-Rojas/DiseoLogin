@@ -37,7 +37,6 @@ public class Eficiencia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("Eficiencia");
-        //  setContentView(R.layout.main);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         int themeId = sharedPrefs.getInt("ThemeNoBar", R.style.AppTheme_NoActionBar);
         requestReviewCount = sharedPrefs.getInt("requestReviewCount", 0);
@@ -47,14 +46,7 @@ public class Eficiencia extends AppCompatActivity {
         setTheme(themeId);
 
         super.onCreate(savedInstanceState);
-        /*View mDecorView = getWindow().getDecorView();
-        mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE);*/
+
         setContentView(R.layout.activity_main_eficiencia);
         AppBarLayout appbar = findViewById(R.id.appbar);
 
@@ -64,8 +56,7 @@ public class Eficiencia extends AppCompatActivity {
 
         mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        /*final TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);*/
+
         final SmartTabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setSelectedIndicatorColors(themeColorDark);
         tabLayout.setViewPager(mViewPager);
@@ -83,17 +74,7 @@ public class Eficiencia extends AppCompatActivity {
         ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(getString(R.string.app_name), icon, themeColor);
         setTaskDescription(taskDescription);
 
-        /*mBuilder = new NotificationCompat.Builder(this, "1")
-                .setPriority(Notification.PRIORITY_HIGH)
-                .setSmallIcon(R.drawable.cpu)
-                .setContentTitle("Device Info")
-                .setContentText("Gathering Data Completed");
 
-        int mNotificationId = 1;
-        NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        if (mNotifyMgr != null) {
-            mNotifyMgr.notify(mNotificationId, mBuilder.build());
-        }*/
     }
 
     @Override
@@ -107,28 +88,13 @@ public class Eficiencia extends AppCompatActivity {
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPrefs.edit();
-        boolean requestReview = sharedPrefs.getBoolean("RequestReview", false);
-       /* if (!requestReview) {
-            BottomSheetEnjoy bottomSheetEnjoy = BottomSheetEnjoy.newInstance();
-            bottomSheetEnjoy.show(getSupportFragmentManager(), "EnjoyAppFragment");
-            editor.putBoolean("RequestReview", true);
-            editor.apply();
-            editor.commit();
-        } else {
-            super.onBackPressed();
-        }*/
+
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-           /* case R.id.action_settings: {
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                this.finish();
-                return true;
-            }*/
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -158,14 +124,7 @@ public class Eficiencia extends AppCompatActivity {
                     return new tabMemory();
                case 7:
                    return new tabApps();
-                /* case 8:
-                   // return new tabThermal();
-                case 9:
-                   // return new tabSensor();
-                case 10:
-                    return new tabApps();
-              /*  case 11:
-                   // return new tabTests();*/
+
                 default:
                     return null;
             }
@@ -195,14 +154,7 @@ public class Eficiencia extends AppCompatActivity {
                     return "Memoria";
                  case 7:
                    return "Aplicaciones";
-                /* case 8:
-                  //  return "Termico";
-                case 9:
-                 //   return "Sensores";
-                case 10:
-                    return "Aplicaciones";
-              /*  case 11:
-                 //   return "Pruebas";*/
+
             }
             return null;
         }

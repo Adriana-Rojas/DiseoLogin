@@ -171,8 +171,6 @@ public class Seguridad extends AppCompatActivity {
 
                 Map<String,String> params = new HashMap<String,String>();
 
-                //   params.put("id",id);
-
                 return params;
             }
         };

@@ -74,7 +74,6 @@ public class Satisfaccion extends AppCompatActivity {
         sbusqueda=busqueda.getSelectedItem().toString();
         svideos=videos.getSelectedItem().toString();
         srecomendacion=recomendacion.getSelectedItem().toString();
-      //  Integer a=Integer.parseInt(sestetica_general+scomodidad_visual+sinformacion+siconos+seleccion+sbusqueda+svideos+srecomendacion);
         Integer a=Integer.parseInt(sestetica_general);
         Integer b=Integer.parseInt(scomodidad_visual);
         Integer c=Integer.parseInt(sinformacion);
