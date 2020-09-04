@@ -23,6 +23,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class Eficiencia extends AppCompatActivity {
     SharedPreferences sharedPrefs;
     SharedPreferences.Editor editor;
     ViewPager mViewPager;
+    Button evaluar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,16 @@ public class Eficiencia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_eficiencia);
+        ///////
+    /*    evaluar=findViewById(R.id.ir_login);
+        evaluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Eficiencia.this,Select_Apk.class));
+                finish();
+            }
+        });*/
+        ///
         AppBarLayout appbar = findViewById(R.id.appbar);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

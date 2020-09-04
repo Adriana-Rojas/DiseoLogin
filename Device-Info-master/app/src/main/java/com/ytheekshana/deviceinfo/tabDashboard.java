@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,7 +65,17 @@ public class tabDashboard extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tabdashboard, container, false);
+        ///////
 
+        Button btnLanzarActivity = (Button) rootView.findViewById(R.id.siguienteeficiencia);
+        btnLanzarActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Eficienciados.class);
+                startActivity(intent);
+            }
+        });
+        ///
         try {
             ImageView imgROM = rootView.findViewById(R.id.imageROM);
             ImageView imgInStorage = rootView.findViewById(R.id.imageInStorage);
