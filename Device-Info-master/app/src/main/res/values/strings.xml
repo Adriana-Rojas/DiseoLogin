@@ -18,7 +18,7 @@
     <string name="imgCPU">CPU Logo</string>
     <string name="imgROM">ROM Logo</string>
 
-    <string name="app_name">Device Info</string>
+    <string name="app_name">UsaApp</string>
     <string name="app_description">Device Info is a simple and powerful Android application which gives you complete information about your Mobile device with advanced user interfaces</string>
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
