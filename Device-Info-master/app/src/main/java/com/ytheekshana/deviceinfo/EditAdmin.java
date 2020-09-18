@@ -58,7 +58,7 @@ public class EditAdmin extends AppCompatActivity {
             progressDialog.setMessage("Updating....");
             progressDialog.show();
 
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/updateadmin.php",
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/updateadmin.php",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {

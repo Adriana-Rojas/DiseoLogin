@@ -56,7 +56,7 @@ public class EditUsuario extends AppCompatActivity {
             progressDialog.setMessage("Updating....");
             progressDialog.show();
 
-            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.2/proyecto/updateusuario.php",
+            StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/updateusuario.php",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {

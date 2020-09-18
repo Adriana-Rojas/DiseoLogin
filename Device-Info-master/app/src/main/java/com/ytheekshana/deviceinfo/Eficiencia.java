@@ -51,16 +51,7 @@ public class Eficiencia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_eficiencia);
-        ///////
-    /*    evaluar=findViewById(R.id.ir_login);
-        evaluar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Eficiencia.this,Select_Apk.class));
-                finish();
-            }
-        });*/
-        ///
+
         AppBarLayout appbar = findViewById(R.id.appbar);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

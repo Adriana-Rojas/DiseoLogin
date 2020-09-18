@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import java.util.Objects;
 
 public class tabSystem extends Fragment {
+    static String tiempo;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -157,6 +158,7 @@ public class tabSystem extends Fragment {
                 public void run() {
                     uptime = SystemClock.elapsedRealtime();
                     txtSystemUptimedis.setText(GetDetails.getTime(uptime));
+                    tiempo=txtSystemUptimedis.getText().toString();
                     h.postDelayed(this, 1000);
                 }
             }, 1000);

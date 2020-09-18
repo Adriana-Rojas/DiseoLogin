@@ -56,7 +56,8 @@
         <activity android:name=".GraficadosEvaluados"></activity>
         <activity android:name=".GraficaEvaluados" />
         <activity android:name=".Graficaresultados" />
-        <activity android:name=".Select_Apk" />
+        <activity android:name=".Select_Apk"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Usabilidad" />
         <activity android:name=".Carga_Cognitiva" />
         <activity android:name=".Universabilidad" />
@@ -65,18 +66,23 @@
         <activity android:name=".Satisfaccion" />
         <activity android:name=".Productividad" />
         <activity android:name=".Memorabilidad" />
-        <activity android:name=".Eficacia" />
+        <activity android:name=".Eficacia"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DatosAplicativo" />
-        <activity android:name=".MenuUsuario" />
-        <activity android:name=".MenuEvaluador" />
+        <activity android:name=".MenuUsuario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MenuEvaluador"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ListarAplicaciones" />
         <activity android:name=".VerReporte" />
         <activity android:name=".AsignarReportes" />
-        <activity android:name=".Eficienciados" />
+        <activity android:name=".Eficienciados"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CrudUsuario" />
         <activity android:name=".CrudEvaluador" />
         <activity android:name=".MenuAdmin" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -113,7 +119,8 @@
         <activity android:name=".CrudAdmin" />
         <activity android:name=".DetailAdminActivity" />
         <activity android:name=".DetailEvaluadorActivity" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name=".DeviceInfoFCM"

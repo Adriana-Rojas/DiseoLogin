@@ -12,8 +12,10 @@ import android.graphics.LightingColorFilter;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -49,7 +52,7 @@ import java.util.TimerTask;
 public class tabDashboard extends Fragment {
     private TextView txtUsedRam, txtFreeRam, txtBatteryPerce, txtBatteryStatus, txtCPUPerce;
     private ProgressBar ProgressBarBattery, ProgressBarCPU;
-    private int startExStorage, usagecpu;
+    private int startExStorage, acumuladorram=0,acumuladorcpu=0,acumuladorbateria=0;
     private CPUUsage cu2;
     private String cUsage;
     private Timer timercUsage;
@@ -60,6 +63,12 @@ public class tabDashboard extends Fragment {
     private Runnable runnableChart;
     private Timer timer;
     private  int usocpu ;
+    Button btn_start,btn_stop,btn_reset;
+    static Chronometer chronometro;
+    static int  consumoramtotal=0, consumorammax=0, consumocputotal=0, consumocpumax=0, iniciobateria=0, finalbateria=0;
+    Boolean correr=false;
+    long detenerse;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -67,16 +76,44 @@ public class tabDashboard extends Fragment {
         View rootView = inflater.inflate(R.layout.tabdashboard, container, false);
         ///////
 
+        btn_start=(Button) rootView.findViewById(R.id.btn_start);
+        btn_stop=(Button) rootView.findViewById(R.id.btn_stop);
+        btn_reset=(Button) rootView.findViewById(R.id.btn_reset);
+        chronometro=rootView.findViewById(R.id.chronometro);/////
+        correr=false;
+        startChronometro();
+        btn_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startChronometro();
+            }
+        });
+
+        btn_stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopChronometro();
+            }
+        });
+
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetChronometro();
+            }
+        });
+
         Button btnLanzarActivity = (Button) rootView.findViewById(R.id.siguienteeficiencia);
         btnLanzarActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),Eficienciados.class);
+                Intent intent = new Intent(getActivity(),Select_Apk.class);//Eficienciados
                 startActivity(intent);
             }
         });
         ///
         try {
+
             ImageView imgROM = rootView.findViewById(R.id.imageROM);
             ImageView imgInStorage = rootView.findViewById(R.id.imageInStorage);
             ImageView imgExStorage = rootView.findViewById(R.id.imageExStorage);
@@ -205,6 +242,17 @@ public class tabDashboard extends Fragment {
                 public void run() {
                     memoryInfo.Ram();
                     arcProgressRam.setProgress((int) memoryInfo.getUsedRamPercentage());
+                    acumuladorram++;
+                   // Log.d("myTag", "acumulador ="+ acumuladorram);
+                   // Log.d("myTag", "actual ="+ (int) memoryInfo.getUsedRamPercentage());
+                    consumoramtotal=consumoramtotal+(int) memoryInfo.getUsedRamPercentage();
+                   // Log.d("myTag", "total ="+ consumoramtotal);
+                    if (acumuladorram==1){
+                        consumorammax=consumorammax+(int) memoryInfo.getUsedRamPercentage();
+                    }else if((int) memoryInfo.getUsedRamPercentage()>consumorammax){
+                            consumorammax=(int) memoryInfo.getUsedRamPercentage();
+                        }
+                  //  Log.d("myTag", " max ="+ consumorammax);
                     usedRam = (float) memoryInfo.getUsedRam();
                     SplashActivity.usedRam = memoryInfo.getUsedRam();
                     txtUsedRam.setText(String.valueOf((int) memoryInfo.getUsedRam()));
@@ -255,6 +303,19 @@ public class tabDashboard extends Fragment {
                 @Override
                 public void run() {
                     txtCPUPerce.post(() -> txtCPUPerce.setText(cUsage));
+                    //
+                    acumuladorcpu++;
+                   // Log.d("myTag", "acumulador ="+ acumuladorcpu);
+                  //  Log.d("myTag", "actual ="+ usocpu);
+                    consumocputotal=consumocputotal+usocpu;
+                  //  Log.d("myTag", "total ="+ consumocputotal);
+                    if (acumuladorcpu==1){
+                        consumocpumax=consumocpumax+usocpu;
+                    }else if(usocpu>consumocpumax){
+                        consumocpumax=usocpu;
+                    }
+                   // Log.d("myTag", " max ="+ consumocpumax);
+                    //
                     ProgressBarCPU.post(() -> ProgressBarCPU.setProgress(usocpu * 10));
                 }
             }, 1000, 1000);
@@ -322,7 +383,26 @@ public class tabDashboard extends Fragment {
 
         return rootView;
     }
+    private void resetChronometro() {
+        chronometro.setBase(SystemClock.elapsedRealtime());
+        detenerse=0;
+    }
 
+    private void stopChronometro() {
+        if (correr){
+            chronometro.stop();
+            detenerse = SystemClock.elapsedRealtime() - chronometro.getBase();
+            correr=false;
+        }
+    }
+
+    private void startChronometro() {
+        if(!correr){
+            chronometro.setBase(SystemClock.elapsedRealtime() - detenerse);
+            chronometro.start();
+            correr=true;
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -342,6 +422,20 @@ public class tabDashboard extends Fragment {
             String setBattery = "Voltaje: " + voltage + "mV,  Temperatura: " + temperature + " \u2103";
             txtBatteryStatus.setText(setBattery);
             String battery_percentage = Integer.toString(batlevel) + "%";
+            //
+            acumuladorbateria++;
+             Log.d("myTag", "acumulador ="+ acumuladorbateria);
+
+            if (acumuladorbateria==2){
+                iniciobateria=batlevel;
+                Log.d("myTag", "inicio ="+ iniciobateria);
+            }
+            if(iniciobateria<batlevel){
+                finalbateria=batlevel;
+                Log.d("myTag", " final ="+ finalbateria);
+            }
+
+            //
             txtBatteryPerce.setText(battery_percentage);
 
             ObjectAnimator progressAnimatorBattery = ObjectAnimator.ofInt(ProgressBarBattery, "progress", 0, batlevel * 10);
