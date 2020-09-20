@@ -19,7 +19,7 @@ public class MenuEvaluador extends AppCompatActivity {
         evaluaraplicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuEvaluador.this, SplashActivity.class));//Select_Apk
+                startActivity(new Intent(MenuEvaluador.this, Select_Apk.class));//Select_Apk
                 finish();
             }
         });

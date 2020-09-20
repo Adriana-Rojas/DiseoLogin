@@ -120,7 +120,7 @@ public class tabDashboard extends Fragment {
                 scalculobateria=iniciobateria-finalbateria;
                 scalculocpu=consumocputotal/acumuladorcpu;
                 scalculoram=consumoramtotal/acumuladorram;
-                Intent intent = new Intent(getActivity(),Select_Apk.class);//Eficienciados
+                Intent intent = new Intent(getActivity(),Eficienciados.class);//Eficienciados
                 startActivity(intent);
 
 
