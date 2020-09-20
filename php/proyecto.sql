@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2020 a las 21:05:11
+-- Tiempo de generación: 20-09-2020 a las 01:29:06
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.2.31
 
@@ -80,7 +80,13 @@ INSERT INTO `accesibilidad` (`id`, `resolucion`, `lenguaje`, `fuente`, `contrast
 (37, 10, 10, 10, 10, 10),
 (38, 10, 10, 10, 10, 10),
 (39, 1, 1, 1, 1, 1),
-(40, 10, 10, 10, 10, 10);
+(40, 10, 10, 10, 10, 10),
+(41, 10, 10, 10, 10, 10),
+(42, 1, 10, 1, 10, 10),
+(43, 1, 10, 10, 10, 1),
+(44, 10, 10, 10, 10, 10),
+(45, 10, 10, 10, 10, 10),
+(46, 10, 10, 10, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -125,7 +131,9 @@ CREATE TABLE `asignarresportes` (
 INSERT INTO `asignarresportes` (`id`, `evaluador`, `listaaplicaciones`, `administrador`) VALUES
 (14, 2, 819, 4),
 (15, 4, 826, 4),
-(16, 2, 819, 2);
+(16, 2, 819, 2),
+(17, 4, 829, 4),
+(18, 5, 826, 4);
 
 -- --------------------------------------------------------
 
@@ -238,7 +246,32 @@ INSERT INTO `bateria` (`id`, `canticonsumida`, `consumomedbateria`, `calculobate
 (91, 3, 3, 10),
 (92, 3, 3, 10),
 (93, 3, 3, 1),
-(94, 3, 3, 10);
+(94, 3, 3, 10),
+(95, 3, 3, 10),
+(96, 3, 3, 10),
+(97, 3, 3, 1),
+(98, 3, 3, 10),
+(99, 3, 3, 10),
+(100, 3, 3, 10),
+(101, 3, 3, 10),
+(102, 3, 3, 10),
+(103, 3, 3, 10),
+(104, 3, 3, 10),
+(105, 3, 3, 10),
+(106, 3, 3, 10),
+(107, 3, 3, 10),
+(108, 5555, -31, -62),
+(109, 5555, -31, -62),
+(110, 5555, -31, -63),
+(111, 5555, -31, -63),
+(112, 5555, -32, -64),
+(113, 5555, 0, 0),
+(114, 5555, -33, -66),
+(115, 5555, -33, -67),
+(116, 5555, -34, -69),
+(117, 5555, -34, -69),
+(118, 5555, 0, 0),
+(119, 5555, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -294,7 +327,13 @@ INSERT INTO `cargacognitiva` (`id`, `usosimultaneo`, `calculoderelevancia`) VALU
 (35, 37, 0.970874),
 (36, 38, 0.970874),
 (37, 39, 0.0970874),
-(38, 40, 0.970874);
+(38, 40, 0.970874),
+(39, 41, 0.970874),
+(40, 42, 0.533981),
+(41, 43, 0.533981),
+(42, 44, 0.970874),
+(43, 45, 0.970874),
+(44, 46, 0.970874);
 
 -- --------------------------------------------------------
 
@@ -363,7 +402,15 @@ INSERT INTO `comprensibilidad` (`id`, `rapidez`, `dificultad`, `aprendizaje`, `f
 (46, 10, 10, 10, 10),
 (47, 10, 10, 10, 10),
 (48, 1, 1, 1, 1),
-(49, 10, 10, 10, 10);
+(49, 10, 10, 10, 10),
+(50, 10, 10, 10, 10),
+(51, 10, 6, 7, 10),
+(52, 1, 1, 10, 1),
+(53, 10, 10, 10, 10),
+(54, 10, 10, 10, 10),
+(55, 10, 10, 10, 10),
+(56, 10, 10, 10, 10),
+(57, 10, 10, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -473,7 +520,32 @@ INSERT INTO `costoeconomico` (`id`, `efectividadrelativatarea`, `costototal`, `c
 (88, 3, 0, 0),
 (89, 3, 0, 0),
 (90, 3, 0, 3),
-(91, 3, 0, 0);
+(91, 3, 0, 0),
+(92, 3, 0, 0),
+(93, 3, 0, 0),
+(94, 3, 0, 3),
+(95, 3, 0, 0),
+(96, 3, 0, 0),
+(97, 3, 0, 0),
+(98, 3, 0, 0),
+(99, 3, 0, 0),
+(100, 3, 0, 0),
+(101, 3, 0, 0),
+(102, 3, 0, 0),
+(103, 3, 0, 0),
+(104, 3, 0, 0),
+(105, 3, 0, 0),
+(106, 3, 0, 0),
+(107, 3, 0, 0),
+(108, 3, 0, 0),
+(109, 3, 0, 0),
+(110, 3, 0, 0),
+(111, 3, 0, 0),
+(112, 3, 0, 0),
+(113, 3, 0, 0),
+(114, 3, 0, 0),
+(115, 3, 0, 0),
+(116, 3, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -587,7 +659,32 @@ INSERT INTO `cpu` (`id`, `consumocpu`, `consumomedcpu`, `consumomaxcpu`, `calcul
 (91, 3, 3, 3, 10),
 (92, 3, 3, 3, 10),
 (93, 3, 3, 3, 1),
-(94, 3, 3, 3, 10);
+(94, 3, 3, 3, 10),
+(95, 3, 3, 3, 10),
+(96, 3, 3, 3, 10),
+(97, 3, 3, 3, 1),
+(98, 3, 3, 3, 10),
+(99, 3, 3, 3, 10),
+(100, 3, 3, 3, 10),
+(101, 3, 3, 3, 10),
+(102, 3, 3, 3, 10),
+(103, 3, 3, 3, 10),
+(104, 3, 3, 3, 10),
+(105, 3, 3, 3, 10),
+(106, 3, 3, 3, 10),
+(107, 3, 3, 3, 10),
+(108, 730, 48, 100, 48),
+(109, 730, 48, 100, 48),
+(110, 1194, 70, 100, 70),
+(111, 180, 45, 56, 45),
+(112, 378, 94, 100, 94),
+(113, 834, 55, 100, 55),
+(114, 124, 41, 56, 41),
+(115, 225, 45, 89, 45),
+(116, 161, 80, 89, 80),
+(117, 94, 47, 47, 47),
+(118, 1043, 54, 100, 54),
+(119, 12920, 57, 100, 57);
 
 -- --------------------------------------------------------
 
@@ -665,7 +762,17 @@ INSERT INTO `cumplimientotarea` (`id`, `efectividadtarea`, `tiempocompletar`) VA
 (57, 63, 60),
 (58, 64, 61),
 (59, 65, 62),
-(60, 66, 63);
+(60, 66, 63),
+(61, 67, 64),
+(62, 68, 65),
+(63, 69, 66),
+(64, 70, 67),
+(65, 71, 68),
+(66, 72, 69),
+(67, 73, 70),
+(68, 74, 71),
+(69, 75, 72),
+(70, 76, 73);
 
 -- --------------------------------------------------------
 
@@ -749,7 +856,17 @@ INSERT INTO `efectividadtarea` (`id`, `calculoefectividad`, `numerofaltas`) VALU
 (63, 9, 10),
 (64, 9, 10),
 (65, 0, 1),
-(66, 9, 10);
+(66, 9, 10),
+(67, 9, 10),
+(68, 9, 10),
+(69, 9, 10),
+(70, 9, 10),
+(71, 0, 1),
+(72, 9, 10),
+(73, 9, 10),
+(74, 9, 10),
+(75, 9, 10),
+(76, 9, 10);
 
 -- --------------------------------------------------------
 
@@ -831,7 +948,17 @@ INSERT INTO `eficacia` (`id`, `terminaciontareas`, `cumpliminentotarea`, `calcul
 (57, 63, 57, 0.543689, 63, 63, 63),
 (58, 64, 58, 0.543689, 64, 64, 64),
 (59, 65, 59, 0.0631068, 65, 65, 65),
-(60, 66, 60, 0.543689, 66, 66, 66);
+(60, 66, 60, 0.543689, 66, 66, 66),
+(61, 67, 61, 0.543689, 67, 67, 67),
+(62, 68, 62, 0.446602, 68, 68, 68),
+(63, 69, 63, 0.446602, 69, 69, 69),
+(64, 70, 64, 0.446602, 70, 70, 70),
+(65, 71, 65, 0.237864, 71, 71, 71),
+(66, 72, 66, 0.543689, 72, 72, 72),
+(67, 73, 67, 0.543689, 73, 73, 73),
+(68, 74, 68, 0.543689, 74, 74, 74),
+(69, 75, 69, 0.543689, 75, 75, 75),
+(70, 76, 70, 0.543689, 76, 76, 76);
 
 -- --------------------------------------------------------
 
@@ -921,7 +1048,32 @@ INSERT INTO `eficiencia` (`id`, `recursos`, `esfuerzo`, `costoeconomico`, `calcu
 (70, 79, 89, 86, 0.679612),
 (71, 80, 92, 89, 0.679612),
 (72, 81, 93, 90, 0.0970874),
-(73, 82, 94, 91, 0.679612);
+(73, 82, 94, 91, 0.679612),
+(74, 83, 95, 92, 0.679612),
+(75, 84, 96, 93, 0.679612),
+(76, 85, 97, 94, 0.446602),
+(77, 86, 98, 95, 0.679612),
+(78, 87, 99, 96, 0.679612),
+(79, 88, 100, 97, 0.679612),
+(80, 89, 101, 98, 0.679612),
+(81, 90, 102, 99, 0.679612),
+(82, 91, 103, 100, 0.582524),
+(83, 92, 104, 101, 0.582524),
+(84, 93, 105, 102, 0.582524),
+(85, 94, 106, 103, 0.582524),
+(86, 95, 107, 104, 0.582524),
+(87, 96, 108, 105, 2.13592),
+(88, 97, 109, 106, 2.13592),
+(89, 98, 110, 107, 2.53398),
+(90, 99, 111, 108, 2.02913),
+(91, 100, 112, 109, 2.97087),
+(92, 101, 113, 110, 2.82524),
+(93, 102, 114, 111, 1.92233),
+(94, 103, 115, 112, 2),
+(95, 104, 116, 113, 2.65049),
+(96, 105, 117, 114, 2.02913),
+(97, 106, 118, 115, 2.82524),
+(98, 107, 119, 116, 3);
 
 -- --------------------------------------------------------
 
@@ -989,7 +1141,13 @@ INSERT INTO `error` (`id`, `frecuenciaerrores`, `mensajes`, `prevencion`, `redun
 (46, 46, 10, 10, 10, 10),
 (47, 47, 10, 10, 10, 10),
 (48, 48, 1, 1, 1, 1),
-(49, 49, 10, 10, 10, 10);
+(49, 49, 10, 10, 10, 10),
+(50, 50, 10, 10, 10, 10),
+(51, 51, 10, 10, 10, 10),
+(52, 52, 1, 10, 1, 10),
+(53, 53, 10, 10, 10, 10),
+(54, 54, 10, 10, 10, 10),
+(55, 55, 10, 10, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -1072,7 +1230,17 @@ INSERT INTO `escalabilidad` (`id`, `calculoescalabilidad`) VALUES
 (63, 10),
 (64, 10),
 (65, 1),
-(66, 10);
+(66, 10),
+(67, 10),
+(68, 10),
+(69, 10),
+(70, 10),
+(71, 1),
+(72, 10),
+(73, 10),
+(74, 10),
+(75, 10),
+(76, 10);
 
 -- --------------------------------------------------------
 
@@ -1183,7 +1351,32 @@ INSERT INTO `esfuerzo` (`id`, `esfuerzo`) VALUES
 (91, 10),
 (92, 10),
 (93, 1),
-(94, 10);
+(94, 10),
+(95, 10),
+(96, 10),
+(97, 10),
+(98, 10),
+(99, 10),
+(100, 10),
+(101, 10),
+(102, 10),
+(103, 10),
+(104, 10),
+(105, 10),
+(106, 10),
+(107, 10),
+(108, 10),
+(109, 10),
+(110, 10),
+(111, 10),
+(112, 10),
+(113, 10),
+(114, 10),
+(115, 10),
+(116, 10),
+(117, 10),
+(118, 10),
+(119, 10);
 
 -- --------------------------------------------------------
 
@@ -1262,7 +1455,13 @@ INSERT INTO `estetica` (`id`, `estetica_general`, `comodidad_visual`, `informaci
 (40, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
 (41, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
 (42, 1, 1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(43, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+(43, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+(44, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+(45, 7, 10, 5, 10, 10, 10, 10, 10, 36, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+(46, 1, 10, 1, 10, 10, 10, 10, 10, 31, 10, 10, 10, 10, 10, 10, 10, 1, 10, 1, 10),
+(47, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+(48, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10),
+(49, 10, 10, 10, 10, 10, 10, 10, 10, 40, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -1283,8 +1482,9 @@ CREATE TABLE `evaluador` (
 --
 
 INSERT INTO `evaluador` (`id`, `nombre`, `telefono`, `correo`, `contraseña`) VALUES
-(2, 'cesar k', 'cesarj', 'mercedese', 'cesar'),
-(4, 'k', '6', 'evaluador', 'evaluador');
+(2, 'cesar k', 'cesarj', 'mcesar', 'cesar'),
+(4, 'k', '6', 'evaluador', 'evaluador'),
+(5, 'nataliae', '321670', 'nataliae', 'nataliae');
 
 -- --------------------------------------------------------
 
@@ -1367,7 +1567,17 @@ INSERT INTO `extensibilidad` (`id`, `calculoextensibilidad`) VALUES
 (63, 10),
 (64, 10),
 (65, 1),
-(66, 10);
+(66, 10),
+(67, 10),
+(68, 10),
+(69, 10),
+(70, 10),
+(71, 10),
+(72, 10),
+(73, 10),
+(74, 10),
+(75, 10),
+(76, 10);
 
 -- --------------------------------------------------------
 
@@ -1424,7 +1634,13 @@ INSERT INTO `fidelidad` (`id`, `uso`) VALUES
 (37, 10),
 (38, 10),
 (39, 1),
-(40, 10);
+(40, 10),
+(41, 10),
+(42, 10),
+(43, 1),
+(44, 10),
+(45, 10),
+(46, 10);
 
 -- --------------------------------------------------------
 
@@ -1492,7 +1708,13 @@ INSERT INTO `frecuenciaerrores` (`id`, `calculofrecuenciaerrores`, `numeroserror
 (46, 1, 10, '00:00:10'),
 (47, 1, 10, '00:00:10'),
 (48, 1, 1, '00:00:01'),
-(49, 1, 10, '00:00:10');
+(49, 1, 10, '00:00:10'),
+(50, 1, 10, '00:00:10'),
+(51, 1, 1, '00:00:01'),
+(52, 1, 10, '00:00:10'),
+(53, 1, 10, '00:00:10'),
+(54, 1, 10, '00:00:10'),
+(55, 1, 10, '00:00:10');
 
 -- --------------------------------------------------------
 
@@ -1557,7 +1779,15 @@ INSERT INTO `memorabilidad` (`id`, `comprensibilidad`, `calculoderelevancia`) VA
 (44, 46, 0.776699),
 (45, 47, 0.776699),
 (46, 48, 0.0776699),
-(47, 49, 0.776699);
+(47, 49, 0.776699),
+(48, 50, 0.776699),
+(49, 51, 0.640777),
+(50, 52, 0.252427),
+(51, 53, 0.776699),
+(52, 54, 0.776699),
+(53, 55, 0.776699),
+(54, 56, 0.776699),
+(55, 57, 0.776699);
 
 -- --------------------------------------------------------
 
@@ -1624,7 +1854,13 @@ INSERT INTO `permiso` (`id`, `seguridad`, `playstore`) VALUES
 (46, 10, 10),
 (47, 10, 10),
 (48, 1, 1),
-(49, 10, 10);
+(49, 10, 10),
+(50, 10, 10),
+(51, 10, 8),
+(52, 1, 10),
+(53, 10, 10),
+(54, 10, 10),
+(55, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -1687,7 +1923,13 @@ INSERT INTO `productividad` (`id`, `salidausuario`, `calculoderelevancia`) VALUE
 (42, 44, 0.194175),
 (43, 45, 0.194175),
 (44, 46, 0.0194175),
-(45, 47, 0.194175);
+(45, 47, 0.194175),
+(46, 48, 0.194175),
+(47, 49, 0.174757),
+(48, 50, 0.0194175),
+(49, 51, 0.194175),
+(50, 52, 0.194175),
+(51, 53, 0.194175);
 
 -- --------------------------------------------------------
 
@@ -1802,7 +2044,32 @@ INSERT INTO `ram` (`id`, `consumoram`, `consumomedram`, `consumomaxram`, `calcul
 (92, 3, 3, 3, 10),
 (93, 3, 3, 3, 10),
 (94, 3, 3, 3, 1),
-(95, 3, 3, 3, 10);
+(95, 3, 3, 3, 10),
+(96, 3, 3, 3, 10),
+(97, 3, 3, 3, 10),
+(98, 3, 3, 3, 10),
+(99, 3, 3, 3, 10),
+(100, 3, 3, 3, 10),
+(101, 3, 3, 3, 10),
+(102, 3, 3, 3, 10),
+(103, 3, 3, 3, 10),
+(104, 3, 3, 3, 10),
+(105, 3, 3, 3, 10),
+(106, 3, 3, 3, 10),
+(107, 3, 3, 3, 10),
+(108, 3, 3, 3, 10),
+(109, 990, 66, 66, 66),
+(110, 990, 66, 66, 66),
+(111, 1092, 64, 65, 64),
+(112, 248, 62, 62, 62),
+(113, 248, 62, 62, 62),
+(114, 793, 61, 61, 61),
+(115, 186, 62, 62, 62),
+(116, 315, 63, 63, 63),
+(117, 124, 62, 62, 62),
+(118, 128, 64, 64, 64),
+(119, 1197, 63, 63, 63),
+(120, 16635, 75, 79, 75);
 
 -- --------------------------------------------------------
 
@@ -1902,7 +2169,32 @@ INSERT INTO `recursos` (`id`, `tiemporespuesta`, `ram`, `cpu`, `bateria`) VALUES
 (79, 103, 90, 90, 89),
 (80, 105, 93, 92, 92),
 (81, 106, 94, 93, 93),
-(82, 107, 95, 94, 94);
+(82, 107, 95, 94, 94),
+(83, 108, 96, 95, 95),
+(84, 109, 97, 96, 96),
+(85, 110, 98, 97, 97),
+(86, 111, 99, 98, 98),
+(87, 112, 100, 99, 99),
+(88, 113, 101, 100, 100),
+(89, 114, 102, 101, 101),
+(90, 115, 103, 102, 102),
+(91, 116, 104, 103, 103),
+(92, 117, 105, 104, 104),
+(93, 118, 106, 105, 105),
+(94, 119, 107, 106, 106),
+(95, 120, 108, 107, 107),
+(96, 121, 109, 108, 108),
+(97, 122, 110, 109, 109),
+(98, 123, 111, 110, 110),
+(99, 124, 112, 111, 111),
+(100, 125, 113, 112, 112),
+(101, 126, 114, 113, 113),
+(102, 127, 115, 114, 114),
+(103, 128, 116, 115, 115),
+(104, 129, 117, 116, 116),
+(105, 130, 118, 117, 117),
+(106, 131, 119, 118, 118),
+(107, 132, 120, 119, 119);
 
 -- --------------------------------------------------------
 
@@ -1933,7 +2225,8 @@ INSERT INTO `registrardatosaplicativo` (`id`, `usuario`, `nombre`, `tipoaplicati
 (825, 1, 'facebookñ', 3, 3, 3),
 (826, 1, 'facebookl', 3, 3, 3),
 (827, 1, 'isuario', 5, 3, 3),
-(828, 44, 'perez', 18, 69, 365);
+(828, 44, 'perez', 18, 69, 365),
+(829, 44, 'WhatsApp', 9, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -2016,7 +2309,17 @@ INSERT INTO `reusabilidad` (`id`, `calculoreusabilidad`) VALUES
 (63, 10),
 (64, 10),
 (65, 1),
-(66, 10);
+(66, 10),
+(67, 10),
+(68, 10),
+(69, 10),
+(70, 10),
+(71, 5),
+(72, 10),
+(73, 10),
+(74, 10),
+(75, 10),
+(76, 10);
 
 -- --------------------------------------------------------
 
@@ -2080,7 +2383,13 @@ INSERT INTO `salidausuario` (`id`, `productividad_inexperto`) VALUES
 (44, 10),
 (45, 10),
 (46, 1),
-(47, 10);
+(47, 10),
+(48, 10),
+(49, 9),
+(50, 1),
+(51, 10),
+(52, 10),
+(53, 10);
 
 -- --------------------------------------------------------
 
@@ -2139,7 +2448,13 @@ INSERT INTO `satisfaccion` (`id`, `estetica`, `calculoderelevancia`) VALUES
 (38, 40, 4.2233),
 (39, 41, 4.2233),
 (40, 42, 0.441748),
-(41, 43, 4.2233);
+(41, 43, 4.2233),
+(42, 44, 4.2233),
+(43, 45, 3.99029),
+(44, 46, 3.43689),
+(45, 47, 4.2233),
+(46, 48, 4.2233),
+(47, 49, 4.2233);
 
 -- --------------------------------------------------------
 
@@ -2203,7 +2518,13 @@ INSERT INTO `seguridad` (`id`, `permiso`, `error`, `calculoderelevancia`) VALUES
 (42, 46, 46, 0.912621),
 (43, 47, 47, 0.912621),
 (44, 48, 48, 0.126214),
-(45, 49, 49, 0.912621);
+(45, 49, 49, 0.912621),
+(46, 50, 50, 0.912621),
+(47, 51, 51, 0.873786),
+(48, 52, 52, 0.38835),
+(49, 53, 53, 0.912621),
+(50, 54, 54, 0.912621),
+(51, 55, 55, 0.912621);
 
 -- --------------------------------------------------------
 
@@ -2312,7 +2633,17 @@ INSERT INTO `terminaciontarea` (`id`, `tareascompletadas`, `totaltareas`, `calcu
 (63, 10, 10, 1),
 (64, 10, 10, 1),
 (65, 1, 1, 1),
-(66, 10, 10, 1);
+(66, 10, 10, 1),
+(67, 10, 10, 1),
+(68, 3, 10, 0),
+(69, 3, 10, 0),
+(70, 3, 10, 0),
+(71, 1, 10, 0),
+(72, 10, 10, 1),
+(73, 10, 10, 1),
+(74, 10, 10, 1),
+(75, 10, 10, 1),
+(76, 10, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -2323,7 +2654,7 @@ INSERT INTO `terminaciontarea` (`id`, `tareascompletadas`, `totaltareas`, `calcu
 CREATE TABLE `tiemporespuesta` (
   `id` int(11) NOT NULL,
   `tiempoinicio` int(11) NOT NULL,
-  `tiemporespuesta` int(11) NOT NULL,
+  `tiemporespuesta` time NOT NULL,
   `numerodeevaluaciones` int(11) NOT NULL,
   `calculartiemporespuesta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2333,90 +2664,115 @@ CREATE TABLE `tiemporespuesta` (
 --
 
 INSERT INTO `tiemporespuesta` (`id`, `tiempoinicio`, `tiemporespuesta`, `numerodeevaluaciones`, `calculartiemporespuesta`) VALUES
-(1, 1, 1, 1, 1),
-(2, 2, 2, 2, 2),
-(26, 2, 1, 2, 2),
-(27, 2, 1, 2, 2),
-(28, 2, 1, 2, 2),
-(29, 2, 1, 2, 2),
-(30, 2, 1, 2, 2),
-(31, 2, 1, 2, 2),
-(32, 2, 1, 2, 2),
-(33, 2, 1, 2, 2),
-(34, 2, 2, 2, 2),
-(35, 2, 2, 2, 2),
-(36, 0, 0, 0, 0),
-(37, 10, 3, 3, 10),
-(38, 10, 3, 3, 10),
-(39, 10, 3, 3, 10),
-(40, 10, 3, 3, 10),
-(41, 10, 3, 3, 10),
-(42, 10, 3, 3, 10),
-(43, 10, 3, 3, 10),
-(44, 10, 3, 3, 10),
-(45, 10, 3, 3, 10),
-(46, 10, 3, 3, 10),
-(47, 10, 3, 3, 10),
-(48, 10, 3, 3, 10),
-(49, 10, 3, 3, 10),
-(50, 10, 3, 3, 10),
-(51, 10, 3, 3, 10),
-(52, 10, 3, 3, 10),
-(53, 10, 3, 3, 10),
-(54, 5, 3, 3, 4),
-(55, 10, 3, 3, 10),
-(56, 10, 3, 3, 10),
-(57, 10, 3, 3, 10),
-(58, 10, 3, 3, 10),
-(59, 10, 3, 3, 10),
-(60, 10, 3, 3, 10),
-(61, 10, 3, 3, 10),
-(62, 10, 3, 3, 10),
-(63, 10, 3, 3, 10),
-(64, 3, 3, 3, 10),
-(65, 0, 0, 0, 0),
-(66, 0, 0, 0, 0),
-(67, 10, 3, 3, 10),
-(68, 5, 3, 3, 10),
-(69, 10, 3, 3, 10),
-(70, 10, 3, 3, 10),
-(71, 10, 3, 3, 10),
-(72, 10, 3, 3, 10),
-(73, 5, 3, 3, 10),
-(74, 3, 3, 3, 4),
-(75, 1, 3, 3, 1),
-(76, 10, 3, 3, 10),
-(77, 10, 3, 3, 10),
-(78, 10, 3, 3, 10),
-(79, 10, 3, 3, 10),
-(80, 10, 3, 3, 10),
-(81, 10, 3, 3, 10),
-(82, 10, 3, 3, 10),
-(83, 10, 3, 3, 10),
-(84, 10, 3, 3, 10),
-(85, 10, 3, 3, 10),
-(86, 10, 3, 3, 10),
-(87, 10, 3, 3, 10),
-(88, 10, 3, 3, 10),
-(89, 10, 3, 3, 10),
-(90, 10, 3, 3, 10),
-(91, 10, 3, 3, 10),
-(92, 10, 3, 3, 10),
-(93, 10, 3, 3, 10),
-(94, 10, 3, 3, 10),
-(95, 10, 3, 3, 10),
-(96, 10, 3, 3, 10),
-(97, 10, 3, 3, 10),
-(98, 10, 3, 3, 10),
-(99, 10, 3, 3, 10),
-(100, 10, 3, 3, 10),
-(101, 10, 3, 3, 10),
-(102, 10, 3, 3, 10),
-(103, 10, 3, 3, 10),
-(104, 10, 3, 3, 10),
-(105, 10, 3, 3, 10),
-(106, 1, 3, 3, 1),
-(107, 10, 3, 3, 10);
+(1, 0, '00:00:00', 1, 1),
+(2, 0, '00:00:00', 2, 2),
+(26, 0, '00:00:00', 2, 2),
+(27, 0, '00:00:00', 2, 2),
+(28, 0, '00:00:00', 2, 2),
+(29, 0, '00:00:00', 2, 2),
+(30, 0, '00:00:00', 2, 2),
+(31, 0, '00:00:00', 2, 2),
+(32, 0, '00:00:00', 2, 2),
+(33, 0, '00:00:00', 2, 2),
+(34, 0, '00:00:00', 2, 2),
+(35, 0, '00:00:00', 2, 2),
+(36, 0, '00:00:00', 0, 0),
+(37, 0, '00:00:00', 3, 10),
+(38, 0, '00:00:00', 3, 10),
+(39, 0, '00:00:00', 3, 10),
+(40, 0, '00:00:00', 3, 10),
+(41, 0, '00:00:00', 3, 10),
+(42, 0, '00:00:00', 3, 10),
+(43, 0, '00:00:00', 3, 10),
+(44, 0, '00:00:00', 3, 10),
+(45, 0, '00:00:00', 3, 10),
+(46, 0, '00:00:00', 3, 10),
+(47, 0, '00:00:00', 3, 10),
+(48, 0, '00:00:00', 3, 10),
+(49, 0, '00:00:00', 3, 10),
+(50, 0, '00:00:00', 3, 10),
+(51, 0, '00:00:00', 3, 10),
+(52, 0, '00:00:00', 3, 10),
+(53, 0, '00:00:00', 3, 10),
+(54, 0, '00:00:00', 3, 4),
+(55, 0, '00:00:00', 3, 10),
+(56, 0, '00:00:00', 3, 10),
+(57, 0, '00:00:00', 3, 10),
+(58, 0, '00:00:00', 3, 10),
+(59, 0, '00:00:00', 3, 10),
+(60, 0, '00:00:00', 3, 10),
+(61, 0, '00:00:00', 3, 10),
+(62, 0, '00:00:00', 3, 10),
+(63, 0, '00:00:00', 3, 10),
+(64, 0, '00:00:00', 3, 10),
+(65, 0, '00:00:00', 0, 0),
+(66, 0, '00:00:00', 0, 0),
+(67, 0, '00:00:00', 3, 10),
+(68, 0, '00:00:00', 3, 10),
+(69, 0, '00:00:00', 3, 10),
+(70, 0, '00:00:00', 3, 10),
+(71, 0, '00:00:00', 3, 10),
+(72, 0, '00:00:00', 3, 10),
+(73, 0, '00:00:00', 3, 10),
+(74, 0, '00:00:00', 3, 4),
+(75, 0, '00:00:00', 3, 1),
+(76, 0, '00:00:00', 3, 10),
+(77, 0, '00:00:00', 3, 10),
+(78, 0, '00:00:00', 3, 10),
+(79, 0, '00:00:00', 3, 10),
+(80, 0, '00:00:00', 3, 10),
+(81, 0, '00:00:00', 3, 10),
+(82, 0, '00:00:00', 3, 10),
+(83, 0, '00:00:00', 3, 10),
+(84, 0, '00:00:00', 3, 10),
+(85, 0, '00:00:00', 3, 10),
+(86, 0, '00:00:00', 3, 10),
+(87, 0, '00:00:00', 3, 10),
+(88, 0, '00:00:00', 3, 10),
+(89, 0, '00:00:00', 3, 10),
+(90, 0, '00:00:00', 3, 10),
+(91, 0, '00:00:00', 3, 10),
+(92, 0, '00:00:00', 3, 10),
+(93, 0, '00:00:00', 3, 10),
+(94, 0, '00:00:00', 3, 10),
+(95, 0, '00:00:00', 3, 10),
+(96, 0, '00:00:00', 3, 10),
+(97, 0, '00:00:00', 3, 10),
+(98, 0, '00:00:00', 3, 10),
+(99, 0, '00:00:00', 3, 10),
+(100, 0, '00:00:00', 3, 10),
+(101, 0, '00:00:00', 3, 10),
+(102, 0, '00:00:00', 3, 10),
+(103, 0, '00:00:00', 3, 10),
+(104, 0, '00:00:00', 3, 10),
+(105, 0, '00:00:00', 3, 10),
+(106, 0, '00:00:00', 3, 1),
+(107, 0, '00:00:00', 3, 10),
+(108, 0, '00:00:00', 3, 10),
+(109, 0, '00:00:00', 3, 10),
+(110, 0, '00:00:00', 3, 10),
+(111, 0, '00:00:00', 3, 10),
+(112, 0, '00:00:00', 3, 10),
+(113, 0, '00:00:00', 3, 10),
+(114, 0, '00:00:00', 3, 10),
+(115, 0, '00:00:00', 3, 10),
+(116, 0, '00:00:00', 2, 0),
+(117, 0, '00:00:00', 2, 0),
+(118, 0, '00:00:00', 2, 0),
+(119, 0, '00:00:00', 2, 0),
+(120, 0, '00:00:00', 2, 0),
+(121, 0, '00:00:00', 5, 100),
+(122, 0, '00:00:00', 5, 100),
+(123, 0, '00:00:00', 5, 100),
+(124, 0, '00:00:00', 5, 100),
+(125, 0, '00:00:00', 5, 100),
+(126, 0, '00:00:00', 5, 100),
+(127, 10, '00:04:00', 5, 100),
+(128, 10, '00:05:00', 5, 100),
+(129, 10, '00:03:00', 5, 100),
+(130, 10, '00:00:02', 5, 100),
+(131, 10, '00:00:19', 5, 100),
+(132, 10, '00:03:43', 5, 100);
 
 -- --------------------------------------------------------
 
@@ -2496,7 +2852,17 @@ INSERT INTO `tiempotarea` (`id`, `calculotiempo`) VALUES
 (60, 10),
 (61, 10),
 (62, 1),
-(63, 10);
+(63, 10),
+(64, 10),
+(65, 2),
+(66, 2),
+(67, 2),
+(68, 10),
+(69, 10),
+(70, 10),
+(71, 10),
+(72, 10),
+(73, 10);
 
 -- --------------------------------------------------------
 
@@ -2644,7 +3010,13 @@ INSERT INTO `universabilidad` (`id`, `accesibilidad`, `fidelidad`, `calculoderel
 (35, 37, 37, 1.45631),
 (36, 38, 38, 1.45631),
 (37, 39, 39, 0.145631),
-(38, 40, 40, 1.45631);
+(38, 40, 40, 1.45631),
+(39, 41, 41, 1.45631),
+(40, 42, 42, 1.01942),
+(41, 43, 43, 1.01942),
+(42, 44, 44, 1.45631),
+(43, 45, 45, 1.45631),
+(44, 46, 46, 1.45631);
 
 -- --------------------------------------------------------
 
@@ -2671,34 +3043,21 @@ CREATE TABLE `usabilidad` (
 --
 
 INSERT INTO `usabilidad` (`id`, `aplicativo`, `calcularusabilidad`, `eficiencia`, `eficacia`, `memorabilidad`, `productividad`, `satisfaccion`, `seguridad`, `universabilidad`, `cargacognitiva`) VALUES
-(4, 819, 2, 2, 2, 2, 2, 2, 2, 2, 2),
-(7, 819, 98, 2, 2, 2, 2, 2, 2, 2, 2),
-(8, 819, 2, 2, 2, 2, 2, 2, 16, 2, 2),
-(9, 819, 2, 2, 2, 2, 2, 2, 17, 2, 2),
-(10, 819, 2, 2, 2, 2, 2, 2, 18, 2, 2),
-(11, 819, 2, 2, 2, 2, 2, 2, 19, 2, 2),
 (12, 819, 79, 31, 30, 24, 21, 18, 21, 15, 15),
-(13, 819, 2, 2, 2, 2, 2, 2, 22, 2, 2),
 (15, 819, 55, 40, 33, 27, 24, 21, 25, 18, 18),
 (16, 819, 10, 41, 34, 28, 25, 22, 26, 19, 19),
 (17, 819, 98, 42, 36, 29, 27, 23, 27, 20, 20),
-(18, 819, 98, 48, 37, 30, 28, 24, 28, 21, 21),
-(19, 819, 98, 51, 43, 31, 29, 25, 29, 22, 22),
-(20, 819, 98, 52, 44, 32, 30, 26, 30, 23, 23),
-(21, 819, 98, 53, 45, 33, 31, 27, 31, 24, 24),
-(22, 819, 98, 55, 46, 34, 32, 28, 32, 25, 25),
-(23, 819, 98, 56, 48, 35, 33, 29, 33, 26, 26),
 (24, 819, 98, 57, 49, 36, 34, 30, 34, 27, 27),
 (25, 819, 98, 58, 50, 37, 35, 31, 35, 28, 28),
 (26, 819, 98, 59, 51, 38, 36, 32, 36, 29, 29),
-(27, 819, 98, 61, 53, 40, 38, 34, 38, 31, 31),
-(28, 819, 98, 62, 54, 41, 39, 35, 39, 32, 32),
-(29, 819, 98, 63, 55, 42, 40, 36, 40, 33, 33),
-(30, 819, 98, 67, 56, 43, 41, 37, 41, 34, 34),
 (31, 819, 98, 69, 57, 44, 42, 38, 42, 35, 35),
 (32, 819, 98, 71, 58, 45, 43, 39, 43, 36, 36),
 (33, 819, 11, 72, 59, 46, 44, 40, 44, 37, 37),
-(34, 826, 98, 73, 60, 47, 45, 41, 45, 38, 38);
+(34, 826, 98, 73, 60, 47, 45, 41, 45, 38, 38),
+(36, 826, 84, 75, 64, 49, 47, 43, 47, 40, 40),
+(37, 826, 63, 76, 65, 50, 48, 44, 48, 41, 41),
+(39, 819, 98, 78, 68, 53, 50, 46, 50, 43, 43),
+(40, 829, 98, 79, 69, 55, 51, 47, 51, 44, 44);
 
 -- --------------------------------------------------------
 
@@ -2760,7 +3119,13 @@ INSERT INTO `usosimultaneo` (`id`, `multitareas`, `actividad_mental`, `dificulta
 (37, 10, 10, 10, 10, 10, 10),
 (38, 10, 10, 10, 10, 10, 10),
 (39, 1, 1, 1, 1, 1, 1),
-(40, 10, 10, 10, 10, 10, 10);
+(40, 10, 10, 10, 10, 10, 10),
+(41, 10, 10, 10, 10, 10, 10),
+(42, 1, 1, 1, 10, 10, 10),
+(43, 1, 10, 1, 10, 10, 1),
+(44, 10, 10, 10, 10, 10, 10),
+(45, 10, 10, 10, 10, 10, 10),
+(46, 10, 10, 10, 10, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -2781,11 +3146,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `correo`, `contraseña`) VALUES
-(1, 'adriana Patricia', '3219779439', 'mromero@gmail.com', 'fHa#9rkoJQ^E'),
+(1, 'adriana Patricia', '3219779439', 'mromero@gmail.com', 'contrasena'),
 (7, 'John Wilson', 'Rojas', 'john@example.com', '123'),
 (29, 'cesar jo', 'cesar', 'cesar', 'cesar'),
 (42, 'rojas beltrana rianapatricia', 'rojasbeltranadrianapatricia@gmail.com', 'rojasbeltranadrianapatricia@gmail.com', 'h'),
-(44, 'usuario', '698', 'usuario', 'usuario');
+(44, 'usuario', '698', 'usuario', 'usuario'),
+(45, 'rojm', '35298868', 'hihhxf', 'vbvti');
 
 --
 -- Índices para tablas volcadas
@@ -3081,7 +3447,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `accesibilidad`
 --
 ALTER TABLE `accesibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `administrador`
@@ -3093,169 +3459,169 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `asignarresportes`
 --
 ALTER TABLE `asignarresportes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `bateria`
 --
 ALTER TABLE `bateria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT de la tabla `cargacognitiva`
 --
 ALTER TABLE `cargacognitiva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `comprensibilidad`
 --
 ALTER TABLE `comprensibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de la tabla `costoeconomico`
 --
 ALTER TABLE `costoeconomico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT de la tabla `cpu`
 --
 ALTER TABLE `cpu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT de la tabla `cumplimientotarea`
 --
 ALTER TABLE `cumplimientotarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `efectividadtarea`
 --
 ALTER TABLE `efectividadtarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `eficacia`
 --
 ALTER TABLE `eficacia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT de la tabla `eficiencia`
 --
 ALTER TABLE `eficiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT de la tabla `error`
 --
 ALTER TABLE `error`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `escalabilidad`
 --
 ALTER TABLE `escalabilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `esfuerzo`
 --
 ALTER TABLE `esfuerzo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT de la tabla `estetica`
 --
 ALTER TABLE `estetica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `evaluador`
 --
 ALTER TABLE `evaluador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `extensibilidad`
 --
 ALTER TABLE `extensibilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `fidelidad`
 --
 ALTER TABLE `fidelidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `frecuenciaerrores`
 --
 ALTER TABLE `frecuenciaerrores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `memorabilidad`
 --
 ALTER TABLE `memorabilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `productividad`
 --
 ALTER TABLE `productividad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `ram`
 --
 ALTER TABLE `ram`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT de la tabla `recursos`
 --
 ALTER TABLE `recursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT de la tabla `registrardatosaplicativo`
 --
 ALTER TABLE `registrardatosaplicativo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=829;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=830;
 
 --
 -- AUTO_INCREMENT de la tabla `reusabilidad`
 --
 ALTER TABLE `reusabilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `salidausuario`
 --
 ALTER TABLE `salidausuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `satisfaccion`
 --
 ALTER TABLE `satisfaccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `seguridad`
 --
 ALTER TABLE `seguridad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `subirapk`
@@ -3273,19 +3639,19 @@ ALTER TABLE `subirmanual`
 -- AUTO_INCREMENT de la tabla `terminaciontarea`
 --
 ALTER TABLE `terminaciontarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `tiemporespuesta`
 --
 ALTER TABLE `tiemporespuesta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT de la tabla `tiempotarea`
 --
 ALTER TABLE `tiempotarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `tipodeaplicacion`
@@ -3297,25 +3663,25 @@ ALTER TABLE `tipodeaplicacion`
 -- AUTO_INCREMENT de la tabla `universabilidad`
 --
 ALTER TABLE `universabilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `usabilidad`
 --
 ALTER TABLE `usabilidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `usosimultaneo`
 --
 ALTER TABLE `usosimultaneo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Restricciones para tablas volcadas
