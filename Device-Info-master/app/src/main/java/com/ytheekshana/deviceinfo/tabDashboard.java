@@ -65,7 +65,8 @@ public class tabDashboard extends Fragment {
     private  int usocpu ;
     Button btn_start,btn_stop,btn_reset;
     static Chronometer chronometro;
-    static int  consumoramtotal=0, consumorammax=0, consumocputotal=0, consumocpumax=0, iniciobateria=0, finalbateria=0;
+    private int  consumoramtotal=0, consumorammax=0, consumocputotal=0, consumocpumax=0, iniciobateria=0, finalbateria=0;
+    static int scalculoram=0,scalculocpu=0,scalculobateria=0,sconsumoramtotal=0, sconsumorammax=0, sconsumocputotal=0, sconsumocpumax=0, siniciobateria=0, sfinalbateria=0,sacumuladorram=0,sacumuladorcpu=0,sacumuladorbateria=0;
     Boolean correr=false;
     long detenerse;
 
@@ -107,8 +108,22 @@ public class tabDashboard extends Fragment {
         btnLanzarActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sconsumoramtotal=consumoramtotal;
+                sconsumorammax=consumorammax;
+                sconsumocputotal=consumocputotal;
+                sconsumocpumax=consumocpumax;
+                siniciobateria=iniciobateria;
+                sfinalbateria=finalbateria;
+                sacumuladorram=acumuladorram;
+                sacumuladorcpu=acumuladorcpu;
+                sacumuladorbateria=acumuladorbateria;
+                scalculobateria=iniciobateria-finalbateria;
+                scalculocpu=consumocputotal/acumuladorcpu;
+                scalculoram=consumoramtotal/acumuladorram;
                 Intent intent = new Intent(getActivity(),Select_Apk.class);//Eficienciados
                 startActivity(intent);
+
+
             }
         });
         ///
@@ -243,10 +258,10 @@ public class tabDashboard extends Fragment {
                     memoryInfo.Ram();
                     arcProgressRam.setProgress((int) memoryInfo.getUsedRamPercentage());
                     acumuladorram++;
-                   // Log.d("myTag", "acumulador ="+ acumuladorram);
-                   // Log.d("myTag", "actual ="+ (int) memoryInfo.getUsedRamPercentage());
+                  //  Log.d("myTag", "acumulador ="+ acumuladorram);
+                  //  Log.d("myTag", "actual ="+ (int) memoryInfo.getUsedRamPercentage());
                     consumoramtotal=consumoramtotal+(int) memoryInfo.getUsedRamPercentage();
-                   // Log.d("myTag", "total ="+ consumoramtotal);
+                  //  Log.d("myTag", "total ="+ consumoramtotal);
                     if (acumuladorram==1){
                         consumorammax=consumorammax+(int) memoryInfo.getUsedRamPercentage();
                     }else if((int) memoryInfo.getUsedRamPercentage()>consumorammax){
@@ -426,11 +441,12 @@ public class tabDashboard extends Fragment {
             acumuladorbateria++;
              Log.d("myTag", "acumulador ="+ acumuladorbateria);
 
-            if (acumuladorbateria==2){
+            if (acumuladorbateria==1){
                 iniciobateria=batlevel;
+                finalbateria=batlevel;
                 Log.d("myTag", "inicio ="+ iniciobateria);
             }
-            if(iniciobateria<batlevel){
+            if(acumuladorbateria>1){
                 finalbateria=batlevel;
                 Log.d("myTag", " final ="+ finalbateria);
             }

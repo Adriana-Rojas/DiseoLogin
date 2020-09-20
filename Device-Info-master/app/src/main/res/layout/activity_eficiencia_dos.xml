@@ -54,7 +54,7 @@
             android:layout_weight="1">
 
 
-            <Chronometer
+            <TextView
                 android:id="@+id/chronometro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,6 +131,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
+                android:text="5"
                 android:textColor="#054E47"
                 android:textColorHint="#054E47" />
 
@@ -153,49 +154,13 @@
                 android:textColor="#000000"
                 android:textColorHint="#000000" />
 
-            <Spinner
-                android:id="@+id/spinner4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pr3"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginRight="20dp"
-                android:entries="@array/aves"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:textColor="#054E47"
-                android:textColorHint="#054E47" />
 
-            <Spinner
-                android:id="@+id/spinner5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pr4"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginRight="20dp"
-                android:entries="@array/aves"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:textColor="#000000"
-                android:textColorHint="#000000" />
 
             <Spinner
                 android:id="@+id/spinner6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pr5"
+                android:layout_below="@+id/pr3"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="41dp"
                 android:layout_marginLeft="20dp"
@@ -220,46 +185,18 @@
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="1dp"
                 android:layout_toStartOf="@+id/spinner3"
-                android:text="Consumo de memoria en la ejecución"
+                android:text="Se ha controlado el tiempo de respuesta"
                 android:textAlignment="viewStart"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/pr4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pr3"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="1dp"
-                android:layout_toStartOf="@+id/spinner4"
-                android:text="El consumo de CPU en la ejecución de una tarea"
-                android:textAlignment="viewStart"
-                android:textColor="#054E47"
-                android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/pr5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pr4"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="1dp"
-                android:layout_toStartOf="@+id/spinner5"
-                android:text="Consumo de energía en la ejecución de una tarea"
-                android:textAlignment="viewStart"
-                android:textColor="#000000"
-                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/pr6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pr5"
+                android:layout_below="@+id/pr3"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="11dp"
@@ -280,7 +217,7 @@
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="1dp"
                 android:layout_toStartOf="@+id/spinner7"
-                android:text="Costo total de costo de equipo y recursos humanos "
+                android:text="Costo total  de equipo y recursos humanos "
                 android:textAlignment="viewStart"
                 android:textColor="#000000"
                 android:textSize="20sp" />

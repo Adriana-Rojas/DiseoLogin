@@ -1,24 +1,11 @@
 package com.ytheekshana.deviceinfo;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.SystemClock;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Chronometer;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,12 +22,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Eficienciados extends AppCompatActivity {
 
@@ -48,53 +33,74 @@ public class Eficienciados extends AppCompatActivity {
     Long uptime;
     int minutos=5;
     EditText  enumerodeevaluaciones;
-    private Spinner  tiempoinicio,tiemporespuesta,numerodeevaluaciones,calculartiemporespuesta,consumoram,
-            consumomedram,consumomaxram,calculoram,consumocpu,consumomedcpu,consumomaxcpu,calculocpu,canticonsumida,
-            consumomedbateria,calculobateria,esfuerzo,efectividadrelativatarea,costototal;
-    String  stiempoinicio,stiemporespuesta,snumerodeevaluaciones,scalculartiemporespuesta,sconsumoram,
-            sconsumomedram,sconsumomaxram,scalculoram,sconsumocpu,sconsumomedcpu,sconsumomaxcpu,scalculocpu,scanticonsumida,
-            sconsumomedbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico;
-    static String  idficiencia,tiempoinicios,calculartiemporespuestas,calculorams,calculocpus,calculobaterias,esfuerzos,calculocostoeconomicos,sumaTotals,scalculoderelevancia;
 
-    Chronometer chronometro;
+    private Spinner  tiempoinicio,tiemporespuesta,numerodeevaluaciones,calculartiemporespuesta,consumoram,
+            consumomedram,consumomaxram,consumocpu,consumomedcpu,consumomaxcpu,canticonsumida,
+            consumomedbateria,esfuerzo,efectividadrelativatarea,costototal;
+    String  stiempoinicio,stiemporespuesta,snumerodeevaluaciones,scalculartiemporespuesta,sconsumoram,
+            sconsumomedram,sconsumomaxram,scalculoram,sconsumocpu,sconsumomedcpu,sconsumomaxcpu,scalculocpu,siniciobateria,
+            sfinalbateria,scalculobateria,sesfuerzo,sefectividadrelativatarea,scostototal,scalculocostoeconomico;
+    static String  idficiencia,tiempoinicios,calculartiemporespuestas,calculorams,calculocpus,calculobaterias,esfuerzos,calculocostoeconomicos,sumaTotals,scalculoderelevancia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_eficiencia_dos);
-        chronometro= findViewById(R.id.chronometro);/////
-        chronometro.setBase(tabDashboard.chronometro.getBase());
+        TextView chronometro = this.findViewById(R.id.chronometro);
+        chronometro.setText(tabDashboard.chronometro.getText());
+        stiemporespuesta="00:"+tabDashboard.chronometro.getText();
 
         siguiente = findViewById(R.id.eficiencia);
         tiempoinicio=(Spinner) findViewById(R.id.spinner1);//preguntar
-        sconsumoram="3";
-        sconsumomedram="3";//aplicacion
-        sconsumomaxram="3";//aplicacion
-        calculoram=(Spinner) findViewById(R.id.spinner3);//calcular
-        sconsumocpu="3";
-        sconsumomedcpu="3";//aplicacion
-        sconsumomaxcpu="3";//aplicacion
-        calculocpu=(Spinner) findViewById(R.id.spinner4);//calcular
-        sconsumomedbateria="3";//aplicacion
-        calculobateria=(Spinner) findViewById(R.id.spinner5);//calcular
+        tiemporespuesta=(Spinner) findViewById(R.id.spinner3);
+        //ram
+        sconsumoram=Integer.toString(tabDashboard.sconsumoramtotal);
+        sconsumomedram=Integer.toString(tabDashboard.scalculoram);//aplicacion
+        sconsumomaxram=Integer.toString(tabDashboard.sconsumorammax);//aplicacion
+        if(Integer.parseInt(Integer.toString(tabDashboard.scalculoram))<68){
+            scalculoram="10";
+        }else  if(Integer.parseInt(Integer.toString(tabDashboard.scalculoram))<71){
+            scalculoram="7.5";
+        }else if(Integer.parseInt(Integer.toString(tabDashboard.scalculoram))<76){
+            scalculoram="5";
+        }else {
+            scalculoram="2.5";
+        }
+
+        //cpu
+        sconsumocpu=Integer.toString(tabDashboard.sconsumocputotal);
+        sconsumomedcpu=Integer.toString(tabDashboard.scalculocpu);
+        sconsumomaxcpu=Integer.toString(tabDashboard.sconsumocpumax);
+        if(Integer.parseInt(Integer.toString(tabDashboard.scalculocpu))<56){
+            scalculocpu="10";
+        }else  if(Integer.parseInt(Integer.toString(tabDashboard.scalculocpu))<69){
+            scalculocpu="7.5";
+        }else if(Integer.parseInt(Integer.toString(tabDashboard.scalculocpu))<82){
+            scalculocpu="5";
+        }else {
+            scalculocpu="2.5";
+        }
+
+        //bateria
+        siniciobateria=Integer.toString(tabDashboard.siniciobateria);
+        sfinalbateria=Integer.toString(tabDashboard.sfinalbateria);
+        int scalculobateria2=Integer.parseInt(Integer.toString((tabDashboard.siniciobateria-tabDashboard.sfinalbateria)));
+        if(scalculobateria2<2){
+            scalculobateria="10";
+        }else  if(scalculobateria2<4){
+            scalculobateria="7.5";
+        }else if(scalculobateria2<6){
+            scalculobateria="5";
+        }else {
+            scalculobateria="2.5";
+        }
+
+
         esfuerzo=(Spinner) findViewById(R.id.spinner6);//preguntar
-        sefectividadrelativatarea="3";//ojo con este q es de la clase eficacia
         costototal=(Spinner) findViewById(R.id.spinner7);
-        sconsumoram="3";
-        sconsumomedram="3";
-        sconsumomaxram="3";
-        calculoram=(Spinner) findViewById(R.id.spinner3);
-        sconsumocpu="3";
-        sconsumomedcpu="3";
-        sconsumomaxcpu="3";
-        calculocpu=(Spinner) findViewById(R.id.spinner4);
-        scanticonsumida="3";
-        sconsumomedbateria="3";
-        calculobateria=(Spinner) findViewById(R.id.spinner5);
-        esfuerzo=(Spinner) findViewById(R.id.spinner6);
-        sefectividadrelativatarea="3";
-        costototal=(Spinner) findViewById(R.id.spinner7);
+
+
 
 
         siguiente.setOnClickListener(new View.OnClickListener() {
@@ -108,33 +114,21 @@ public class Eficienciados extends AppCompatActivity {
 
 
     private void insertData() {
-        stiempoinicio = tiempoinicio.getSelectedItem().toString();
-       // scalculartiemporespuesta = calculartiemporespuesta.getSelectedItem().toString();
-        scalculoram= calculoram.getSelectedItem().toString();
-        scalculocpu= calculocpu.getSelectedItem().toString();
-        scalculobateria= calculobateria.getSelectedItem().toString();
+        if(Integer.parseInt(tiempoinicio.getSelectedItem().toString())<3){
+            stiempoinicio="10";
+        }else  if(Integer.parseInt(tiempoinicio.getSelectedItem().toString())<5){
+            stiempoinicio="7.5";
+        }else if(Integer.parseInt(tiempoinicio.getSelectedItem().toString())<7){
+            stiempoinicio="5";
+        }else {
+            stiempoinicio="2.5";
+        }
+        scalculartiemporespuesta= tiemporespuesta.getSelectedItem().toString();
         sesfuerzo= esfuerzo.getSelectedItem().toString();
         scostototal= costototal.getSelectedItem().toString();
-        scalculocostoeconomico=Integer.toString((Integer.parseInt(sefectividadrelativatarea))/(Integer.parseInt(scostototal)));
-
-        stiemporespuesta=tabSystem.tiempo;//aplicacion
-        DateFormat formatter = new SimpleDateFormat("hh:mm:ss a");
-        try {
-            Date date = (Date)formatter.parse(stiemporespuesta);
-            minutos=date.getMinutes();
-            stiemporespuesta=Integer.toString(minutos);
-            //hora=5;
-
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         enumerodeevaluaciones=(EditText)findViewById(R.id.textevaluaciones);//preguntar
         snumerodeevaluaciones = enumerodeevaluaciones.getText().toString();
-        int n = Integer.parseInt(snumerodeevaluaciones);
-        scalculartiemporespuesta=String.valueOf((n/minutos)*100);//calcular
-
 
         String a=Float.toString((Float.parseFloat(tiempoinicios)/Float.parseFloat(sumaTotals))*Float.parseFloat(stiempoinicio));
         String b=Float.toString((Float.parseFloat(calculartiemporespuestas)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculartiemporespuesta));
@@ -142,7 +136,7 @@ public class Eficienciados extends AppCompatActivity {
         String d=Float.toString((Float.parseFloat(calculocpus)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculocpu));
         String e=Float.toString((Float.parseFloat(calculobaterias)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculobateria));
         String f=Float.toString((Float.parseFloat(esfuerzos)/Float.parseFloat(sumaTotals))*Float.parseFloat(sesfuerzo));
-        String g=Float.toString((Float.parseFloat(calculocostoeconomicos)/Float.parseFloat(sumaTotals))*Float.parseFloat(scalculocostoeconomico));
+        String g=Float.toString((Float.parseFloat(calculocostoeconomicos)/Float.parseFloat(sumaTotals))*Float.parseFloat(scostototal));
         scalculoderelevancia=Float.toString(Float.parseFloat(a)+Float.parseFloat(b)+Float.parseFloat(c)+Float.parseFloat(d)+Float.parseFloat(e)+Float.parseFloat(f)+Float.parseFloat(g));
 
 
@@ -180,14 +174,13 @@ public class Eficienciados extends AppCompatActivity {
                 params.put("consumomedcpu", sconsumomedcpu);
                 params.put("consumomaxcpu", sconsumomaxcpu);
                 params.put("calculocpu", scalculocpu);
-                params.put("canticonsumida", scanticonsumida);
-                params.put("consumomedbateria", sconsumomedbateria);
+                params.put("iniciobateria", siniciobateria);
+                params.put("finalbateria", sfinalbateria);
                 params.put("calculobateria", scalculobateria);
                 params.put("esfuerzo", sesfuerzo);
-                params.put("efectividadrelativatarea", sefectividadrelativatarea);
-                params.put("$costototal", scostototal);
-                params.put("calculocostoeconomico", scalculocostoeconomico);//
-                params.put("calculoderelevancia", scalculoderelevancia);///
+               //params.put("efectividadrelativatarea", sefectividadrelativatarea);
+                params.put("costototal", scostototal);
+                //params.put("calculocostoeconomico", scalculocostoeconomico);
                 params.put("calculoderelevancia", scalculoderelevancia);
 
                 return params;
