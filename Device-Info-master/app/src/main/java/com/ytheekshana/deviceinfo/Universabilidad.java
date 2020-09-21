@@ -71,7 +71,7 @@ public class Universabilidad extends AppCompatActivity {
 
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertaruniversabilidad.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertaruniversabilidad.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -107,7 +107,7 @@ public class Universabilidad extends AppCompatActivity {
         requestQueue.add(request);
     }
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

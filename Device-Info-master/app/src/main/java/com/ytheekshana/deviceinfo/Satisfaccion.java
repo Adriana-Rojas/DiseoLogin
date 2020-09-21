@@ -120,7 +120,7 @@ public class Satisfaccion extends AppCompatActivity {
         scalculoderelevancia=Float.toString(Float.parseFloat(a1)+Float.parseFloat(b1)+Float.parseFloat(c1)+Float.parseFloat(d1)+Float.parseFloat(e1)+Float.parseFloat(f1)+Float.parseFloat(g1)+Float.parseFloat(h1)+Float.parseFloat(i1)+Float.parseFloat(j)+Float.parseFloat(k)+Float.parseFloat(m)+Float.parseFloat(n)+Float.parseFloat(o)+Float.parseFloat(p)+Float.parseFloat(q)+Float.parseFloat(r)+Float.parseFloat(s)+Float.parseFloat(t)+Float.parseFloat(u)+Float.parseFloat(v));
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertarsatisfaccion.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarsatisfaccion.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -170,7 +170,7 @@ public class Satisfaccion extends AppCompatActivity {
         requestQueue.add(request);
     }
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

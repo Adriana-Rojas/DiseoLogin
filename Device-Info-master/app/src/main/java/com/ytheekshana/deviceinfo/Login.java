@@ -60,7 +60,7 @@ public class Login extends AppCompatActivity {
                     password1=password;
                 }*/
                 if(!usuario1.isEmpty()&&!password1.isEmpty()){
-                    validarUsuario("http://192.168.101.5/proyecto/validar_usuario.php");
+                    validarUsuario("http://192.168.1.71/proyecto/validar_usuario.php");
                 }
             }
         });
@@ -115,7 +115,7 @@ public class Login extends AppCompatActivity {
                     tipoid=jsonObject.get("id").getAsString();
                     tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
                 } else {
-                    validarEvaluador("http://192.168.101.5/proyecto/validar_evaluador.php");
+                    validarEvaluador("http://192.168.1.71/proyecto/validar_evaluador.php");
                 }
             }
         }, new Response.ErrorListener() {
@@ -146,7 +146,7 @@ public class Login extends AppCompatActivity {
                     tipoid=jsonObject.get("id").getAsString();
                     tipoid = tipoid.replaceAll("[\\[\\](){}]", "");
                 } else {
-                    validarAdministrador("http://192.168.101.5/proyecto/validar_administrador.php");
+                    validarAdministrador("http://192.168.1.71/proyecto/validar_administrador.php");
                 }
             }
         }, new Response.ErrorListener() {

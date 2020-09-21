@@ -59,7 +59,7 @@ public class AsignarReportes extends AppCompatActivity {
     }
 
     private void llenarSpinnerEvaluador() {
-        String url="http://192.168.101.5/proyecto/retrievevaluadorr.php";
+        String url="http://192.168.1.71/proyecto/retrievevaluadorr.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -90,7 +90,7 @@ public class AsignarReportes extends AppCompatActivity {
     }
 
     private void llenarSpinnerAplicacion() {
-        String url="http://192.168.101.5/proyecto/retrieveaplicacionn.php";
+        String url="http://192.168.1.71/proyecto/retrieveaplicacionn.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -127,9 +127,9 @@ public class AsignarReportes extends AppCompatActivity {
         Login login=new Login();
         idadministrador=login.tipoid;
 
-        BuscarIdSpinner("http://192.168.101.5/proyecto/buscaraplicacionn.php?nombre="+tipoaplicacion);
-        BuscarIdSpinnerEvaluador(" http://192.168.101.5/proyecto/buscarevaluador.php?nombre="+tipoevaluador);
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertarAsignarReportes.php",
+        BuscarIdSpinner("http://192.168.1.71/proyecto/buscaraplicacionn.php?nombre="+tipoaplicacion);
+        BuscarIdSpinnerEvaluador(" http://192.168.1.71/proyecto/buscarevaluador.php?nombre="+tipoevaluador);
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarAsignarReportes.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -160,8 +160,8 @@ public class AsignarReportes extends AppCompatActivity {
         if (idaplicacion == null && bandera==1 && banderaa==1) {
             bandera++;
             banderaa++;
-            BuscarIdSpinner("http://192.168.101.5/proyecto/buscaraplicacionn.php?nombre=" + tipoaplicacion);
-            BuscarIdSpinnerEvaluador(" http://192.168.101.5/proyecto/buscarevaluador.php?nombre="+tipoevaluador);
+            BuscarIdSpinner("http://192.168.1.71/proyecto/buscaraplicacionn.php?nombre=" + tipoaplicacion);
+            BuscarIdSpinnerEvaluador(" http://192.168.1.71/proyecto/buscarevaluador.php?nombre="+tipoevaluador);
         }
     }
 

@@ -1,7 +1,7 @@
 <?php
 include 'conexion.php';
 
-//$aplicativo="819";
+
 $aplicativo=$_POST['aplicativo'];
 $eficiencia=$_POST['eficiencia'];
 $eficacia=$_POST['eficacia'];
@@ -12,18 +12,21 @@ $seguridad=$_POST['seguridad'];
 $universabilidad=$_POST['universabilidad'];
 $cargacognitiva=$_POST['cargacognitiva'];
 $calcularusabilidad=$_POST['calcularusabilidad'];
+$idevaluador=$_POST['idevaluador'];
 /*
-$aplicativo="819";
+$idevaluador="2";
+$aplicativo="826";
 $eficiencia="2";
 $eficacia="2";
 $memorabilidad="2";
 $productividad="2";
 $satisfaccion="2";
-$seguridad=$idseguridad;
+$seguridad="2";
 $universabilidad="2";
 $cargacognitiva="2";
 $calcularusabilidad="2";
-*/
+
+´*/
 
 // Create connection
 $conn = new mysqli($hostname,$username,$password,$database);
@@ -33,8 +36,8 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "INSERT INTO usabilidad(aplicativo, calcularusabilidad, eficiencia, eficacia, memorabilidad, productividad, satisfaccion, seguridad, universabilidad, cargacognitiva) 
-VALUES ('$aplicativo', '$calcularusabilidad', '$eficiencia', '$eficacia', '$memorabilidad', '$productividad', '$satisfaccion', '$seguridad', '$universabilidad', '$cargacognitiva')";
+$sql = "INSERT INTO usabilidad(idevaluador,aplicativo, calcularusabilidad, eficiencia, eficacia, memorabilidad, productividad, satisfaccion, seguridad, universabilidad, cargacognitiva) 
+VALUES ('$idevaluador','$aplicativo', '$calcularusabilidad', '$eficiencia', '$eficacia', '$memorabilidad', '$productividad', '$satisfaccion', '$seguridad', '$universabilidad', '$cargacognitiva')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";

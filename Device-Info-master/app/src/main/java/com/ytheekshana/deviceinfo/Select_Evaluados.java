@@ -33,7 +33,7 @@ public class Select_Evaluados extends AppCompatActivity {
     ListView listView;
     MyAdapterEvaluados adapterEvaluados;
     public static ArrayList<Employeevaluados> employeeArrayList = new ArrayList<>();
-    String url = "http://192.168.101.5/proyecto/retrieveevaluadosdif.php";
+    String url = "http://192.168.1.71/proyecto/retrieveevaluadosdif.php";
     Employeevaluados employeevaluados;
     static String idaplicacion;
     @Override

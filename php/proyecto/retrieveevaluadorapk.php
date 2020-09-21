@@ -6,6 +6,8 @@ include 'conexion.php';
 	$result = array();
 	$result['evaluador'] = array();
 	$select= "SELECT * FROM registrardatosaplicativo r, asignarresportes a WHERE r.id = a.listaaplicaciones AND a.evaluador = '$id' ";
+	//$select= "SELECT * FROM registrardatosaplicativo r, asignarresportes a, usabilidad u WHERE r.id = a.listaaplicaciones AND a.evaluador = '$id' AND a.listaaplicaciones != u.aplicativo AND a.evaluador=u.idevaluador";
+	
 	$responce = mysqli_query($conexion,$select);
 	
 	while($row = mysqli_fetch_array($responce))

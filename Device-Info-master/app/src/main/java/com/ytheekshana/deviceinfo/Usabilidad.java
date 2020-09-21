@@ -66,9 +66,10 @@ public class Usabilidad extends AppCompatActivity {
     }
 
     public void insertData() {
+
         DecimalFormat df = new DecimalFormat("#.00");
         aplicativo=Select_Apk.idaplicacion;
-//        eficiencia=Eficiencia.scalculoderelevancia;
+        eficiencia=Eficienciados.scalculoderelevancia;
         seficiencia=df.format(Float.parseFloat(eficiencia)*10);
         eficacia=Eficacia.scalculoderelevancia;
         seficacia=df.format(Float.parseFloat(eficacia)*10);
@@ -88,12 +89,11 @@ public class Usabilidad extends AppCompatActivity {
         scalcularusabilidad=df.format(Float.parseFloat(calcularusabilidad));
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.101.5/proyecto/insertarusabilidad.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarusabilidad.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                       // Toast.makeText(Usabilidad.this, "Resultados Guardada", Toast.LENGTH_SHORT).show();
-                       // finish();
+                        Toast.makeText(Usabilidad.this, "Resultados Guardada", Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -107,8 +107,9 @@ public class Usabilidad extends AppCompatActivity {
 
                 Map<String, String> params = new HashMap<String, String>();
 
+                params.put("idevaluador", Login.tipoid);
                 params.put("aplicativo", aplicativo);
-              //  params.put("eficiencia", Eficiencia.idficiencia);
+                params.put("eficiencia", Eficienciados.idficiencia);
                 params.put("eficacia", Eficacia.ideficacia);
                 params.put("memorabilidad", Memorabilidad.idmemorabilidad);
                 params.put("productividad",Productividad.idproductividad);
@@ -117,6 +118,7 @@ public class Usabilidad extends AppCompatActivity {
                 params.put("universabilidad", Universabilidad.iduniversabilidad);
                 params.put("cargacognitiva", Carga_Cognitiva.idcargacognitiva);
                 params.put("calcularusabilidad", calcularusabilidad);
+
 
                 return params;
             }

@@ -1,7 +1,10 @@
 package com.ytheekshana.deviceinfo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -47,6 +50,15 @@ public class Graficados extends AppCompatActivity {
         radarChart = (RadarChart) findViewById(R.id.radarChart);
         horizontalBarChart= (HorizontalBarChart) findViewById(R.id.horizontalBarChart);
         createCharts();
+
+        Button btn = (Button) findViewById(R.id.menu);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), MenuEvaluador.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
     }
     //Carasteristicas comunes en las graficas
