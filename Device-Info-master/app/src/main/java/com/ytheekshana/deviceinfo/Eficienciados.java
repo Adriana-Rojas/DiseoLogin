@@ -141,7 +141,7 @@ public class Eficienciados extends AppCompatActivity {
 
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertareficiencia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/insertareficiencia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -191,7 +191,7 @@ public class Eficienciados extends AppCompatActivity {
     }
 
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

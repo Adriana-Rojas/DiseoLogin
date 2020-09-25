@@ -77,7 +77,7 @@ public class Seguridad extends AppCompatActivity {
         scalculoderelevancia=Float.toString(Float.parseFloat(a)+Float.parseFloat(b)+Float.parseFloat(c)+Float.parseFloat(d)+Float.parseFloat(e)+Float.parseFloat(f));
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarseguridad.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/insertarseguridad.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -116,7 +116,7 @@ public class Seguridad extends AppCompatActivity {
         requestQueue.add(request);
     }
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

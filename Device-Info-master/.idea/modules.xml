@@ -8,6 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DiseoLogin-Device-Info-master.iml" filepath="$PROJECT_DIR$/.idea/modules/DiseoLogin-Device-Info-master.iml" group="Device-Info-master" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DiseoLogin-Device-Info-master-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DiseoLogin-Device-Info-master-app.iml" group="Device-Info-master/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codigo-DiseoLogin-Device-Info-master.iml" filepath="$PROJECT_DIR$/.idea/modules/codigo-DiseoLogin-Device-Info-master.iml" group="Device-Info-master" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/codigo-DiseoLogin-Device-Info-master-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/codigo-DiseoLogin-Device-Info-master-app.iml" group="Device-Info-master/app" />
     </modules>
   </component>
 </project>

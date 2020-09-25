@@ -71,7 +71,7 @@ public class Carga_Cognitiva extends AppCompatActivity {
 
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarcargacognitiva.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/insertarcargacognitiva.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -107,7 +107,7 @@ public class Carga_Cognitiva extends AppCompatActivity {
         requestQueue.add(request);
     }
     private void relevancia() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/buscarrelevancia.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/buscarrelevancia.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

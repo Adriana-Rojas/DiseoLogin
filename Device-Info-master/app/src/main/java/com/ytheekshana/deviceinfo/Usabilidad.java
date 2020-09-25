@@ -89,7 +89,7 @@ public class Usabilidad extends AppCompatActivity {
         scalcularusabilidad=df.format(Float.parseFloat(calcularusabilidad));
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarusabilidad.php",
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/insertarusabilidad.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

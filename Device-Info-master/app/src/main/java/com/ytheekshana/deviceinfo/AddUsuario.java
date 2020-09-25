@@ -74,7 +74,7 @@ public class AddUsuario extends AppCompatActivity {
                     progressDialog.setMessage("Loading...");
                     progressDialog.show();
 
-                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.71/proyecto/insertarusuario.php",
+                    StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.1.41/proyecto/insertarusuario.php",
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
